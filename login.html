@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="fonts/ionicons.min.css">
+    <link rel="shortcut icon" href="images/logo.png">
+</head>
+
+
+<body style="background-color: #e5e5e5;">
+    <!--navigation bar section-->
+    <div class="navcontainer">
+        <nav class="box">
+            <input type="checkbox" id = "check">
+            <label for="check" class="checkbtn">
+                <i class="fa fa-bars"></i>
+            </label>
+            <img src="images/logo.png" alt="logo" id="logoImg">
+            <label class="logoLabel">pc pro dz</label>
+            <ul>
+                <li>
+                    <img src="images/carticon.png" alt="carticon" class="linkicon">
+                    <a class="labeloflink active" href="#">Panier</a>
+                </li>
+                <li>
+                    <img src="images/accounticon.png" alt="accounticon" class="linkicon">
+                    <a class="labeloflink active" href="#">Se Connecter</a>
+                </li>
+                <li>
+                    <img src="images/languageicon.png" alt="languageicon" class="linkicon">
+                    <a class="labeloflink active" href="#">Langue</a>
+                </li>
+            </ul>
+        </nav>
+        <!--searchbox (toDelete)-->
+        <div class="box overlay">
+            <div class="input-group rounded">
+                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                <span class="input-group-text border-1" id="search-addon" style="background-color: whitesmoke;">
+                  <i class="fa fa-search ms-auto whitebackground"></i>
+                </span>
+            </div>
+        </div>
+        <!--end searchbox-->
+    </div>
+    <!--end navitgation bar section-->
+
+
+    <!--second navigation bar demo-->
+    <div class="width-full"  style="height:50px; background-color: #3C3C3C;"></div>
+    <!--end of second navigation bar demo-->
+
+
+    <!--Login form-->
+    <div class="loginForm">
+        <header class="font-cabin font-bold font-30 mrgnlft-5"> CONNECTEZ-VOUS </header>
+        <div class="login-input_form shadowForMainSquareType">
+            <!--email input-->
+            <div class="form-group emailForm">
+                <label for="exampleInputEmail1" class="font-bold font-cabin font-18">Email</label>
+                <input type="email" class="form-control emailInput font-cabin font-10" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>  
+            <!--password input-->
+            <div class="form-group emailForm">
+                <label for="exampleInputPassword1" class="font-bold font-cabin font-18">Mot de passe</label>
+                <input type="password" class="form-control emailInput font-cabin font-10" id="exampleInputPassword1">
+            </div>
+            <!--centered black background button with a white text "se connecter" , has the same width as the password input-->
+            <div class="form-group emailForm">
+                <button type="submit" class="font-cabin font-18 radius-25 loginButton" style="width: 100%;">Se connecter</button>
+            </div>
+            <div class="align-center">
+                <header class="font-cabin font-bold font-18">Nouveau sur PCPRODZ ? <a class="font-cabin font-18" href=""> Créer un compte</a></header>
+            </div>
+        </div>
+    </div>
+    <!--end  of Login form-->
+    
+
+
+    <!--Footer Section (style delete)-->
+    <footer class="footer-dark" style="margin-top: 132px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-3 item">
+                    <h3>A propos<br></h3>
+                    <ul>
+                        <li><a href="#">xxxxxxxxxx</a></li>
+                        <li><a href="#">xxxxxxxxxx</a></li>
+                        <li><a href="#">xxxxxxxxxx</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-3 item">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="#">xxxxxxxxxx 1</a></li>
+                        <li><a href="#">xxxxxxxxxx 2<br></a></li>
+                        <li><a href="#">xxxxxxxxxx 3<br></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 item text">
+                    <h3>Company Name</h3>
+                    <p>xxxxxxxxxxxxxxxxxxxxxxx.</p>
+                </div>
+                <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+            </div>
+            <p class="copyright">Pc Pro Dz © 2022</p>
+        </div>
+    </footer>
+    <!--end of Footer Section-->
+</body>
+</html>
