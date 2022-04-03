@@ -74,7 +74,6 @@ nav ul li a {
 }
 
 a:hover {
-  background-color: #6e6767;
   transition: 0.5s;
 }
 
@@ -648,7 +647,7 @@ a:hover {
         width: 450px;
     }
 }
-.login-input_form {
+.input_form {
     padding-top: 65px;
     padding-bottom: 65px;
     width: 100%;
@@ -657,21 +656,31 @@ a:hover {
     border: none;
     font-size: 20px;
 }
-.emailForm {
+.attributForm {
     width: 80%;
-    margin: auto    ;
+    margin: auto;
+}
+
+.pdngbtm-50 {
     padding-bottom: 50px;
 }
 
-.emailInput {
+.pdngbtm-10 {
+    padding-bottom: 10px;
+}
+
+.InputField {
     width: 100%;
     height: 60px;
     background-color: white;
     border-radius: 12px;
     font-size: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-width: 2px;
 }
 
-.loginButton {
+.loginOrRegisterButton {
     width: 100%;
     height: 70px;
     background-color: #000000;
