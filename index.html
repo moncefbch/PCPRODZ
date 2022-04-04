@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="fonts/ionicons.min.css">
     <link rel="shortcut icon" href="images/logo.png">
     
-</head>
+</head> 
 
 
 <body class="bodyBackground">
-    <!--navigation bar section-->
-    <div class="navcontainer">
+     <!--navigation bar section-->
+     <div class="navcontainer">
         <nav class="box">
             <input type="checkbox" id = "check">
             <label for="check" class="checkbtn">
@@ -27,15 +27,15 @@
             <ul>
                 <li>
                     <img src="images/carticon.png" alt="carticon" class="linkicon">
-                    <a class="labeloflink active" href="#">Panier</a>
+                    <a class="notextdecoration labeloflink active" href="#">Panier</a>
                 </li>
                 <li>
                     <img src="images/accounticon.png" alt="accounticon" class="linkicon">
-                    <a class="labeloflink active" href="#">Se Connecter</a>
+                    <a class="notextdecoration labeloflink active" href="#">Se Connecter</a>
                 </li>
                 <li>
                     <img src="images/languageicon.png" alt="languageicon" class="linkicon">
-                    <a class="labeloflink active" href="#">Langue</a>
+                    <a class="notextdecoration labeloflink active" href="#">Langue</a>
                 </li>
             </ul>
         </nav>
@@ -54,14 +54,41 @@
 
 
     <!--second navigation bar demo-->
-    <div class="width-full"  style="height:50px; background-color: #3C3C3C;"></div>
+    <div class="secondNavBar"  style="background-color: #3C3C3C;">
+        <!--Categories navigation-->
+        <div class="dropdown pdngrgt-20">
+            <button class="dropbtn"><svg width="41" height="32" viewBox="0 0 41 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.0249939 16.3599C0.0249939 14.9792 1.14428 13.8599 2.52499 13.8599H37.525C38.9057 13.8599 40.025 14.9792 40.025 16.3599C40.025 17.7406 38.9057 18.8599 37.525 18.8599H2.52499C1.14428 18.8599 0.0249939 17.7406 0.0249939 16.3599Z" fill="#FAFAFA"/>
+                <path d="M0.0249939 3.35986C0.0249939 1.97915 1.14428 0.859863 2.52499 0.859863H37.525C38.9057 0.859863 40.025 1.97915 40.025 3.35986C40.025 4.74058 38.9057 5.85986 37.525 5.85986H2.52499C1.14428 5.85986 0.0249939 4.74058 0.0249939 3.35986Z" fill="#FAFAFA"/>
+                <path d="M0.0249939 29.3599C0.0249939 27.9792 1.14428 26.8599 2.52499 26.8599H37.525C38.9057 26.8599 40.025 27.9792 40.025 29.3599C40.025 30.7406 38.9057 31.8599 37.525 31.8599H2.52499C1.14428 31.8599 0.0249939 30.7406 0.0249939 29.3599Z" fill="#FAFAFA"/>
+                </svg>
+                </button>
+            <div class="dropdown-content">
+                <header class="font-cabin font-30 mrgnlft-5 cathegoriesHeader">Cathegories</header>
+                <a class="font-cabin font-20 mrgnlft-5 onecathegorie" href="#">Ordinateurs </a>
+                <a class="font-cabin font-20 mrgnlft-5 onecathegorie" href="#">Hardware  </a>
+                <a class="font-cabin font-20 mrgnlft-5 onecathegorie" href="#">Accesoires </a>
+                <a class="font-cabin font-20 mrgnlft-5 onecathegorie" href="#">Cameras </a>
+                <a class="font-cabin font-20 mrgnlft-5 onecathegorie" href="#">Divers </a>
+            </div>
+        </div>
+        <!--end categories navigation-->
+        
+        <!--navigation-->
+            <a class="notextdecoration font-cabin font-20 mrgnrgt-30 whiteColor" href="#">Meilleurs ventes </a>
+            <a class="notextdecoration font-cabin font-20 mrgnrgt-30 whiteColor" href="#">Offres  </a>
+            <a class="notextdecoration font-cabin font-20 mrgnrgt-30 whiteColor" href="#">Produits  </a>
+            <a class="hideWhenPhone notextdecoration font-cabin font-20 mrgnrgt-30 whiteColor" href="#">Service client  </a>
+            <a class="hideWhenPhone notextdecoration font-cabin font-20 mrgnrgt-30 whiteColor" href="#">Nous contacter  </a>
+        <!--end navigation-->
+        </div>
     <!--end of second navigation bar demo-->
 
 
 
     
     <!--carousel section / image slider-->
-    <div id="carouselExampleIndicators" class="carousel slide carousel-tt" data-bs-ride="carousel">
+    <div style="z-index: 0;" id="carouselExampleIndicators" class="carousel slide carousel-tt" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>

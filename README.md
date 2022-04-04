@@ -1,3 +1,6 @@
 ECOMMERCE website **\_\_\_** PC PRO DZ
 
-commit-7
+commit-8
+
+add second nav bar
+made the website more responsive
