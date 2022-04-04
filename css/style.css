@@ -663,6 +663,10 @@ a:hover {
     margin-left: 5px;
 }
 
+.mrgnlft-10 {
+    margin-left: 10px;
+}
+
 .mrgnlft-15 {
     margin-left: 15px;
 }
@@ -815,4 +819,65 @@ a:hover {
     /* [3] Finally, transforming the image when container gets hovered */
 .zoomwhenhover:hover img {
     transform: scale(1.5);
+}
+
+
+
+.flex-item-left-25{
+    flex: 25%;
+    margin-right: 30px;
+
+}
+.flex-item-right-70 {
+    flex: 70%;
+    margin-left: 30px;
+}
+@media screen and (max-width: 1300px) {
+    .flex-item-left-25{
+        flex: 100%;
+        margin-right: 0px;
+    }
+    .flex-item-right-70 {
+        flex: 100%;
+        margin-left: 0px;
+    }
+}
+.filterAttribute {
+    border-width: 1px;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: black;
+    font-family: cabin;
+    font-size: 20px;
+    padding: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+
+.invisiblebutton {
+    border-width: 0px;
+    background-color: white;
+}
+
+.cancelFilterAttributeSvg:hover {
+    border-radius: 100%;
+    background-color: white;
+    filter: invert(100%);
+}
+.width80pc{
+    width: 80%;
+}
+
+.marginAuto{
+    margin-left: auto;
+    margin-right: auto;
+}   
+
+.paddingAuto{
+    padding-left: 50px;
+    padding-right: 50px;
 }

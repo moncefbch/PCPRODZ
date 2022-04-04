@@ -11,7 +11,214 @@
     <link rel="stylesheet" href="fonts/ionicons.min.css">
     <link rel="shortcut icon" href="images/logo.png">
 </head>
-<body>
+<body class="bodyBackground">
+    <!--navigation bar section-->
+    <div class="navcontainer">
+        <nav class="box">
+            <input type="checkbox" id = "check">
+            <label for="check" class="checkbtn">
+                <i class="fa fa-bars"></i>
+            </label>
+            <img src="images/logo.png" alt="logo" id="logoImg">
+            <label class="logoLabel">pc pro dz</label>
+            <ul>
+                <li>
+                    <img src="images/carticon.png" alt="carticon" class="linkicon">
+                    <a class="labeloflink active" href="#">Panier</a>
+                </li>
+                <li>
+                    <img src="images/accounticon.png" alt="accounticon" class="linkicon">
+                    <a class="labeloflink active" href="#">Se Connecter</a>
+                </li>
+                <li>
+                    <img src="images/languageicon.png" alt="languageicon" class="linkicon">
+                    <a class="labeloflink active" href="#">Langue</a>
+                </li>
+            </ul>
+        </nav>
+        <!--searchbox (toDelete)-->
+        <div class="box overlay">
+            <div class="input-group rounded">
+                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                <span class="input-group-text border-1" id="search-addon" style="background-color: whitesmoke;">
+                  <i class="fa fa-search ms-auto whitebackground"></i>
+                </span>
+            </div>
+        </div>
+        <!--end searchbox-->
+    </div>
+    <!--end navitgation bar section-->
+
+
+    <!--second navigation bar demo-->
+    <div class="secondNavBar"  style="background-color: #3C3C3C;">
+        <!--Categories navigation-->
+        <div class="dropdown pdngrgt-20">
+            <button class="dropbtn"><svg width="41" height="32" viewBox="0 0 41 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.0249939 16.3599C0.0249939 14.9792 1.14428 13.8599 2.52499 13.8599H37.525C38.9057 13.8599 40.025 14.9792 40.025 16.3599C40.025 17.7406 38.9057 18.8599 37.525 18.8599H2.52499C1.14428 18.8599 0.0249939 17.7406 0.0249939 16.3599Z" fill="#FAFAFA"/>
+                <path d="M0.0249939 3.35986C0.0249939 1.97915 1.14428 0.859863 2.52499 0.859863H37.525C38.9057 0.859863 40.025 1.97915 40.025 3.35986C40.025 4.74058 38.9057 5.85986 37.525 5.85986H2.52499C1.14428 5.85986 0.0249939 4.74058 0.0249939 3.35986Z" fill="#FAFAFA"/>
+                <path d="M0.0249939 29.3599C0.0249939 27.9792 1.14428 26.8599 2.52499 26.8599H37.525C38.9057 26.8599 40.025 27.9792 40.025 29.3599C40.025 30.7406 38.9057 31.8599 37.525 31.8599H2.52499C1.14428 31.8599 0.0249939 30.7406 0.0249939 29.3599Z" fill="#FAFAFA"/>
+                </svg>
+                </button>
+            <div class="dropdown-content">
+                <header class="font-cabin font-30 mrgnlft-5 cathegoriesHeader">Cathegories</header>
+                <a class="font-cabin font-20 mrgnlft-5 onecathegorie" href="#">Ordinateurs </a>
+                <a class="font-cabin font-20 mrgnlft-5 onecathegorie" href="#">Hardware  </a>
+                <a class="font-cabin font-20 mrgnlft-5 onecathegorie" href="#">Accesoires </a>
+                <a class="font-cabin font-20 mrgnlft-5 onecathegorie" href="#">Cameras </a>
+                <a class="font-cabin font-20 mrgnlft-5 onecathegorie" href="#">Divers </a>
+            </div>
+        </div>
+        <!--end categories navigation-->
+        
+        <!--navigation-->
+            <a class="notextdecoration font-cabin font-20 mrgnrgt-30 whiteColor" href="#">Meilleurs ventes </a>
+            <a class="notextdecoration font-cabin font-20 mrgnrgt-30 whiteColor" href="#">Offres  </a>
+            <a class="notextdecoration font-cabin font-20 mrgnrgt-30 whiteColor" href="#">Produits  </a>
+            <a class="hideWhenPhone notextdecoration font-cabin font-20 mrgnrgt-30 whiteColor" href="#">Service client  </a>
+            <a class="hideWhenPhone notextdecoration font-cabin font-20 mrgnrgt-30 whiteColor" href="#">Nous contacter  </a>
+        <!--end navigation-->
+    </div>
+    <!--end of second navigation bar demo-->
+
     
+    <!--main section-->
+    <div class="flex-container mrgn-30" >
+        <div class="flex-item-left-25 whitebackground"></div>
+        <!--result section-->
+        <div class="flex-item-right-70 radius-10 whitebackground">
+            <header class="font-cabin font-bold font-30 mrgn-30"> 150 articles</header>
+            <!--filters sections-->
+            <div class="d-flex flex-wrap paddingAuto">
+                <div class="filterAttribute">Asus<button class="invisiblebutton"><img class="mrgnlft-10 cancelFilterAttributeSvg" src="images/cancelFilterAttribute.svg"></button></div>
+                <div class="filterAttribute">Intel i5<button class="invisiblebutton"><img class="mrgnlft-10 cancelFilterAttributeSvg" src="images/cancelFilterAttribute.svg"></button></div>
+                <div class="filterAttribute">8GO <button class="invisiblebutton"><img class="mrgnlft-10 cancelFilterAttributeSvg" src="images/cancelFilterAttribute.svg"></button></div>
+                <div class="filterAttribute">Filter 1<button class="invisiblebutton"><img class="mrgnlft-10 cancelFilterAttributeSvg" src="images/cancelFilterAttribute.svg"></button></div>
+                <div class="filterAttribute">Filter 2<button class="invisiblebutton"><img class="mrgnlft-10 cancelFilterAttributeSvg" src="images/cancelFilterAttribute.svg"></button></div>
+                <div class="filterAttribute">Filter 3<button class="invisiblebutton"><img class="mrgnlft-10 cancelFilterAttributeSvg" src="images/cancelFilterAttribute.svg"></button></div>
+                <div class="filterAttribute">Filter 4<button class="invisiblebutton"><img class="mrgnlft-10 cancelFilterAttributeSvg" src="images/cancelFilterAttribute.svg"></button></div>
+                <div class="filterAttribute">Filter 5<button class="invisiblebutton"><img class="mrgnlft-10 cancelFilterAttributeSvg" src="images/cancelFilterAttribute.svg"></button></div>
+                <div class="filterAttribute">Filter 6<button class="invisiblebutton"><img class="mrgnlft-10 cancelFilterAttributeSvg" src="images/cancelFilterAttribute.svg"></button></div>
+                <div class="filterAttribute">Filter 7<button class="invisiblebutton"><img class="mrgnlft-10 cancelFilterAttributeSvg" src="images/cancelFilterAttribute.svg"></button></div>
+                <div class="filterAttribute">Filter 8<button class="invisiblebutton"><img class="mrgnlft-10 cancelFilterAttributeSvg" src="images/cancelFilterAttribute.svg"></button></div>
+            </div>
+            <!--end of filters sections-->
+            <hr class="width80pc productMargin">
+            <br>
+            <!--products section-->
+            <div class="d-flex flex-wrap paddingAuto">
+                <!--this is one product (can be mapped with react after deleting the rest)-->
+                <div style="width:250px;height: 400px;" class="marginAuto card-container bodyBackground radius-10 mrgn-30">
+                    <div class="radiusTop-20 bodyBackground imgbackground" style="background-image: url(images/product2.png);"></div>
+                    <div class="info align-center font-20 pdgtp-5">
+                        <header class="font-cabin">Asus vivobook</header>
+                        <small class="form-text text-muted font-cabin ">I5 82333 U - 8 GO RAM  ....</small>
+                        
+                        <header class="font-cabin font-20 pdgtp-5">Prix : 150000</header>
+                    </div>
+                </div>
+                <!--end of one product-->
+                <div style="width:250px;height: 400px;" class="marginAuto card-container bodyBackground radius-10 mrgn-30">
+                    <div class="radiusTop-20 bodyBackground imgbackground" style="background-image: url(images/product2.png);"></div>
+                    <div class="info align-center font-20 pdgtp-5">
+                        <header class="font-cabin">Asus vivobook</header>
+                        <small class="form-text text-muted font-cabin ">I5 82333 U - 8 GO RAM  ....</small>
+                        
+                        <header class="font-cabin font-20 pdgtp-5">Prix : 150000</header>
+                    </div>
+                </div>
+                <div style="width:250px;height: 400px;" class="marginAuto card-container bodyBackground radius-10 mrgn-30">
+                    <div class="radiusTop-20 bodyBackground imgbackground" style="background-image: url(images/product2.png);"></div>
+                    <div class="info align-center font-20 pdgtp-5">
+                        <header class="font-cabin">Asus vivobook</header>
+                        <small class="form-text text-muted font-cabin ">I5 82333 U - 8 GO RAM  ....</small>
+                        
+                        <header class="font-cabin font-20 pdgtp-5">Prix : 150000</header>
+                    </div>
+                </div>
+                <div style="width:250px;height: 400px;" class="marginAuto card-container bodyBackground radius-10 mrgn-30">
+                    <div class="radiusTop-20 bodyBackground imgbackground" style="background-image: url(images/product2.png);"></div>
+                    <div class="info align-center font-20 pdgtp-5">
+                        <header class="font-cabin">Asus vivobook</header>
+                        <small class="form-text text-muted font-cabin ">I5 82333 U - 8 GO RAM  ....</small>
+                        
+                        <header class="font-cabin font-20 pdgtp-5">Prix : 150000</header>
+                    </div>
+                </div>
+                <div style="width:250px;height: 400px;" class="marginAuto card-container bodyBackground radius-10 mrgn-30">
+                    <div class="radiusTop-20 bodyBackground imgbackground" style="background-image: url(images/product2.png);"></div>
+                    <div class="info align-center font-20 pdgtp-5">
+                        <header class="font-cabin">Asus vivobook</header>
+                        <small class="form-text text-muted font-cabin ">I5 82333 U - 8 GO RAM  ....</small>
+                        
+                        <header class="font-cabin font-20 pdgtp-5">Prix : 150000</header>
+                    </div>
+                </div>
+                <div style="width:250px;height: 400px;" class="marginAuto card-container bodyBackground radius-10 mrgn-30">
+                    <div class="radiusTop-20 bodyBackground imgbackground" style="background-image: url(images/product2.png);"></div>
+                    <div class="info align-center font-20 pdgtp-5">
+                        <header class="font-cabin">Asus vivobook</header>
+                        <small class="form-text text-muted font-cabin ">I5 82333 U - 8 GO RAM  ....</small>
+                        
+                        <header class="font-cabin font-20 pdgtp-5">Prix : 150000</header>
+                    </div>
+                </div>
+                <div style="width:250px;height: 400px;" class="marginAuto card-container bodyBackground radius-10 mrgn-30">
+                    <div class="radiusTop-20 bodyBackground imgbackground" style="background-image: url(images/product2.png);"></div>
+                    <div class="info align-center font-20 pdgtp-5">
+                        <header class="font-cabin">Asus vivobook</header>
+                        <small class="form-text text-muted font-cabin ">I5 82333 U - 8 GO RAM  ....</small>
+                        
+                        <header class="font-cabin font-20 pdgtp-5">Prix : 150000</header>
+                    </div>
+                </div>
+                <div style="width:250px;height: 400px;" class="marginAuto card-container bodyBackground radius-10 mrgn-30">
+                    <div class="radiusTop-20 bodyBackground imgbackground" style="background-image: url(images/product2.png);"></div>
+                    <div class="info align-center font-20 pdgtp-5">
+                        <header class="font-cabin">Asus vivobook</header>
+                        <small class="form-text text-muted font-cabin ">I5 82333 U - 8 GO RAM  ....</small>
+                        
+                        <header class="font-cabin font-20 pdgtp-5">Prix : 150000</header>
+                    </div>
+                </div>
+            </div>
+            <!--end of products section-->
+        </div>
+        <!--end of result section-->
+    </div>
+    <!--end of mainsection-->
+
+
+
+    <!--Footer Section (style delete)-->
+    <footer class="footer-dark" style="margin-top: 132px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-md-3 item">
+                    <h3>A propos<br></h3>
+                    <ul>
+                        <li><a href="#">xxxxxxxxxx</a></li>
+                        <li><a href="#">xxxxxxxxxx</a></li>
+                        <li><a href="#">xxxxxxxxxx</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-3 item">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="#">xxxxxxxxxx 1</a></li>
+                        <li><a href="#">xxxxxxxxxx 2<br></a></li>
+                        <li><a href="#">xxxxxxxxxx 3<br></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6 item text">
+                    <h3>Company Name</h3>
+                    <p>xxxxxxxxxxxxxxxxxxxxxxx</p>
+                </div>
+                <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+            </div>
+            <p class="copyright">Pc Pro Dz © 2022</p>
+        </div>
+    </footer>
+    <!--end of Footer Section-->
 </body>
 </html>
