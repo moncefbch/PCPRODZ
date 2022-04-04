@@ -8,6 +8,7 @@
 .notextdecoration{
     scale: 0.8;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .blackcolor{
@@ -17,7 +18,6 @@
 
 
 .blackcolor:hover{
-    transform: scale(1.5);
     color: black;
 }
 
@@ -656,6 +656,10 @@ a:hover {
 }
 
 .whiteColor {
+    color: white;
+}
+
+.whiteColor:hover {
     color: white;
 }
 
