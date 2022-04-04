@@ -1,5 +1,6 @@
-ECOMMERCE website **\_\_\_** PC PRO DZ
+ECOMMERCE website **\_\_\_** PC PRO DZ-------1912
 
-commit-8 :
+commit-9 :
 add second nav bar ----
-made the website more responsive
+made the website more responsive ----
+smoth zoom animation (categorie section (landing page))

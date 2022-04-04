@@ -6,7 +6,19 @@
 
 /* remove underline from all a tag*/
 .notextdecoration{
+    scale: 0.8;
     text-decoration: none;
+}
+
+.blackcolor{
+    overflow: hidden;
+    color: black;
+}
+
+
+.blackcolor:hover{
+    transform: scale(1.5);
+    color: black;
 }
 
 @font-face {
@@ -362,6 +374,10 @@ a:hover {
     font-size: 10px;
 }
 
+.font-13 {
+    font-size: 13px;
+}
+
 .font-18 {
     font-size: 18px;
 }
@@ -647,6 +663,10 @@ a:hover {
     margin-left: 5px;
 }
 
+.mrgnlft-15 {
+    margin-left: 15px;
+}
+
 .mrgnlft-30 {
     margin-left: 30px;
 }
@@ -780,4 +800,19 @@ a:hover {
     .hideWhenPhone {
         display: none;
     }
+}
+
+
+.zoomwhenhover {
+    overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+}
+
+    /* [2] Transition property for smooth transformation of images */
+.zoomwhenhover img {
+    transition: transform .3s ease;
+}
+
+    /* [3] Finally, transforming the image when container gets hovered */
+.zoomwhenhover:hover img {
+    transform: scale(1.5);
 }
