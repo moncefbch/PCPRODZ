@@ -1,5 +1,9 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
+import {Helmet} from "react-helmet";
+import data from "./data.js";
+
+
 
 function App() {
   return (
@@ -245,195 +249,30 @@ function App() {
         <div className="carousel-container radius-20">
           <div className="carousel-inner">
             <div className="track">
-              <a className="notextdecoration blackcolor" href="emptyPage.html">
-                <div className="card-container bodyBackground radius-20">
-                  <div
-                    className="radiusTop-20 bodyBackground imgbackground"
-                    style={{ backgroundImage: "url(images/product2.png)" }}
-                  ></div>
-                  <div className="info align-center font-20 pdgtp-5">
-                    <header className="font-cabin">Asus vivobook</header>
-                    <small className="form-text text-muted font-cabin ">
-                      I5 82333 U - 8 GO RAM ....
-                    </small>
+              {data.products.map((product) => (
+                <a
+                  className="notextdecoration blackcolor"
+                  href={`/product/${product._id}`}
+                  key={product._id}
+                >
+                  <div className="card-container bodyBackground radius-20">
+                    <div
+                      className="radiusTop-20 bodyBackground imgbackground"
+                      style={{ backgroundImage: "url(images/product2.png)" }}
+                    ></div>
+                    <div className="info align-center font-20 pdgtp-5">
+                      <header className="font-cabin">{product._name}</header>
+                      <small className="form-text text-muted font-cabin ">
+                        {product.description}
+                      </small>
 
-                    <header className="font-cabin font-20 pdgtp-5">
-                      Prix : 150000
-                    </header>
+                      <header className="font-cabin font-20 pdgtp-5">
+                        Prix : {product.price}
+                      </header>
+                    </div>
                   </div>
-                </div>
-              </a>
-
-              <a className="notextdecoration blackcolor" href="emptyPage.html">
-                <div className="card-container bodyBackground radius-20">
-                  <div
-                    className="radiusTop-20 bodyBackground imgbackground"
-                    style={{ backgroundImage: "url(images/product2.png)" }}
-                  ></div>
-                  <div className="info align-center font-20 pdgtp-5">
-                    <header className="font-cabin">Asus vivobook</header>
-                    <small className="form-text text-muted font-cabin ">
-                      I5 82333 U - 8 GO RAM ....
-                    </small>
-
-                    <header className="font-cabin font-20 pdgtp-5">
-                      Prix : 150000
-                    </header>
-                  </div>
-                </div>
-              </a>
-
-              <a className="notextdecoration blackcolor" href="emptyPage.html">
-                <div className="card-container bodyBackground radius-20">
-                  <div
-                    className="radiusTop-20 bodyBackground imgbackground"
-                    style={{ backgroundImage: "url(images/product2.png)" }}
-                  ></div>
-                  <div className="info align-center font-20 pdgtp-5">
-                    <header className="font-cabin">Asus vivobook</header>
-                    <small className="form-text text-muted font-cabin ">
-                      I5 82333 U - 8 GO RAM ....
-                    </small>
-
-                    <header className="font-cabin font-20 pdgtp-5">
-                      Prix : 150000
-                    </header>
-                  </div>
-                </div>
-              </a>
-
-              <a className="notextdecoration blackcolor" href="emptyPage.html">
-                <div className="card-container bodyBackground radius-20">
-                  <div
-                    className="radiusTop-20 bodyBackground imgbackground"
-                    style={{ backgroundImage: "url(images/product2.png)" }}
-                  ></div>
-                  <div className="info align-center font-20 pdgtp-5">
-                    <header className="font-cabin">Asus vivobook</header>
-                    <small className="form-text text-muted font-cabin ">
-                      I5 82333 U - 8 GO RAM ....
-                    </small>
-
-                    <header className="font-cabin font-20 pdgtp-5">
-                      Prix : 150000
-                    </header>
-                  </div>
-                </div>
-              </a>
-
-              <a className="notextdecoration blackcolor" href="emptyPage.html">
-                <div className="card-container bodyBackground radius-20">
-                  <div
-                    className="radiusTop-20 bodyBackground imgbackground"
-                    style={{ backgroundImage: "url(images/product2.png)" }}
-                  ></div>
-                  <div className="info align-center font-20 pdgtp-5">
-                    <header className="font-cabin">Asus vivobook</header>
-                    <small className="form-text text-muted font-cabin ">
-                      I5 82333 U - 8 GO RAM ....
-                    </small>
-
-                    <header className="font-cabin font-20 pdgtp-5">
-                      Prix : 150000
-                    </header>
-                  </div>
-                </div>
-              </a>
-
-              <a className="notextdecoration blackcolor" href="emptyPage.html">
-                <div className="card-container bodyBackground radius-20">
-                  <div
-                    className="radiusTop-20 bodyBackground imgbackground"
-                    style={{ backgroundImage: "url(images/product2.png)" }}
-                  ></div>
-                  <div className="info align-center font-20 pdgtp-5">
-                    <header className="font-cabin">Asus vivobook</header>
-                    <small className="form-text text-muted font-cabin ">
-                      I5 82333 U - 8 GO RAM ....
-                    </small>
-
-                    <header className="font-cabin font-20 pdgtp-5">
-                      Prix : 150000
-                    </header>
-                  </div>
-                </div>
-              </a>
-
-              <a className="notextdecoration blackcolor" href="emptyPage.html">
-                <div className="card-container bodyBackground radius-20">
-                  <div
-                    className="radiusTop-20 bodyBackground imgbackground"
-                    style={{ backgroundImage: "url(images/product2.png)" }}
-                  ></div>
-                  <div className="info align-center font-20 pdgtp-5">
-                    <header className="font-cabin">Asus vivobook</header>
-                    <small className="form-text text-muted font-cabin ">
-                      I5 82333 U - 8 GO RAM ....
-                    </small>
-
-                    <header className="font-cabin font-20 pdgtp-5">
-                      Prix : 150000
-                    </header>
-                  </div>
-                </div>
-              </a>
-
-              <a className="notextdecoration blackcolor" href="emptyPage.html">
-                <div className="card-container bodyBackground radius-20">
-                  <div
-                    className="radiusTop-20 bodyBackground imgbackground"
-                    style={{ backgroundImage: "url(images/product2.png)" }}
-                  ></div>
-                  <div className="info align-center font-20 pdgtp-5">
-                    <header className="font-cabin">Asus vivobook</header>
-                    <small className="form-text text-muted font-cabin ">
-                      I5 82333 U - 8 GO RAM ....
-                    </small>
-
-                    <header className="font-cabin font-20 pdgtp-5">
-                      Prix : 150000
-                    </header>
-                  </div>
-                </div>
-              </a>
-
-              <a className="notextdecoration blackcolor" href="emptyPage.html">
-                <div className="card-container bodyBackground radius-20">
-                  <div
-                    className="radiusTop-20 bodyBackground imgbackground"
-                    style={{ backgroundImage: "url(images/product2.png)" }}
-                  ></div>
-                  <div className="info align-center font-20 pdgtp-5">
-                    <header className="font-cabin">Asus vivobook</header>
-                    <small className="form-text text-muted font-cabin ">
-                      I5 82333 U - 8 GO RAM ....
-                    </small>
-
-                    <header className="font-cabin font-20 pdgtp-5">
-                      Prix : 150000
-                    </header>
-                  </div>
-                </div>
-              </a>
-
-              <a className="notextdecoration blackcolor" href="emptyPage.html">
-                <div className="card-container bodyBackground radius-20">
-                  <div
-                    className="radiusTop-20 bodyBackground imgbackground"
-                    style={{ backgroundImage: "url(images/product2.png)" }}
-                  ></div>
-                  <div className="info align-center font-20 pdgtp-5">
-                    <header className="font-cabin">Asus vivobook</header>
-                    <small className="form-text text-muted font-cabin ">
-                      I5 82333 U - 8 GO RAM ....
-                    </small>
-
-                    <header className="font-cabin font-20 pdgtp-5">
-                      Prix : 150000
-                    </header>
-                  </div>
-                </div>
-              </a>
+                </a>
+              ))}
             </div>
           </div>
           <div className="navButton">
@@ -715,6 +554,9 @@ function App() {
           <p className="copyright">Pc Pro Dz © 2022</p>
         </div>
       </footer>
+      <Helmet>
+          <script src="js/product_carousel.js"></script>
+      </Helmet>
     </div>
   );
 }
