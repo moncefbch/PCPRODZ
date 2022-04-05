@@ -1,6 +1,6 @@
 <h1>ECOMMERCE website **\_\_\_** PC PRO DZ</h1>
 
-<h2>commit-12:</h2>\
+<h2>commit-12:</h2>
 
 add second nav bar \
  made the website more responsive \
@@ -10,7 +10,7 @@ add second nav bar \
  reduce the size of the components by 20% \
  first react app (landing page) (problem : cannot link product_carousel.js with react app) \
 
-<h2>commit-13:</h2> \
+<h2>commit-13:</h2>
 
 cannol link product_carousel.js with react app : fixed\
  items are being more and more mapped\
