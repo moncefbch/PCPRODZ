@@ -1,4 +1,6 @@
-<h1>ECOMMERCE website **\_\_\_** PC PRO DZ</h1>
+<h1>ECOMMERCE website : PC PRO DZ</h1>
+
+<h2>Keziz Mouayed</h2> <h2>Moncef Bouchenacha</h2> <h2>Hammoutene Amine</h2>
 
 <h2>commit-12:</h2>
 
