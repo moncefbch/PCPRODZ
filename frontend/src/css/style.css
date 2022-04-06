@@ -1,6 +1,6 @@
 @font-face {
     font-family: logoFont;
-    src: url("../public/fonts/hemi\ head\ bd\ it.ttf");
+    src: url("../../public/fonts/hemi\ head\ bd\ it.ttf");
   }
 
 .contentDiv {
@@ -34,7 +34,7 @@
 
 @font-face {
   font-family: cabin;
-  src: url("../public/fonts/Cabin-Regular.ttf");
+  src: url("../../public/fonts/Cabin-Regular.ttf");
 }
 
 * {
@@ -922,7 +922,7 @@ a:hover {
         width: 100%;
     position: absolute;
     bottom: 0;
-    transition: all .5s;
+    transition: all .4s;
     overflow: hidden;
     height: 0;
     border-radius: 20px;
