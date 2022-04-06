@@ -32,4 +32,5 @@ divide the code into several componants:\
 -CarouselItem\
 -MostVisitedCathegories\
 -PcprodzInformationLabel\
--Footer\
+-Footer\\\\\\
+4178
