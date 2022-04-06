@@ -1,9 +1,8 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
-import {Helmet} from "react-helmet";
+import "./style.css";
+import { Helmet } from "react-helmet";
 import data from "./data.js";
-
-
 
 function App() {
   return (
@@ -250,28 +249,29 @@ function App() {
           <div className="carousel-inner">
             <div className="track">
               {data.products.map((product) => (
-                <a
-                  className="notextdecoration blackcolor"
-                  href={`/product/${product._id}`}
-                  key={product._id}
-                >
-                  <div className="card-container bodyBackground radius-20">
-                    <div
-                      className="radiusTop-20 bodyBackground imgbackground"
-                      style={{ backgroundImage: "url(images/product2.png)" }}
-                    ></div>
-                    <div className="info align-center font-20 pdgtp-5">
-                      <header className="font-cabin">{product._name}</header>
-                      <small className="form-text text-muted font-cabin ">
+                <div class="productCarouselItem">
+                  <img
+                    class="radius-20 bodyBackground"
+                    width="100%"
+                    height="100%"
+                    src={product.image}
+                  />
+                  <a
+                    class="notextdecoration blackcolor"
+                    href={`/product/${product._id}`}
+                    key={product._id}
+                  >
+                    <div class="productinformationpanel info align-center font-20 pdgtp-5">
+                      <header class="font-cabin">{product._name}</header>
+                      <small class="form-text text-muted font-cabin ">
                         {product.description}
                       </small>
-
-                      <header className="font-cabin font-20 pdgtp-5">
+                      <header class="font-cabin font-20 pdgtp-5">
                         Prix : {product.price}
                       </header>
                     </div>
-                  </div>
-                </a>
+                  </a>
+                </div>
               ))}
             </div>
           </div>
@@ -555,7 +555,7 @@ function App() {
         </div>
       </footer>
       <Helmet>
-          <script src="js/product_carousel.js"></script>
+        <script src="js/product_carousel.js"></script>
       </Helmet>
     </div>
   );
