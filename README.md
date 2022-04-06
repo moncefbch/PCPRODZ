@@ -19,3 +19,17 @@ add second nav bar \
 cannol link product_carousel.js with react app : fixed\
  items are being more and more mapped\
  working on a dynamic way to display products in a carousel and a dynamic details page for each peoduct\
+
+## `Commit-14`
+
+work more on css \
+add animation to the carousel of products\
+divide the code into several componants:\
+-MainNavigationBar\
+-SecondaryNavigationBar\
+-CarouselImageSlider\
+-NewProductsSection\
+-CarouselItem\
+-MostVisitedCathegories\
+-PcprodzInformationLabel\
+-Footer\

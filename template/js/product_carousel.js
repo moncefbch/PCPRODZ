@@ -3,10 +3,12 @@ const next = document.querySelector(".next");
 
 const track = document.querySelector(".track");
 
-let carouselWidth = document.querySelector(".card-container").offsetWidth + 15;
+let carouselWidth =
+  document.querySelector(".productCarouselItem").offsetWidth + 15;
 
 window.addEventListener("resize", () => {
-  carouselWidth = document.querySelector(".card-container").offsetWidth + 15;
+  carouselWidth =
+    document.querySelector(".productCarouselItem").offsetWidth + 15;
 });
 
 let index = 0;
