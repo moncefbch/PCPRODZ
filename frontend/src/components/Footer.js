@@ -12,13 +12,13 @@ export default function Footer() {
             </h3>
             <ul>
               <li>
-                <a href="emptyPage.html">xxxxxxxxxx</a>
+                <a href="/">xxxxxxxxxx</a>
               </li>
               <li>
-                <a href="emptyPage.html">xxxxxxxxxx</a>
+                <a href="/">xxxxxxxxxx</a>
               </li>
               <li>
-                <a href="emptyPage.html">xxxxxxxxxx</a>
+                <a href="/">xxxxxxxxxx</a>
               </li>
             </ul>
           </div>
@@ -26,15 +26,15 @@ export default function Footer() {
             <h3>Categories</h3>
             <ul>
               <li>
-                <a href="emptyPage.html">xxxxxxxxxx 1</a>
+                <a href="/">xxxxxxxxxx 1</a>
               </li>
               <li>
-                <a href="emptyPage.html">
+                <a href="/">
                   xxxxxxxxxx 2<br />
                 </a>
               </li>
               <li>
-                <a href="emptyPage.html">
+                <a href="/">
                   xxxxxxxxxx 3<br />
                 </a>
               </li>
@@ -45,16 +45,16 @@ export default function Footer() {
             <p>xxxxxxxxxxxxxxxxxxxxxxx.</p>
           </div>
           <div className="col item social">
-            <a href="emptyPage.html">
+            <a href="/">
               <i className="icon ion-social-facebook"></i>
             </a>
-            <a href="emptyPage.html">
+            <a href="/">
               <i className="icon ion-social-twitter"></i>
             </a>
-            <a href="emptyPage.html">
+            <a href="/">
               <i className="icon ion-social-snapchat"></i>
             </a>
-            <a href="emptyPage.html">
+            <a href="/">
               <i className="icon ion-social-instagram"></i>
             </a>
           </div>

@@ -8,13 +8,10 @@ export default function MainNavigationBar() {
         <label for="check" className="checkbtn">
           <img src="images/dropdownIcon.svg" alt="dropdownicon" />
         </label>
-        <a className="notextdecoration" href="emptyPage.html">
+        <a className="notextdecoration" href="/">
           <img src="images/logo.png" alt="logo" id="logoImg" />
         </a>
-        <a
-          className="logoLabel notextdecoration whiteColor"
-          href="emptyPage.html"
-        >
+        <a className="logoLabel notextdecoration whiteColor" href="/">
           pc pro dz
         </a>
         <ul>
@@ -24,10 +21,7 @@ export default function MainNavigationBar() {
               alt="carticon"
               className="linkicon"
             />
-            <a
-              className="notextdecoration labeloflink active"
-              href="emptyPage.html"
-            >
+            <a className="notextdecoration labeloflink active" href="/">
               Panier
             </a>
           </li>
@@ -37,10 +31,7 @@ export default function MainNavigationBar() {
               alt="accounticon"
               className="linkicon"
             />
-            <a
-              className="notextdecoration labeloflink active"
-              href="emptyPage.html"
-            >
+            <a className="notextdecoration labeloflink active" href="/">
               Se Connecter
             </a>
           </li>
@@ -50,10 +41,7 @@ export default function MainNavigationBar() {
               alt="languageicon"
               className="linkicon"
             />
-            <a
-              className="notextdecoration labeloflink active"
-              href="emptyPage.html"
-            >
+            <a className="notextdecoration labeloflink active" href="/">
               Langue
             </a>
           </li>
@@ -73,7 +61,7 @@ export default function MainNavigationBar() {
             id="search-addon"
             style={{ backgroundColor: "whitesmoke" }}
           >
-            <a href="emptyPage.html">
+            <a href="/">
               <i className="fa fa-search ms-auto whitebackground"></i>
             </a>
           </span>

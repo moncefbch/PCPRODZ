@@ -11,34 +11,19 @@ export default function SecondaryNavigationBar() {
           <header className="font-cabin font-30 mrgnlft-5 cathegoriesHeader">
             Cathegories
           </header>
-          <a
-            className="font-cabin font-20 mrgnlft-5 onecathegorie"
-            href="emptyPage.html"
-          >
+          <a className="font-cabin font-20 mrgnlft-5 onecathegorie" href="/">
             Ordinateurs{" "}
           </a>
-          <a
-            className="font-cabin font-20 mrgnlft-5 onecathegorie"
-            href="emptyPage.html"
-          >
+          <a className="font-cabin font-20 mrgnlft-5 onecathegorie" href="/">
             Hardware{" "}
           </a>
-          <a
-            className="font-cabin font-20 mrgnlft-5 onecathegorie"
-            href="emptyPage.html"
-          >
+          <a className="font-cabin font-20 mrgnlft-5 onecathegorie" href="/">
             Accesoires{" "}
           </a>
-          <a
-            className="font-cabin font-20 mrgnlft-5 onecathegorie"
-            href="emptyPage.html"
-          >
+          <a className="font-cabin font-20 mrgnlft-5 onecathegorie" href="/">
             Cameras{" "}
           </a>
-          <a
-            className="font-cabin font-20 mrgnlft-5 onecathegorie"
-            href="emptyPage.html"
-          >
+          <a className="font-cabin font-20 mrgnlft-5 onecathegorie" href="/">
             Divers{" "}
           </a>
         </div>
@@ -46,31 +31,31 @@ export default function SecondaryNavigationBar() {
 
       <a
         className="notextdecoration font-cabin font-20 mrgnrgt-30 whiteColor"
-        href="emptyPage.html"
+        href="/"
       >
         Meilleurs ventes{" "}
       </a>
       <a
         className="notextdecoration font-cabin font-20 mrgnrgt-30 whiteColor"
-        href="emptyPage.html"
+        href="/"
       >
         Offres{" "}
       </a>
       <a
         className="notextdecoration font-cabin font-20 mrgnrgt-30 whiteColor"
-        href="emptyPage.html"
+        href="/"
       >
         Produits{" "}
       </a>
       <a
         className="hideWhenPhone notextdecoration font-cabin font-20 mrgnrgt-30 whiteColor"
-        href="emptyPage.html"
+        href="/"
       >
         Service client{" "}
       </a>
       <a
         className="hideWhenPhone notextdecoration font-cabin font-20 mrgnrgt-30 whiteColor"
-        href="emptyPage.html"
+        href="/"
       >
         Nous contacter{" "}
       </a>

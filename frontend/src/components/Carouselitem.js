@@ -9,6 +9,7 @@ export default function Carouselitem(props) {
         width="100%"
         height="100%"
         src={product.image}
+        alt={product.name}
       />
       <a
         class="notextdecoration blackcolor"

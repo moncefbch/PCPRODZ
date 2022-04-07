@@ -15,7 +15,7 @@ export default function NewProductsSection() {
         <div className="carousel-inner">
           <div className="track">
             {data.products.map((product) => (
-              <Carouselitem key={product._id} product={product}></Carouselitem>
+              <Carouselitem key={product._id} product={product} />
             ))}
           </div>
         </div>
