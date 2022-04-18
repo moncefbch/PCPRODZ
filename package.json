@@ -1,0 +1,23 @@
+{
+  "name": "pcprodz",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "add second nav bar \\\r  made the website more responsive \\\r  smoth zoom animation (categorie section (landing page)) \\\r  add filters and searsh result ( working on filters configuration) \\\r  simple html routing \\\r  reduce the size of the components by 20% \\\r  first react app (landing page) (problem : cannot link product_carousel.js with react app) \\",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --watch backend --exec node --experimental-modules backend/ServerStartApp.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moncefbch/PCPRODZ.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moncefbch/PCPRODZ/issues"
+  },
+  "homepage": "https://github.com/moncefbch/PCPRODZ#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}

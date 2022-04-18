@@ -32,5 +32,12 @@ divide the code into several componants:\
 -CarouselItem\
 -MostVisitedCathegories\
 -PcprodzInformationLabel\
--Footer\\\\\\
-4178
+-Footer\
+
+## `Commit-15`
+
+work more on components\
+start working on pages (HomePage, ProductPage)\
+functional routing system (react-router-dom)\
+can navigate through the homepage to the product page\
+didnt pass the date to the product page so its curently empty\\\

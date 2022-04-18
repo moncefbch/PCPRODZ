@@ -3,6 +3,10 @@
     src: url("../../public/fonts/hemi\ head\ bd\ it.ttf");
   }
 
+html, body {
+  scroll-behavior: smooth;
+}
+
 .contentDiv {
     width: 80%;
     margin: auto;
@@ -174,7 +178,7 @@ a:hover {
 }
 
 .flex-item-right-30 {
-  flex: 5%;
+  flex: 20%;
 }
 
 @media (max-width: 1450px) and (min-width: 858px) {
@@ -935,3 +939,5 @@ a:hover {
     .productCarouselItem > img {
     display: block;/* Prevent inline gap under image*/
     }
+
+

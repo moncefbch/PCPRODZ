@@ -24,7 +24,7 @@ export default function MostVisitedCathegories() {
                   className=""
                   width="30%"
                   height="40%"
-                  src="images/mouse.png"
+                  src="/images/mouse.png"
                   alt=""
                 />
                 <header
@@ -49,7 +49,7 @@ export default function MostVisitedCathegories() {
                   className=""
                   width="60%"
                   height="75%"
-                  src="images/camera.png"
+                  src="/images/camera.png"
                   alt=""
                 />
                 <header
@@ -76,7 +76,7 @@ export default function MostVisitedCathegories() {
                   className=""
                   width="100%"
                   height="80%"
-                  src="images/phone.png"
+                  src="/images/phone.png"
                   alt=""
                 />
                 <header
@@ -105,7 +105,7 @@ export default function MostVisitedCathegories() {
               className=""
               width="60%"
               height="80%"
-              src="images/pc.png"
+              src="/images/pc.png"
               alt=""
             />
             <header

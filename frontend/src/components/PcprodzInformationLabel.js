@@ -45,13 +45,13 @@ export default function PcprodzInformationLabel() {
           </div>
           <div className="carousel-inner radius-20">
             <div className="carousel-item active">
-              <img src="images/5.jpg" className="d-block w-100" alt="..." />
+              <img src="/images/5.jpg" className="d-block w-100" alt="..." />
             </div>
             <div className="carousel-item">
-              <img src="images/5.jpg" className="d-block w-100" alt="..." />
+              <img src="/images/5.jpg" className="d-block w-100" alt="..." />
             </div>
             <div className="carousel-item">
-              <img src="images/5.jpg" className="d-block w-100" alt="..." />
+              <img src="/images/5.jpg" className="d-block w-100" alt="..." />
             </div>
           </div>
           <button

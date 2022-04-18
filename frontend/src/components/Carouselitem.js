@@ -12,8 +12,8 @@ export default function Carouselitem(props) {
         alt={product.name}
       />
       <a
-        class="notextdecoration blackcolor"
         href={`/product/${product._id}`}
+        class="notextdecoration blackcolor"
         key={product._id}
       >
         <div class="productinformationpanel info align-center font-20 pdgtp-5">

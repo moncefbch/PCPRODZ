@@ -1,15 +1,14 @@
 import React from "react";
-
 export default function MainNavigationBar() {
   return (
     <div className="navcontainer">
       <div className="navigationBar box">
         <input type="checkbox" id="check" />
         <label for="check" className="checkbtn">
-          <img src="images/dropdownIcon.svg" alt="dropdownicon" />
+          <img src="/images/dropdownIcon.svg" alt="dropdownicon" />
         </label>
         <a className="notextdecoration" href="/">
-          <img src="images/logo.png" alt="logo" id="logoImg" />
+          <img src="/images/logo.png" alt="logo" id="logoImg" />
         </a>
         <a className="logoLabel notextdecoration whiteColor" href="/">
           pc pro dz
@@ -17,7 +16,7 @@ export default function MainNavigationBar() {
         <ul>
           <li>
             <img
-              src="images/carticon.png"
+              src="/images/carticon.png"
               alt="carticon"
               className="linkicon"
             />
@@ -27,7 +26,7 @@ export default function MainNavigationBar() {
           </li>
           <li>
             <img
-              src="images/accounticon.png"
+              src="/images/accounticon.png"
               alt="accounticon"
               className="linkicon"
             />
@@ -37,7 +36,7 @@ export default function MainNavigationBar() {
           </li>
           <li>
             <img
-              src="images/languageicon.png"
+              src="/images/languageicon.png"
               alt="languageicon"
               className="linkicon"
             />

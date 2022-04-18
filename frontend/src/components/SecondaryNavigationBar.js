@@ -5,7 +5,7 @@ export default function SecondaryNavigationBar() {
     <div className="secondNavBar" style={{ backgroundColor: "#3c3c3c" }}>
       <div className="dropdown pdngrgt-20">
         <button className="dropbtn">
-          <img src="images/dropdownIcon.svg" alt="dropdownicon" />
+          <img src="/images/dropdownIcon.svg" alt="dropdownicon" />
         </button>
         <div className="dropdown-content">
           <header className="font-cabin font-30 mrgnlft-5 cathegoriesHeader">
