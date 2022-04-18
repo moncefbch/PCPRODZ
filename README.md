@@ -40,4 +40,18 @@ work more on components\
 start working on pages (HomePage, ProductPage)\
 functional routing system (react-router-dom)\
 can navigate through the homepage to the product page\
-didnt pass the date to the product page so its curently empty\\\
+didnt pass the date to the product page so its curently empty\\
+
+## `Commit-16`
+
+load data dynamically from the front end\
+work more on the routing system\\
+
+## `Commit-17`
+
+dynamic product page is being generated dynamically for each route\\
+
+## `Commit-18`
+
+create a backend server working on port 5000 (front is working on port 3000)\
+the data is being fetched from the backend\\
