@@ -1,4 +1,5 @@
 import React from "react";
+import SearchBox from "./SearchBox";
 export default function MainNavigationBar() {
   return (
     <div className="navcontainer">
@@ -30,7 +31,7 @@ export default function MainNavigationBar() {
               alt="accounticon"
               className="linkicon"
             />
-            <a className="notextdecoration labeloflink active" href="/">
+            <a className="notextdecoration labeloflink active" href="/login">
               Se Connecter
             </a>
           </li>
@@ -46,26 +47,7 @@ export default function MainNavigationBar() {
           </li>
         </ul>
       </div>
-      <div className="box overlay">
-        <div className="input-group rounded">
-          <input
-            type="search"
-            className="form-control rounded"
-            placeholder="Search"
-            aria-label="Search"
-            aria-describedby="search-addon"
-          />
-          <span
-            className="input-group-text border-1"
-            id="search-addon"
-            style={{ backgroundColor: "whitesmoke" }}
-          >
-            <a href="/">
-              <i className="fa fa-search ms-auto whitebackground"></i>
-            </a>
-          </span>
-        </div>
-      </div>
+      <SearchBox></SearchBox>
     </div>
   );
 }

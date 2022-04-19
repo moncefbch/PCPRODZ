@@ -1,69 +1,101 @@
+import bcrypt from 'bcryptjs';
 const data = {
+  users : [
+    {
+    
+      email:'amine@estin.dz',
+      password: bcrypt.hashSync('1234',8),
+      isAdmin : true,
+    },
+    {
+      email:'mo@estin.dz',
+      password: bcrypt.hashSync('123456',8),
+      isAdmin : false,
+    },
+  ],
+
   products: [
     {
-      _id: "1",
-      _name: "backendAsus vivoBook S11",
+      
+      _name: 'asus vivobook',
+      brand: 'asus',
+      processeur: 'i 5 8eme generation',
+      ram: '8GO',
+      disque: '250Go SSD',
+      gpu: 'RTX 3060',
       image: "/images/product2.png",
-      price: "15000DA",
-      description: "high quality product",
+      category: 'laptop',
+      price: 200000,
+      rating:4,
+    },
+    {
+      
+      _name: ' vivobook',
+      brand: 'acus',
+      processeur: 'i 3 8eme generation',
+      ram: '816O',
+      disque: '500Go SSD',
+      gpu: 'RTX 3060',
+      image: "/images/product-1.jpg",
+      category: 'laptop',
+      price: 200000,
+      rating:4,
     },
 
     {
-      _id: "3",
-      _name: "Asus vivoBook S13",
-      image: "/images/pc.png",
-      price: "35000DA",
-      description: "high quality product",
-    },
-    {
-      _id: "4",
-      _name: "Asus vivoBook S14",
-      image: "/images/pc.png",
-      price: "45000DA",
-      description: "high quality product",
-    },
-    {
-      _id: "5",
-      _name: "Asus vivoBook S15",
-      image: "/images/pc.png",
-      price: "55000DA",
-      description: "high quality product",
-    },
-    {
-      _id: "6",
-      _name: "Asus vivoBook S16",
-      image: "/images/product-1.jpg",
-      price: "65000DA",
-      description: "high quality product",
-    },
-    {
-      _id: "7",
-      _name: "Asus vivoBook S17",
-      image: "/images/product-2.jpg",
-      price: "75000DA",
-      description: "high quality product",
-    },
-    {
-      _id: "8",
-      _name: "Asus vivoBook S18",
+      
+      _name: ' vivobook',
+      brand: 'acus',
+      processeur: 'i 3 8eme generation',
+      ram: '816O',
+      disque: '500Go SSD',
+      gpu: 'RTX 3060',
       image: "/images/product-3.jpg",
-      price: "85000DA",
-      description: "high quality product",
+      category: 'laptop',
+      price: 200000,
+      rating:4,
+    },
+
+    {
+      
+      _name: ' vivobook',
+      brand: 'acus',
+      processeur: 'i 3 8eme generation',
+      ram: '816O',
+      disque: '500Go SSD',
+      gpu: 'RTX 3060',
+      image: "/images/product2.png",
+      category: 'laptop',
+      price: 200000,
+      rating:4,
     },
     {
-      _id: "9",
-      _name: "Asus vivoBook S19",
-      image: "/images/pc.png",
-      price: "95000DA",
-      description: "high quality product",
+      
+      _name: ' vivobook',
+      brand: 'acus',
+      processeur: 'i 3 8eme generation',
+      ram: '816O',
+      disque: '500Go SSD',
+      gpu: 'RTX 3060',
+      image: "/images/product2.png",
+      category: 'laptop',
+      price: 200000,
+      rating:4,
     },
     {
-      _id: "10",
-      _name: "Asus vivoBook S20",
-      image: "/images/pc.png",
-      price: "105000DA",
-      description: "high quality product",
+      
+      _name: ' vivobook',
+      brand: 'acus',
+      processeur: 'i 3 8eme generation',
+      ram: '816O',
+      disque: '500Go SSD',
+      gpu: 'RTX 3060',
+      image: "/images/product2.png",
+      category: 'laptop',
+      price: 200000,
+      rating:4,
     },
+
   ],
 };
 

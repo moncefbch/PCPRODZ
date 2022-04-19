@@ -22,9 +22,9 @@ function App() {
       <SecondaryNavigationBar />
       <Route path="/product/:id" component={ProductPage} />
       <Route path="/" component={HomePage} exact />
-      <Route path="/search=:searchtxt" component={<SearchPage />} />
+      <Route path="/search=:searchtxt" component={SearchPage} />
       <Route path="/login" component={Login} />
-      <Route path="/register" component={<Register />} />
+      <Route path="/register" component={Register} />
       <Footer />
       <Helmet>
         <script src="js/product_carousel.js"></script>
@@ -34,3 +34,6 @@ function App() {
 }
 
 export default App;
+
+
+

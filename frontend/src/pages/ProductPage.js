@@ -1,10 +1,18 @@
-import React from "react";
+import React ,{ useEffect, useState }  from "react";
 import { Helmet } from "react-helmet";
-import data from "../data";
+import Axios from "axios";
 
 export default function ProductPage(props) {
+  const [products,setProducts] = useState([])
+  useEffect(()=>{
+    const fetchData = async () =>{
+      const {data} = await Axios.get('/api/products')
+      setProducts(data) 
+    }
+    fetchData()
+  }, [])
   //const product equals to the product that has id equals to the id in the url
-  const product = data.products.find(
+  const product = products.find(
     (product) => product._id === props.match.params.id
   );
 
