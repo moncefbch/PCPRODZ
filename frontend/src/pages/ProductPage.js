@@ -91,19 +91,19 @@ export default function ProductPage(props) {
         </header>
         <div className="width-full pdng-50 pdgtp-5">
           <header className="font-bold font-20 font-cabin pdgtp-5">
-            Carte graphique :
+            Carte graphique : {product.gpu}
           </header>
           <header className="font-bold font-20 font-cabin pdgtp-5">
-            Disque :
+            Disque : {product.disque}
           </header>
           <header className="font-bold font-20 font-cabin pdgtp-5">
             Taille éctan :
           </header>
           <header className="font-bold font-20 font-cabin pdgtp-5">
-            RAM :
+            RAM : {product.ram}
           </header>
           <header className="font-bold font-20 font-cabin pdgtp-5">
-            Processeur :
+            Processeur : {product.processeur}
           </header>
           <header className="font-bold font-20 font-cabin pdgtp-5">
             Etat :
