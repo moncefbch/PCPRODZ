@@ -1,17 +1,33 @@
-import React, { useState } from 'react';
-import {useDispatch} from 'react-redux'
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link} from 'react-router-dom';
 import { signin } from '../actions/userActions';
+import ErrorMessageBox from './ErrorMessageBox';
+import LoadingBox from './LoadingBox';
 
 
-export default function LoginForm() {
+export default function LoginForm(props) {
+
+  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo, loading, error } = userSignin;
+
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(signin(email,password));
-    console.log(email);
+    dispatch(signin(email, password));
   };
+  const redirect = props.location.search ? props.location.search.split('=')[1] : '/';
+  console.log(redirect)
+  useEffect(() => {
+    if (userInfo) {
+      props.history.push(redirect);
+    }
+  }, [props.history, redirect, userInfo]);
   return (
     <div className="loginForm">
       <header className="font-cabin font-bold font-30 mrgnlft-5">
@@ -19,6 +35,8 @@ export default function LoginForm() {
         CONNECTEZ-VOUS
       </header>
      <div className="input_form shadowForMainSquareType" >
+     {loading && <LoadingBox></LoadingBox>}
+     {error && <ErrorMessageBox variant="danger">{error}</ErrorMessageBox>}
        <form className="form" onSubmit={submitHandler}>
         <div className="form-group attributForm pdngbtm-50" >
         
@@ -63,11 +81,10 @@ export default function LoginForm() {
         </div>
         <div className="align-center">
           <header className="font-cabin font-bold font-18">
-            Nouveau sur PCPRODZ ?
-            <a className="font-cabin font-18" href="register.html">
-              
+            Nouveau sur PCPRODZ ?{" "} 
+            <Link className="font-cabin font-18" to={`/register`}>
               Créer un compte
-            </a>
+            </Link>
           </header>
         </div>
         </form>

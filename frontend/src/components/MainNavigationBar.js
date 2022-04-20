@@ -1,6 +1,17 @@
 import React from "react";
 import SearchBox from "./SearchBox";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import {signout} from "../actions/userActions";
+
+
 export default function MainNavigationBar() {
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
+  const dispatch = useDispatch();
+  const signoutHandler = () => {
+    dispatch(signout());
+  };
   return (
     <div className="navcontainer">
       <div className="navigationBar box">
@@ -31,9 +42,29 @@ export default function MainNavigationBar() {
               alt="accounticon"
               className="linkicon"
             />
-            <a className="notextdecoration labeloflink active" href="/login">
-              Se Connecter
-            </a>
+            {userInfo ? (
+              //<Link className="nextdecorationot labeloflink active" to="/">{userInfo.name}</Link>
+              <div className="dropdown pdngrgt-20">
+                <Link className="nextdecorationot labeloflink active" to="#">
+                  {userInfo.name} <i className="nextdecorationot labeloflink active"></i>
+                </Link>
+                <ul className="dropdown-content">
+                  <li>
+                    <Link to="/profile">User Profile</Link>
+                  </li>
+                  <li>
+                    <Link to="/orderhistory">Order History</Link>
+                  </li>
+                  <li>
+                    <Link to="#signout" onClick={signoutHandler}>
+                      Sign Out
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              ) :
+               (
+              <Link className="notextdecoration labeloflink active" to="/login">Se Connecter</Link>)}
           </li>
           <li>
             <img

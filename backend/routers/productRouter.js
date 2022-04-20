@@ -20,6 +20,33 @@ productRouter.get(
     res.send({ createdProducts });
   })
 );
+productRouter.get(
+  '/categories',
+  expressAsyncHandler(async (req, res) => {
+    const categories = await Product.find().distinct('category');
+    res.send(categories);
+  })
+);
+productRouter.get(
+  "/query",
+  expressAsyncHandler(async (req, res) =>{
+    const { search } = req.query
+    console.log(search)
+    const product = await Product.find({});
+    let sortedProducts = [...product]
+  
+    if (search) {
+      sortedProducts = sortedProducts.filter((product) => {
+        return product._name.startsWith(search)
+      })
+    }
+    if (sortedProducts.length < 1) {
+      // res.status(200).send('no products matched your search');
+      return res.status(200).send({ sucess: true, data: [] })
+    }
+    res.send(sortedProducts)
+  })
+);
 
 productRouter.get(
   "/:id",
@@ -33,5 +60,8 @@ productRouter.get(
     }
   })
 );
+
+
+
 
 export default productRouter;

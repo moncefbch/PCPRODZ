@@ -25,6 +25,7 @@ userRouter.post(
         res.send({
           _id: user._id,
           email: user.email,
+          name: user.name,
           isAdmin: user.isAdmin,
           token: generateToken(user),
         });

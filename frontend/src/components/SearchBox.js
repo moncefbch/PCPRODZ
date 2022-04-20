@@ -23,7 +23,7 @@ export default function SearchBox() {
         id="search-addon"
         style={{ backgroundColor: "whitesmoke" }}
       >
-        <a onClick={()=>setPrint(true)} href={`/product/${data}`} >
+        <a onClick={()=>setPrint(true)} href={`/search=${data}`} >
           <i className="fa fa-search ms-auto whitebackground"></i>
         </a>
       </span>
