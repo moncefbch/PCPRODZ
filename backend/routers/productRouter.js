@@ -31,7 +31,6 @@ productRouter.get(
   "/query",
   expressAsyncHandler(async (req, res) =>{
     const { search } = req.query
-    console.log(search)
     const product = await Product.find({});
     let sortedProducts = [...product]
   

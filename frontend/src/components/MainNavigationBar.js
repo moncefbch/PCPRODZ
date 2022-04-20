@@ -43,11 +43,8 @@ export default function MainNavigationBar() {
               className="linkicon"
             />
             {userInfo ? (
-              //<Link className="nextdecorationot labeloflink active" to="/">{userInfo.name}</Link>
-              <div className="dropdown pdngrgt-20">
-                <Link className="nextdecorationot labeloflink active" to="#">
-                  {userInfo.name} <i className="nextdecorationot labeloflink active"></i>
-                </Link>
+              <div className="dropdown pdngrgt">
+                <Link className="notextdecoration labeloflink active" to="#">{userInfo.name}</Link>
                 <ul className="dropdown-content">
                   <li>
                     <Link to="/profile">User Profile</Link>
@@ -64,7 +61,8 @@ export default function MainNavigationBar() {
               </div>
               ) :
                (
-              <Link className="notextdecoration labeloflink active" to="/login">Se Connecter</Link>)}
+              <Link className="notextdecoration labeloflink active" to="/login">Se Connecter</Link>)
+            }
           </li>
           <li>
             <img

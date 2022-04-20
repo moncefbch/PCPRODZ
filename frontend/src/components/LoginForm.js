@@ -22,7 +22,6 @@ export default function LoginForm(props) {
     dispatch(signin(email, password));
   };
   const redirect = props.location.search ? props.location.search.split('=')[1] : '/';
-  console.log(redirect)
   useEffect(() => {
     if (userInfo) {
       props.history.push(redirect);

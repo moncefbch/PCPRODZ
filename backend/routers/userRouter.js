@@ -26,6 +26,7 @@ userRouter.post(
           _id: user._id,
           email: user.email,
           name: user.name,
+          wilaya: user.wilaya,
           isAdmin: user.isAdmin,
           token: generateToken(user),
         });
@@ -33,6 +34,25 @@ userRouter.post(
       }
     }
     res.status(401).send({ message: "invalide email or password" });
+  })
+);
+userRouter.post(
+  '/register',
+  expressAsyncHandler(async (req, res) => {
+    const user = new User({
+      name: req.body.name,
+      email: req.body.email,
+      password: bcrypt.hashSync(req.body.password, 8),
+    });
+    const createdUser = await user.save();
+    res.send({
+      _id: createdUser._id,
+      name: createdUser.name,
+      email: createdUser.email,
+      isAdmin: createdUser.isAdmin,
+      isSeller: user.isSeller,
+      token: generateToken(createdUser),
+    });
   })
 );
 
