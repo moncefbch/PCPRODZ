@@ -106,9 +106,10 @@ a {
 
 .navigationBar ul li a {
   color: white;
-  font-size: 17px;
+  font-size: 15px;
   padding: 7px 13px;
   border-radius: 3px;
+  margin-left: 10px;
   text-transform: uppercase;
 }
 
@@ -184,6 +185,7 @@ a:hover {
 @media (max-width: 1450px) and (min-width: 858px) {
   .labeloflink {
     display: none;
+    margin: 0;
   }
   .font-20 {
     font-size: 20px;

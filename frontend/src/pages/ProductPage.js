@@ -1,16 +1,16 @@
-import React ,{ useEffect, useState }  from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import Axios from "axios";
 
 export default function ProductPage(props) {
-  const [products,setProducts] = useState([])
-  useEffect(()=>{
-    const fetchData = async () =>{
-      const {data} = await Axios.get('/api/products')
-      setProducts(data) 
-    }
-    fetchData()
-  }, [])
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data } = await Axios.get("/api/products");
+      setProducts(data);
+    };
+    fetchData();
+  }, []);
   //const product equals to the product that has id equals to the id in the url
   const product = products.find(
     (product) => product._id === props.match.params.id
@@ -91,19 +91,19 @@ export default function ProductPage(props) {
         </header>
         <div className="width-full pdng-50 pdgtp-5">
           <header className="font-bold font-20 font-cabin pdgtp-5">
-            Carte graphique : {product.gpu}
+            Carte graphique : {product.createdAt}
           </header>
           <header className="font-bold font-20 font-cabin pdgtp-5">
-            Disque : {product.disque}
+            Disque :
           </header>
           <header className="font-bold font-20 font-cabin pdgtp-5">
             Taille éctan :
           </header>
           <header className="font-bold font-20 font-cabin pdgtp-5">
-            RAM : {product.ram}
+            RAM :
           </header>
           <header className="font-bold font-20 font-cabin pdgtp-5">
-            Processeur : {product.processeur}
+            Processeur :
           </header>
           <header className="font-bold font-20 font-cabin pdgtp-5">
             Etat :

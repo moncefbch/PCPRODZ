@@ -46,7 +46,7 @@ export default function LoginForm() {
         <div className="align-center">
           <header className="font-cabin font-bold font-18">
             Nouveau sur PCPRODZ ?{" "}
-            <a className="font-cabin font-18" href="register.html">
+            <a className="font-cabin font-18" href="register">
               {" "}
               Créer un compte
             </a>

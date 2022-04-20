@@ -1,26 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Carouselitem from "./Carouselitem";
-import axios from "axios";
 import ErrorMessageBox from "./ErrorMessageBox";
 import LoadingBox from "./LoadingBox";
+import { listProducts } from "../actions/ProductAction";
 
 export default function NewProductsSection() {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const dispatch = useDispatch();
+  const productList = useSelector((state) => state.productList);
+  const { loading, error, products } = productList;
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const { data } = await axios.get("/api/products");
-        setLoading(false);
-        setProducts(data);
-      } catch (err) {
-        setError(err.message);
-        setLoading(false);
-      }
-    };
-    fetchData();
+    dispatch(listProducts());
   }, []);
   return (
     <div>
