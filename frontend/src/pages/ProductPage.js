@@ -23,8 +23,8 @@ export default function ProductPage(props) {
   return (
     <div className="flex-container" style={{ margin: "5%" }}>
       <div
-        className="flex-item-left-70 whitebackground radius-10"
-        style={{ margin: "1%", marginTop: 0 }}
+        className="flex-item-left-70 whitebackground radius-10 mrgnrgt-50"
+        style={{ marginTop: 0 }}
       >
         <header className="font-cabin font-40 mrgn-30">{product._name}</header>
         <hr
@@ -85,7 +85,7 @@ export default function ProductPage(props) {
         </div>
         <header
           style={{ marginBottom: "0px" }}
-          className="font-cabin font-40 mrgn-30"
+          className="font-cabin font-40 mrgn-30 font-bold"
         >
           Fiche technique :
         </header>
@@ -104,7 +104,7 @@ export default function ProductPage(props) {
           </header>
           <header className="font-bold font-20 font-cabin pdgtp-5">
             Processeur :{product.processeur}
-           </header>
+          </header>
           <header className="font-bold font-20 font-cabin pdgtp-5">
             Etat :
           </header>
@@ -115,7 +115,9 @@ export default function ProductPage(props) {
       </div>
       <div
         className="flex-item-right-30 whitebackground radius-10"
-        style={{ height: "600px" }}
+        style={{
+          height: "600px",
+        }}
       >
         <header className="font-cabin font-40 mrgn-25 font-bold mrgnbtm-0 mrgn-30">
           {product.price}

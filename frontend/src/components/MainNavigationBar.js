@@ -1,9 +1,8 @@
 import React from "react";
 import SearchBox from "./SearchBox";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from 'react-redux';
-import {signout} from "../actions/userActions";
-
+import { useDispatch, useSelector } from "react-redux";
+import { signout } from "../actions/userActions";
 
 export default function MainNavigationBar() {
   const userSignin = useSelector((state) => state.userSignin);
@@ -32,7 +31,7 @@ export default function MainNavigationBar() {
               alt="carticon"
               className="linkicon"
             />
-            <a className="notextdecoration labeloflink active" href="/">
+            <a className="notextdecoration labeloflink active" href="/cart">
               Panier
             </a>
           </li>
@@ -44,7 +43,9 @@ export default function MainNavigationBar() {
             />
             {userInfo ? (
               <div className="dropdown pdngrgt">
-                <Link className="notextdecoration labeloflink active" to="#">{userInfo.name}</Link>
+                <Link className="notextdecoration labeloflink active" to="#">
+                  {userInfo.name}
+                </Link>
                 <ul className="dropdown-content">
                   <li>
                     <Link to="/profile">User Profile</Link>
@@ -59,10 +60,11 @@ export default function MainNavigationBar() {
                   </li>
                 </ul>
               </div>
-              ) :
-               (
-              <Link className="notextdecoration labeloflink active" to="/login">Se Connecter</Link>)
-            }
+            ) : (
+              <Link className="notextdecoration labeloflink active" to="/login">
+                Se Connecter
+              </Link>
+            )}
           </li>
           <li>
             <img

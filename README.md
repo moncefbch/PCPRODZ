@@ -69,11 +69,16 @@ redux\\
 login post request\\
 
 ## `commit-22`
+
 fully fonctional login with auto redirection from the "/login" url \
 and the option to logout , some changes in the user model and router in the backend folder \
-basic search in the backend using the startwith method \\ 
-
+basic search in the backend using the startwith method \\
 
 ## `commit-23`
+
 fully fonctional register with auto redirection from the "/register" url \
 some changes in the user model and router in the backend folder \\
+
+## `commit-24`
+
+cart page \\

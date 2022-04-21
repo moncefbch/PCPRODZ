@@ -12,7 +12,8 @@ export default function NewProductsSection() {
 
   useEffect(() => {
     dispatch(listProducts());
-  }, []);
+    // next line wad "   }, []);   " update : "   }, [dispatch]);   " 3lajal kanet hna error and this is how to handle it
+  }, [dispatch]);
   return (
     <div>
       {loading ? (

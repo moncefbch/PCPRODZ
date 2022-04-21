@@ -14,6 +14,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import SearchPage from "./pages/SearchPage";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import CartPage from "./pages/CartPage";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Route path="/search=:searchtxt" component={SearchPage} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
+      <Route path="/cart" component={CartPage} />
       <Footer />
       <Helmet>
         <script src="js/product_carousel.js"></script>
@@ -34,6 +36,3 @@ function App() {
 }
 
 export default App;
-
-
-
