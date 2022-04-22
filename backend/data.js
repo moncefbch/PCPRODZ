@@ -2,18 +2,18 @@ import bcrypt from "bcryptjs";
 const data = {
   users: [
     {
-      name : "amine",
+      name: "amine",
       email: "amine@estin.dz",
       password: bcrypt.hashSync("1234", 8),
       isAdmin: true,
-      wilaya:"15-Tizi-Ouzou",
+      wilaya: "15-Tizi-Ouzou",
     },
     {
-      name : "moncef",
+      name: "moncef",
       email: "mo@estin.dz",
       password: bcrypt.hashSync("123456", 8),
       isAdmin: false,
-      wilaya:"09-Blida",
+      wilaya: "09-Blida",
     },
   ],
 
@@ -28,6 +28,7 @@ const data = {
       image: "/images/product2.png",
       category: "laptop",
       price: 200000,
+      countInStock: 0,
       rating: 4,
     },
     {
@@ -40,6 +41,7 @@ const data = {
       image: "/images/product2.png",
       category: "phone",
       price: 200000,
+      countInStock: 5,
       rating: 4,
     },
     {
@@ -52,6 +54,7 @@ const data = {
       image: "/images/product-1.jpg",
       category: "laptop",
       price: 200000,
+      countInStock: 5,
       rating: 4,
     },
 
@@ -65,6 +68,7 @@ const data = {
       image: "/images/product-3.jpg",
       category: "laptop",
       price: 200000,
+      countInStock: 5,
       rating: 4,
     },
 
@@ -78,6 +82,7 @@ const data = {
       image: "/images/product2.png",
       category: "laptop",
       price: 200000,
+      countInStock: 5,
       rating: 4,
     },
     {
@@ -90,6 +95,7 @@ const data = {
       image: "/images/product2.png",
       category: "laptop",
       price: 200000,
+      countInStock: 5,
       rating: 4,
     },
     {
@@ -102,6 +108,7 @@ const data = {
       image: "/images/product2.png",
       category: "laptop",
       price: 200000,
+      countInStock: 5,
       rating: 4,
     },
   ],

@@ -4,6 +4,7 @@ import Axios from "axios";
 
 export default function ProductPage(props) {
   const [products, setProducts] = useState([]);
+  const [qty, setQty] = useState(1);
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await Axios.get("/api/products");
@@ -19,7 +20,20 @@ export default function ProductPage(props) {
   if (!product) {
     return <div>Product not found</div>;
   }
+  const decqty = () => {
+    if (qty > 1) {
+      setQty(qty - 1);
+    }
+  };
+  const incqty = () => {
+    if (qty < product.countInStock) {
+      setQty(qty + 1);
+    }
+  };
 
+  const addToCartHandler = () => {
+    props.history.push(`/cart/${product._id}?qty=${qty}`);
+  };
   return (
     <div className="flex-container" style={{ margin: "5%" }}>
       <div
@@ -123,63 +137,75 @@ export default function ProductPage(props) {
           {product.price}
         </header>
         <h5 className="font-cabin font-bold mrgn-30 mrgntp-0">Produit neuf</h5>
-        <div className="align-center font-cabin font-20"> Quantité: </div>
-        <div className="d-flex justify-content-center">
-          <button
-            className="font-cabin font-bold font-20 shadowForMainSquareType"
-            style={{
-              margin: "5px",
-              borderRadius: "10px",
-              width: "50px",
-              height: "30px",
-              borderWidth: "0px",
-              backgroundColor: "#262525",
-              color: "white",
-            }}
-          >
-            -
-          </button>
-          <header
-            className="font-cabin font-bold font-20"
-            style={{
-              margin: "5px",
-              paddingLeft: "20px",
-              paddingRight: "20px",
-            }}
-          >
-            1
-          </header>
-          <button
-            className="font-cabin font-bold font-20 shadowForMainSquareType"
-            style={{
-              margin: "5px",
-              borderRadius: "10px",
-              width: "50px",
-              height: "30px",
-              borderWidth: "0px",
-              backgroundColor: "#262525",
-              color: "white",
-            }}
-          >
-            +
-          </button>
-        </div>
-        <button
-          className="d-flex font-cabin font-18 font-bold shadowForMainSquareType mrgntp-30 radius-10 align-center"
-          style={{
-            width: "80%",
-            height: "45px",
-            borderWidth: "0px",
-            marginLeft: "auto",
-            paddingTop: "10px",
-            marginRight: "auto",
-            color: "white",
-            backgroundColor: "#4584FF",
-          }}
-        >
-          <header style={{ marginLeft: "15px" }}> Ajouter Au Panier </header>
-          <img alt="" src="/images/carticon.png" className="linkicon" />
-        </button>
+        {product.countInStock > 0 ? (
+          <div>
+            <div className="align-center font-cabin font-20"> Quantité: </div>
+            <div className="d-flex justify-content-center">
+              <button
+                onClick={decqty}
+                className="font-cabin font-bold font-20 shadowForMainSquareType"
+                style={{
+                  margin: "5px",
+                  borderRadius: "10px",
+                  width: "50px",
+                  height: "30px",
+                  borderWidth: "0px",
+                  backgroundColor: "#262525",
+                  color: "white",
+                }}
+              >
+                -
+              </button>
+              <header
+                className="font-cabin font-bold font-20"
+                style={{
+                  margin: "5px",
+                  paddingLeft: "20px",
+                  paddingRight: "20px",
+                }}
+              >
+                {qty}
+              </header>
+              <button
+                onClick={incqty}
+                className="font-cabin font-bold font-20 shadowForMainSquareType"
+                style={{
+                  margin: "5px",
+                  borderRadius: "10px",
+                  width: "50px",
+                  height: "30px",
+                  borderWidth: "0px",
+                  backgroundColor: "#262525",
+                  color: "white",
+                }}
+              >
+                +
+              </button>
+            </div>
+            <button
+              onClick={addToCartHandler}
+              className="d-flex font-cabin font-18 font-bold shadowForMainSquareType mrgntp-30 radius-10 align-center"
+              style={{
+                width: "80%",
+                height: "45px",
+                borderWidth: "0px",
+                marginLeft: "auto",
+                paddingTop: "10px",
+                marginRight: "auto",
+                color: "white",
+                backgroundColor: "#4584FF",
+              }}
+            >
+              <header style={{ marginLeft: "15px" }}>
+                {" "}
+                Ajouter Au Panier{" "}
+              </header>
+              <img alt="" src="/images/carticon.png" className="linkicon" />
+            </button>
+          </div>
+        ) : (
+          <div>khlasselna hed lpc dsl a la7viv</div>
+        )}
         <br />
         <div className="d-flex mrgnlft-30">
           <img src="/images/shiping.png" alt="" />

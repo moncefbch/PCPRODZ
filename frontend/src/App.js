@@ -26,7 +26,8 @@ function App() {
       <Route path="/search=:searchtxt" component={SearchPage} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
-      <Route path="/cart" component={CartPage} />
+      <Route path="/cart" component={CartPage}></Route>
+      <Route path="/cart/:id" component={CartPage} />
       <Footer />
       <Helmet>
         <script src="js/product_carousel.js"></script>

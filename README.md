@@ -82,3 +82,9 @@ some changes in the user model and router in the backend folder \\
 ## `commit-24`
 
 cart page \\
+
+## `commit-25`
+
+buttons handeling in the product page \
+fonctional add to cart \
+semi fonctional cart page mapping \\

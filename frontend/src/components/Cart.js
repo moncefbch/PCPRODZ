@@ -1,7 +1,26 @@
-import React from "react";
-import CartItem from "./CartItem";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, removeFromCart } from "../actions/cartActions";
+import { Link } from "react-router-dom";
+import ErrorMessageBox from "./ErrorMessageBox";
+import cartItem from "./CartItem";
 
-export default function Cart() {
+export default function Cart(props) {
+  const productId = props.match.params.id;
+  const qty = props.location.search
+    ? Number(props.location.search.split("=")[1])
+    : 1;
+
+  const cart = useSelector((state) => state.cart);
+  const { cartItems, error } = cart;
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (productId) {
+      dispatch(addToCart(productId, qty));
+    }
+  }, [dispatch, productId, qty]);
+  console.log(cart);
+  console.log(cartItems);
   return (
     <div className="flex-container pdng-100" style={{ margin: "3%" }}>
       <div className="flex-item-left-70 mrgnrgt-50 pdgbtm-20">
@@ -15,6 +34,12 @@ export default function Cart() {
             paddingBottom: "100px",
           }}
         >
+          <div>
+            <h1>
+              adding cart item id : productID :{productId} qty : {qty}{" "}
+            </h1>
+            <p></p>
+          </div>
           <div className="font-cabin width-full font-40 font-bold ">
             <header>ADRESSE DE LIVRAISON </header>
           </div>
@@ -35,11 +60,64 @@ export default function Cart() {
           }}
         >
           <div className="font-cabin width-full font-40 font-bold ">
-            <header>VOTRE PANIER</header>
+            <header>VOTRE PANIER</header>{" "}
           </div>
-          <CartItem />
-          <CartItem />
-          <CartItem />
+          {/*         {cartItems.length === 0 ? (
+          <MessageBox>
+            Cart is empty. <Link to="/">Go Shopping</Link>
+          </MessageBox>
+            ) : (
+          <ul>
+            {cartItems.map((item) => (
+              <li key={item.product}>
+                <div className="row">
+                  <div>
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="small"
+                    ></img>
+                  </div>
+                  <div className="min-30">
+                    <Link to={`/product/${item.product}`}>{item.name}</Link>
+                  </div>
+                  <div>
+                    <select
+                      value={item.qty}
+                      onChange={(e) =>
+                        dispatch(
+                          addToCart(item.product, Number(e.target.value))
+                        )
+                      }
+                    >
+                      {[...Array(item.countInStock).keys()].map((x) => (
+                        <option key={x + 1} value={x + 1}>
+                          {x + 1}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div>${item.price}</div>
+                  <div>
+                    <button
+                      type="button"
+                      onClick={() => removeFromCartHandler(item.product)}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+          )} */}
+          {cartItems.length === 0 ? (
+            <ErrorMessageBox>
+              Cart is empty. <Link to="/">Go Shopping</Link>
+            </ErrorMessageBox>
+          ) : (
+            <div>{cartItems.map((item) => cartItem(item))}</div>
+          )}
         </div>
       </div>
       <div
