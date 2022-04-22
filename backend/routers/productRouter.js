@@ -60,4 +60,34 @@ productRouter.get(
   })
 );
 
+//productRouter.post search api that accepts one parameter text and returns all products that one of their attribtes matches the text
+productRouter.post(
+  "/search",
+  expressAsyncHandler(async (req, res) => {
+    const { text } = req.body;
+    const product = await Product.find({});
+    let sortedProducts = [...product];
+    if (text) {
+      sortedProducts = sortedProducts.filter((product) => {
+        //return product that his name contains text no matter if its upper or lower
+        return (
+          product._name.toLowerCase().includes(text.toLowerCase()) ||
+          product._name.toLowerCase().includes(text.toLowerCase()) ||
+          product.brand.toLowerCase().includes(text.toLowerCase()) ||
+          product.processeur.toLowerCase().includes(text.toLowerCase()) ||
+          product.ram.toLowerCase().includes(text.toLowerCase()) ||
+          product.disque.toLowerCase().includes(text.toLowerCase()) ||
+          product.gpu.toLowerCase().includes(text.toLowerCase()) ||
+          product.category.toLowerCase().includes(text.toLowerCase())
+        );
+      });
+    }
+    if (sortedProducts.length < 1) {
+      // res.status(200).send('no products matched your search');
+      return res.status(200).send({ sucess: true, data: [] });
+    }
+    res.send(sortedProducts);
+  })
+);
+
 export default productRouter;

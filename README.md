@@ -92,3 +92,7 @@ semi fonctional cart page mapping \\
 ## `commit-26`
 
 add profile page \\
+
+## `commit-27`
+
+product search api ("pi/products/search") \\

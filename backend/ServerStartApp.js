@@ -20,7 +20,7 @@ app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
 
 app.get("/", (req, res) => {
-  res.send("server app starting point");
+  res.send("<h1>server app starting point</h1>");
 });
 
 app.use((err, req, res, next) => {
