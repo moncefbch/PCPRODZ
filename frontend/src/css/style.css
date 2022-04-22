@@ -984,3 +984,24 @@ a:hover {
     }
 
 
+
+
+.blackplaceholder::placeholder {
+    color: black;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.blackplaceholder {
+    border-bottom-width: 2px;
+    /*delete all borders exept the bottom border*/
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.noborders {
+    border: none;
+}
