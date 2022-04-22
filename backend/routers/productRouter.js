@@ -21,29 +21,29 @@ productRouter.get(
   })
 );
 productRouter.get(
-  '/categories',
+  "/categories",
   expressAsyncHandler(async (req, res) => {
-    const categories = await Product.find().distinct('category');
+    const categories = await Product.find().distinct("category");
     res.send(categories);
   })
 );
 productRouter.get(
   "/query",
-  expressAsyncHandler(async (req, res) =>{
-    const { search } = req.query
+  expressAsyncHandler(async (req, res) => {
+    const { search } = req.query;
     const product = await Product.find({});
-    let sortedProducts = [...product]
-  
+    let sortedProducts = [...product];
+
     if (search) {
       sortedProducts = sortedProducts.filter((product) => {
-        return product._name.startsWith(search)
-      })
+        return product._name.startsWith(search);
+      });
     }
     if (sortedProducts.length < 1) {
       // res.status(200).send('no products matched your search');
-      return res.status(200).send({ sucess: true, data: [] })
+      return res.status(200).send({ sucess: true, data: [] });
     }
-    res.send(sortedProducts)
+    res.send(sortedProducts);
   })
 );
 
@@ -59,8 +59,5 @@ productRouter.get(
     }
   })
 );
-
-
-
 
 export default productRouter;

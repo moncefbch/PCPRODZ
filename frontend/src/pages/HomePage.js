@@ -8,7 +8,6 @@ export default function HomePage() {
   return (
     <div>
       <CarouselImageSlider />
-
       <div className="contentDiv">
         <NewProductsSection />
         <MostVisitedCathegories />

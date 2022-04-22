@@ -9,10 +9,9 @@ export default function NewProductsSection() {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
-
+  // next piece of code wad "   }, []);   " update : "   }, [dispatch]);   " 3lajal kanet hna error and this is how to handle it
   useEffect(() => {
     dispatch(listProducts());
-    // next line wad "   }, []);   " update : "   }, [dispatch]);   " 3lajal kanet hna error and this is how to handle it
   }, [dispatch]);
   return (
     <div>

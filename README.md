@@ -88,3 +88,7 @@ cart page \\
 buttons handeling in the product page \
 fonctional add to cart \
 semi fonctional cart page mapping \\
+
+## `commit-26`
+
+add profile page \\

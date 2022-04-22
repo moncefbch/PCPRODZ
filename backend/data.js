@@ -9,6 +9,14 @@ const data = {
       wilaya: "15-Tizi-Ouzou",
     },
     {
+      name: "mouayed",
+      email: "mouayed@estin.dz",
+      password: bcrypt.hashSync("6969", 8),
+      isAdmin: false,
+      wilaya: "15-Khenchela",
+    },
+
+    {
       name: "moncef",
       email: "mo@estin.dz",
       password: bcrypt.hashSync("123456", 8),

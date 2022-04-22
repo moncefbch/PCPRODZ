@@ -15,19 +15,20 @@ import SearchPage from "./pages/SearchPage";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import CartPage from "./pages/CartPage";
+import ProfilePage from "./pages/ProfilePage";
 
 function App() {
   return (
     <Router>
       <MainNavigationBar />
       <SecondaryNavigationBar />
-      <Route path="/product/:id" component={ProductPage} />
       <Route path="/" component={HomePage} exact />
+      <Route path="/product/:id" component={ProductPage} />
       <Route path="/search=:searchtxt" component={SearchPage} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
-      <Route path="/cart" component={CartPage}></Route>
-      <Route path="/cart/:id" component={CartPage} />
+      <Route path="/cart/:id?" component={CartPage} />
+      <Route path="/profile" component={ProfilePage} />
       <Footer />
       <Helmet>
         <script src="js/product_carousel.js"></script>

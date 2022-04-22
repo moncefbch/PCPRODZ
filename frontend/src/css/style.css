@@ -292,7 +292,7 @@ a:hover {
 
 .footer-dark ul {
   padding: 0;
-  /*list-style: none;*/
+  list-style: none;
   line-height: 1.6;
   font-size: 14px;
   margin-bottom: 0;
