@@ -96,3 +96,8 @@ add profile page \\
 ## `commit-27`
 
 product search api ("pi/products/search") \\
+
+## `commit-28`
+
+fully functional cart page including cart items mapping and dynamic total price \
+the option to increase , decrease or remove an item from the cart \\

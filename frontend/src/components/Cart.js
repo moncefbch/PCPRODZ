@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, removeFromCart } from "../actions/cartActions";
+import { addToCart , removeFromCart  } from "../actions/cartActions";
 import { Link } from "react-router-dom";
 import ErrorMessageBox from "./ErrorMessageBox";
-import cartItem from "./CartItem";
 
 export default function Cart(props) {
   const productId = props.match.params.id;
@@ -19,8 +18,10 @@ export default function Cart(props) {
       dispatch(addToCart(productId, qty));
     }
   }, [dispatch, productId, qty]);
-  console.log(cart);
-  console.log(cartItems);
+  const removeFromCartHandler = (id) => {
+    // delete action
+    dispatch(removeFromCart(id));}
+    console.log(cartItems);
   return (
     <div className="flex-container pdng-100" style={{ margin: "3%" }}>
       <div className="flex-item-left-70 mrgnrgt-50 pdgbtm-20">
@@ -34,12 +35,6 @@ export default function Cart(props) {
             paddingBottom: "100px",
           }}
         >
-          <div>
-            <h1>
-              adding cart item id : productID :{productId} qty : {qty}{" "}
-            </h1>
-            <p></p>
-          </div>
           <div className="font-cabin width-full font-40 font-bold ">
             <header>ADRESSE DE LIVRAISON </header>
           </div>
@@ -62,61 +57,111 @@ export default function Cart(props) {
           <div className="font-cabin width-full font-40 font-bold ">
             <header>VOTRE PANIER</header>{" "}
           </div>
-          {/*         {cartItems.length === 0 ? (
-          <MessageBox>
-            Cart is empty. <Link to="/">Go Shopping</Link>
-          </MessageBox>
-            ) : (
-          <ul>
-            {cartItems.map((item) => (
-              <li key={item.product}>
-                <div className="row">
-                  <div>
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="small"
-                    ></img>
-                  </div>
-                  <div className="min-30">
-                    <Link to={`/product/${item.product}`}>{item.name}</Link>
-                  </div>
-                  <div>
-                    <select
-                      value={item.qty}
-                      onChange={(e) =>
-                        dispatch(
-                          addToCart(item.product, Number(e.target.value))
-                        )
-                      }
-                    >
-                      {[...Array(item.countInStock).keys()].map((x) => (
-                        <option key={x + 1} value={x + 1}>
-                          {x + 1}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div>${item.price}</div>
-                  <div>
-                    <button
-                      type="button"
-                      onClick={() => removeFromCartHandler(item.product)}
-                    >
-                      Delete
-                    </button>
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
-          )} */}
           {cartItems.length === 0 ? (
             <ErrorMessageBox>
               Cart is empty. <Link to="/">Go Shopping</Link>
             </ErrorMessageBox>
           ) : (
-            <div>{cartItems.map((item) => cartItem(item))}</div>
+            <div>{cartItems.map((item) =>   
+            <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                <div>
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    width={"200px"}
+                    height={"250px"}
+                  ></img>
+                </div>
+              </div>
+              <div class="col-sm">
+                <div>
+                  <div className="font-cabin width-full font-30">
+                    <header>{item.name}</header>
+                  </div>
+                  <small className="form-text font-20 text-muted font-cabin pdgtp-5">
+                    White
+                  </small>
+                  <header className="font-25 font-cabin pdgtp-15">{item.price}</header>
+                  <div className="font-20 font-cabin pdgtp-35">
+                    prix :{item.price} x {item.qty}
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm">
+                  <div>
+                    <div className="align-center font-cabin font-20"> Quantité: </div>
+                    <div className="d-flex justify-content-center">
+                      <button
+                       onClick={() => dispatch(addToCart(item.product, item.qty - 1))}
+                       disabled={item.qty <= 1}
+
+                        className="font-cabin font-bold font-20 shadowForMainSquareType"
+                        style={{
+                          margin: "5px",
+                          borderRadius: "10px",
+                          width: "50px",
+                          height: "30px",
+                          borderWidth: "0px",
+                          backgroundColor: "#262525",
+                          color: "white",
+                        }}
+                      >
+                        -
+                      </button>
+                      <header
+                        className="font-cabin font-bold font-20"
+                        style={{
+                          margin: "5px",
+                          paddingLeft: "20px",
+                          paddingRight: "20px",
+                        }}
+                      >
+                        {item.qty}
+                      </header>
+                      <button
+                       onClick={() => dispatch(addToCart(item.product, item.qty + 1))}
+                       disabled={item.qty >= item.countInStock}
+
+                       className="font-cabin font-bold font-20 shadowForMainSquareType"
+                        style={{
+                          margin: "5px",
+                          borderRadius: "10px",
+                          width: "50px",
+                          height: "30px",
+                          borderWidth: "0px",
+                          backgroundColor: "#262525",
+                          color: "white",
+                        }}
+                      >
+                        +
+                      </button>
+                    </div>
+                    <button
+                    onClick={() => removeFromCartHandler(item.product)}
+                    className="d-flex font-cabin font-18 font-bold shadowForMainSquareType mrgntp-30 radius-10 align-center"
+                    style={{
+                      width: "80%",
+                      height: "45px",
+                      borderWidth: "0px",
+                      marginLeft: "auto",
+                      paddingTop: "10px",
+                      marginRight: "auto",
+                      color: "white",
+                      backgroundColor: "#4584FF",
+                    }}
+                  >
+                    <header style={{ marginLeft: "15px" }}>
+                      {" "}
+                      rani z9ou a frr{" "}
+                    </header>
+                    <img alt="" src="/images/carticon.png" className="linkicon" />
+                  </button>
+                  </div>
+              </div>
+            </div>
+          </div>)}</div>
           )}
         </div>
       </div>
@@ -135,7 +180,15 @@ export default function Cart(props) {
             articles :
           </small>
           <small className="form-text font-20 text-muted font-cabin pdgtp-5">
-            5849.37
+          {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
+          </small>
+        </div>
+        <div class="d-flex justify-content-between">
+          <small className="form-text font-20 text-muted font-cabin pdgtp-5">
+            les elements :
+          </small>
+          <small className="form-text font-20 text-muted font-cabin pdgtp-5">
+          {cartItems.reduce((a, c) => a + c.qty, 0)}           
           </small>
         </div>
         <div class="d-flex justify-content-between">
@@ -155,7 +208,7 @@ export default function Cart(props) {
                 TOTALE :
               </header>
               <header className="font-30 font-cabin pdgtp-5 font-bold">
-                660900 DA
+                {cartItems.reduce((a, c) => a + c.price * c.qty, 0)} DZD
               </header>
             </div>
             <hr class="width-full productMargin" />
