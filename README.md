@@ -111,3 +111,10 @@ il reste de l'associer avec le front \\
 
 components: filter tag, search item
 pages : search page\\
+
+## `commit-31`
+
+link the search api with the search page\
+mapping search page\
+removable filte tags
+functionnal search routing\\

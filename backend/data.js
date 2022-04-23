@@ -3,7 +3,7 @@ const data = {
   users: [
     {
       name: "amine",
-      lastname:"user",
+      lastname: "user",
       email: "amine@estin.dz",
       password: bcrypt.hashSync("1234", 8),
       isAdmin: true,
@@ -11,7 +11,7 @@ const data = {
     },
     {
       name: "mouayed",
-      lastname:"user",
+      lastname: "user",
       email: "mouayed@estin.dz",
       password: bcrypt.hashSync("6969", 8),
       isAdmin: false,
@@ -20,7 +20,7 @@ const data = {
 
     {
       name: "moncef",
-      lastname:"user",
+      lastname: "user",
       email: "mo@estin.dz",
       password: bcrypt.hashSync("123456", 8),
       isAdmin: false,
@@ -39,7 +39,7 @@ const data = {
       image: "/images/product2.png",
       category: "laptop",
       price: 200000,
-      countInStock: 0,
+      countInStock: 10,
       rating: 4,
     },
     {
@@ -52,7 +52,7 @@ const data = {
       image: "/images/product2.png",
       category: "laptop",
       price: 200000,
-      countInStock: 0,
+      countInStock: 10,
       rating: 4,
     },
     {
@@ -65,7 +65,7 @@ const data = {
       image: "/images/product2.png",
       category: "laptop",
       price: 200000,
-      countInStock: 0,
+      countInStock: 10,
       rating: 4,
     },
     {
@@ -78,7 +78,7 @@ const data = {
       image: "/images/product2.png",
       category: "laptop",
       price: 200000,
-      countInStock: 0,
+      countInStock: 10,
       rating: 4,
     },
     {
@@ -91,7 +91,7 @@ const data = {
       image: "/images/product2.png",
       category: "laptop",
       price: 200000,
-      countInStock: 0,
+      countInStock: 10,
       rating: 4,
     },
     {
@@ -104,7 +104,7 @@ const data = {
       image: "/images/product2.png",
       category: "laptop",
       price: 200000,
-      countInStock: 0,
+      countInStock: 10,
       rating: 4,
     },
     {
@@ -117,7 +117,7 @@ const data = {
       image: "/images/product2.png",
       category: "laptop",
       price: 200000,
-      countInStock: 0,
+      countInStock: 10,
       rating: 4,
     },
     {
@@ -130,7 +130,7 @@ const data = {
       image: "/images/product2.png",
       category: "test category",
       price: 200000,
-      countInStock: 0,
+      countInStock: 10,
       rating: 4,
     },
     {

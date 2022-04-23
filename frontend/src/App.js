@@ -24,7 +24,7 @@ function App() {
       <SecondaryNavigationBar />
       <Route path="/" component={HomePage} exact />
       <Route path="/product/:id" component={ProductPage} />
-      <Route path="/search" component={SearchPage} />
+      <Route path="/search=:text" component={SearchPage} />
       <Route path="/login" component={Login} />
       <Route path="/register" component={Register} />
       <Route path="/cart/:id?" component={CartPage} />

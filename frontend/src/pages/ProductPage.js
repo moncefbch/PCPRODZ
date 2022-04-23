@@ -3,20 +3,17 @@ import { Helmet } from "react-helmet";
 import Axios from "axios";
 
 export default function ProductPage(props) {
-  const [products, setProducts] = useState([]);
+  const [product, setProducts] = useState([]);
   const [qty, setQty] = useState(1);
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await Axios.get("/api/products");
+      const { data } = await Axios.get(
+        "/api/products/get" + props.match.params.id
+      );
       setProducts(data);
     };
     fetchData();
   }, []);
-  //const product equals to the product that has id equals to the id in the url
-  const product = products.find(
-    (product) => product._id === props.match.params.id
-  );
-
   if (!product) {
     return <div>Product not found</div>;
   }

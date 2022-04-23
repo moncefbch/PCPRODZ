@@ -1,11 +1,16 @@
 import React from "react";
 
 export default function FilterTag(props) {
-  const { text } = props;
+  //function remove to delete the first div of this component
+  const remove = () => {
+    const div = document.getElementById(props.text);
+    div.parentNode.removeChild(div);
+  };
+
   return (
-    <div className="filterAttribute">
-      {text}
-      <button className="invisiblebutton">
+    <div className="filterAttribute" id={props.text}>
+      {props.text}
+      <button className="invisiblebutton" onClick={remove}>
         <img
           alt="img"
           className="cancelFilterAttributeSvg mrgnlft-10"

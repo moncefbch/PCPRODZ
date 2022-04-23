@@ -1,6 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-export default function SearchItem() {
+export default function SearchItem(props) {
+  const { product } = props;
   return (
     <div
       style={{ width: "250px", height: "400px" }}
@@ -8,15 +10,25 @@ export default function SearchItem() {
     >
       <div
         className="radiusTop-20 bodyBackground imgbackground"
-        style={{ backgroundImage: `url("/images/product2.png")` }}
+        style={{ backgroundImage: `url(${product.image})` }}
       ></div>
       <div className="align-center info font-20 pdgtp-5">
-        <header className="font-cabin">Asus vivobook</header>
+        <header>
+          <Link
+            to={`/product/${product._id}`}
+            className="font-cabin notextdecoration labeloflink active"
+            style={{ color: "black" }}
+          >
+            {product._name}
+          </Link>
+        </header>
         <small className="form-text text-muted font-cabin ">
-          I5 82333 U - 8 GO RAM ....
+          {product.processeur + "  " + product.ram}
         </small>
 
-        <header className="font-cabin font-20 pdgtp-5">Prix : 150000</header>
+        <header className="font-cabin font-20 pdgtp-5">
+          {"prix : " + product.price}
+        </header>
       </div>
     </div>
   );

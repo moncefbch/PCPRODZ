@@ -48,7 +48,7 @@ productRouter.get(
 );
 
 productRouter.get(
-  "/:id",
+  "/get:id",
   expressAsyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id);
 
@@ -61,10 +61,11 @@ productRouter.get(
 );
 
 //productRouter.post search api that accepts one parameter text and returns all products that one of their attribtes matches the text
-productRouter.post(
-  "/search",
+productRouter.get(
+  "/search?:text",
   expressAsyncHandler(async (req, res) => {
-    const { text } = req.body;
+    //creatr a const text equals to the text in the url
+    const { text } = req.query;
     const product = await Product.find({});
     let sortedProducts = [...product];
     if (text) {
