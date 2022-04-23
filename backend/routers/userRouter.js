@@ -26,6 +26,7 @@ userRouter.post(
           _id: user._id,
           email: user.email,
           name: user.name,
+          lastname:user.lastname,
           wilaya: user.wilaya,
           isAdmin: user.isAdmin,
           token: generateToken(user),
@@ -48,6 +49,7 @@ userRouter.post(
     res.send({
       _id: createdUser._id,
       name: createdUser.name,
+      lastname:user.lastname,
       email: createdUser.email,
       isAdmin: createdUser.isAdmin,
       isSeller: user.isSeller,

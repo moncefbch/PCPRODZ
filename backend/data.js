@@ -3,6 +3,7 @@ const data = {
   users: [
     {
       name: "amine",
+      lastname:"user",
       email: "amine@estin.dz",
       password: bcrypt.hashSync("1234", 8),
       isAdmin: true,
@@ -10,14 +11,16 @@ const data = {
     },
     {
       name: "mouayed",
+      lastname:"user",
       email: "mouayed@estin.dz",
       password: bcrypt.hashSync("6969", 8),
       isAdmin: false,
-      wilaya: "15-Khenchela",
+      wilaya: "40-Khenchela",
     },
 
     {
       name: "moncef",
+      lastname:"user",
       email: "mo@estin.dz",
       password: bcrypt.hashSync("123456", 8),
       isAdmin: false,

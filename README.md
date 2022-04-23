@@ -101,3 +101,8 @@ product search api ("pi/products/search") \\
 
 fully functional cart page including cart items mapping and dynamic total price \
 the option to increase , decrease or remove an item from the cart \\
+
+## `commit-29`
+
+orderModels, orderActions : create order, reducers \
+il reste de l'associer avec le front \\
