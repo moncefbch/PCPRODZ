@@ -106,3 +106,8 @@ the option to increase , decrease or remove an item from the cart \\
 
 orderModels, orderActions : create order, reducers \
 il reste de l'associer avec le front \\
+
+## `commit-30`
+
+components: filter tag, search item
+pages : search page\\

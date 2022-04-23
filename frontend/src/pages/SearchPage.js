@@ -22,7 +22,7 @@ export default function SearchPage() {
             <FilterTag text={"filter 3"} />
             <FilterTag text={"filter 4"} />
           </div>
-          <hr className="width80pc productMargin" />
+          <hr className="productMargin width80pc" />
           <br />
           <div className="d-flex flex-wrap paddingAuto">
             <SearchItem />

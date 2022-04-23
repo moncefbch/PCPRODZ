@@ -10,7 +10,7 @@ export default function SearchItem() {
         className="radiusTop-20 bodyBackground imgbackground"
         style={{ backgroundImage: `url("/images/product2.png")` }}
       ></div>
-      <div className="info align-center font-20 pdgtp-5">
+      <div className="align-center info font-20 pdgtp-5">
         <header className="font-cabin">Asus vivobook</header>
         <small className="form-text text-muted font-cabin ">
           I5 82333 U - 8 GO RAM ....

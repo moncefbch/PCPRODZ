@@ -8,7 +8,7 @@ export default function FilterTag(props) {
       <button className="invisiblebutton">
         <img
           alt="img"
-          className="mrgnlft-10 cancelFilterAttributeSvg"
+          className="cancelFilterAttributeSvg mrgnlft-10"
           src="images/cancelFilterAttribute.svg"
         />
       </button>
