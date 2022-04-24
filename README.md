@@ -118,3 +118,7 @@ link the search api with the search page\
 mapping search page\
 removable filte tags
 functionnal search routing\\
+
+## `commit-31.1`
+
+images-- styles\\

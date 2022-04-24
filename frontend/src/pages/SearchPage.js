@@ -26,9 +26,7 @@ export default function SearchPage(props) {
         Pc portable
       </header>
       <div className="flex-container mrgn-30">
-        <div className="flex-item-left-25 radius-10 whitebackground">
-          //-filter configuration-//
-        </div>
+        <div className="flex-item-left-25 radius-10 whitebackground"></div>
         <div className="flex-item-right-70 radius-10 whitebackground">
           <header className="font-cabin font-bold font-30 mrgn-30">
             {products.length + " articles"}
@@ -42,9 +40,13 @@ export default function SearchPage(props) {
           <hr className="productMargin width80pc" />
           <br />
           <div className="d-flex flex-wrap paddingAuto">
-            {products.map((product) => (
-              <SearchItem key={product._id} product={product} />
-            ))}
+            {products.length < 1 ? (
+              <div>hello world</div>
+            ) : (
+              products.map((product) => (
+                <SearchItem key={product._id} product={product} />
+              ))
+            )}
           </div>
         </div>
       </div>

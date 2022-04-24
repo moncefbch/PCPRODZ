@@ -85,7 +85,7 @@ productRouter.get(
     }
     if (sortedProducts.length < 1) {
       // res.status(200).send('no products matched your search');
-      return res.status(200).send({ sucess: true, data: [] });
+      return res.status(200).send({});
     }
     res.send(sortedProducts);
   })

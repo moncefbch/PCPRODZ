@@ -1,6 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 export default function ProfileInformations() {
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
+
   return (
     <div>
       <div className="mrgnlft-30">
@@ -30,10 +34,10 @@ export default function ProfileInformations() {
                     style={{ height: "200px", position: "relative" }}
                   >
                     <header className="font-cabin font-15 pdgtp-5">
-                      Nom : keziz
+                      {"Nom : " + userInfo.name}
                     </header>
                     <header class="form-text text-muted font-cabin pdgtp-5">
-                      Email :
+                      {"Email : " + userInfo.email}
                     </header>
 
                     <a style={{ position: "absolute", bottom: "0px" }}>
@@ -62,7 +66,7 @@ export default function ProfileInformations() {
                     style={{ height: "200px", position: "relative" }}
                   >
                     <header className="font-cabin font-15 pdgtp-5">
-                      xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                      {userInfo.wilaya}
                     </header>
                     <a style={{ position: "absolute", bottom: "0px" }}>
                       MODIFIER l’ADRESSE

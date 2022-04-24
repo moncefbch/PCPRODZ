@@ -1,8 +1,15 @@
 import React from "react";
 import ProfileEditInformations from "../components/ProfileEditInformations";
 import ProfileInformations from "../components/ProfileInformations";
+import { useDispatch } from "react-redux";
+import { signout } from "../actions/userActions";
+import { Link } from "react-router-dom";
 
 export default function ProfilePage() {
+  const dispatch = useDispatch();
+  const signoutHandler = () => {
+    dispatch(signout());
+  };
   return (
     <div className="flex-container" style={{ margin: "3%" }}>
       <div
@@ -33,9 +40,16 @@ export default function ProfilePage() {
         </div>
         <hr className="width-full"></hr>
         <div className="align-center">
-          <header class="font-cabin font-20 pdgtp-5 font-bold">
-            Se deconnecter
-          </header>
+          <Link
+            className="notextdecoration"
+            style={{ color: "black" }}
+            to="#signout"
+            onClick={signoutHandler}
+          >
+            <header class="font-cabin font-20 pdgtp-5 font-bold">
+              Se deconnecter
+            </header>
+          </Link>
         </div>
       </div>
       <div
