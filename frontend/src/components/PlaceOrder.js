@@ -4,7 +4,10 @@ import { addToCart, removeFromCart } from "../actions/cartActions";
 import { Link } from "react-router-dom";
 import ErrorMessageBox from "./ErrorMessageBox";
 
-export default function Cart(props) {
+export default function PlaceOrder(props) {
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
+  console.log(userInfo);
   const productId = props.match.params.id;
   const qty = props.location.search
     ? Number(props.location.search.split("=")[1])
@@ -22,14 +25,32 @@ export default function Cart(props) {
     // delete action
     dispatch(removeFromCart(id));
   };
-  const checkoutHandler = () => {
-    props.history.push('/login?redirect=/');
-  };
+  console.log(cartItems);
   return (
     <div className="flex-container pdng-100" style={{ margin: "3%" }}>
       <div className="flex-item-left-70 mrgnrgt-50 pdgbtm-20">
         <div
-          className="width-full whitebackground radius-10 "
+          className="whitebackground radius-10"
+          style={{
+            width: "100%",
+            paddingRight: "100px",
+            paddingLeft: "100px",
+            paddingTop: "50px",
+            paddingBottom: "100px",
+          }}
+        >
+          <div className="font-cabin width-full font-40 font-bold ">
+            <header>ADRESSE DE LIVRAISON </header>
+          </div>
+          <div className="mrgntp-30">
+            <header className="font-30 font-cabin">{userInfo.name}</header>
+            <header className="font-30 font-cabin">{userInfo.wilaya}</header>
+            <header className="font-30 font-cabin">Ouled yaich , 09015 </header>
+            <header className="font-30 font-cabin">Algerie, Afrique </header>
+          </div>
+        </div>
+        <div
+          className="width-full whitebackground radius-10 mrgntp-30"
           style={{
             paddingRight: "100px",
             paddingLeft: "100px",
@@ -183,7 +204,7 @@ export default function Cart(props) {
             Articles :
           </small>
           <small className="form-text font-20 text-muted font-cabin pdgtp-5">
-            {cartItems.reduce((a, c) => a + c.price * c.qty, 0) }
+            {cartItems.reduce((a, c) => a + c.price * c.qty, 0) + 3000}
           </small>
         </div>
         <div class="d-flex justify-content-between">
@@ -194,6 +215,15 @@ export default function Cart(props) {
             {cartItems.reduce((a, c) => a + c.qty, 0)}
           </small>
         </div>
+        <div class="d-flex justify-content-between">
+          <small className="form-text font-20 text-muted font-cabin pdgtp-5">
+            Livraison:
+          </small>
+          <small className="form-text font-20 text-muted font-cabin pdgtp-5">
+            3000
+          </small>
+        </div>
+
         <div>
           <div className="mrgntp-70">
             <hr class="width-full productMargin" />
@@ -202,15 +232,13 @@ export default function Cart(props) {
                 TOTALE :
               </header>
               <header className="font-30 font-cabin pdgtp-5 font-bold">
-                {cartItems.reduce((a, c) => a + c.price * c.qty, 0)} DZD
+                {cartItems.reduce((a, c) => a + c.price * c.qty, 0) + 3000} DZD
               </header>
             </div>
             <hr class="width-full productMargin" />
           </div>
           <button
             type="submit"
-            onClick={checkoutHandler}
-            disabled={cartItems.length === 0}
             className="font-cabin passcommandbutton"
             style={{ backgroundColor: "#4584FF", borderWidth: "0px" }}
           >

@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema(
     isAdmin: { type: Boolean, default: false, required: true },
     wilaya: {
       type: String,
+      required: true ,
       enum: {
         values: [
           "01-Adrar",

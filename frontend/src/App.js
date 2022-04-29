@@ -16,6 +16,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import CartPage from "./pages/CartPage";
 import ProfilePage from "./pages/ProfilePage";
+import PlaceOrder from "./components/PlaceOrder";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       <Route path="/register" component={Register} />
       <Route path="/cart/:id?" component={CartPage} />
       <Route path="/profile" component={ProfilePage} />
+      <Route path="/placeorder" component={PlaceOrder} />
       <Footer />
       <Helmet>
         <script src="js/product_carousel.js"></script>

@@ -1,34 +1,35 @@
 import React, { useState } from "react";
-export default function SearchBox() {
-  const [data, setData] = useState(null);
-  //next line was "     const[print, setPrint]=useState(false)     " update : "   const[setPrint] = useState(false);"   "
-  const [setPrint] = useState(false);
-  function GetData(val) {
-    setData(val.target.value);
-    setPrint(false);
+export default function SearchBox(props) {
+  const [searchQuery, setSearchQuery] = useState("");
+  const handleChange = (e) => {
+    setSearchQuery(e.target.value);
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (searchQuery) {
+     window.location.href = `/search=${searchQuery}`;
+    }
   }
   return (
     <div className="box overlay">
-      <form>
-        <div className="input-group rounded">
-          <input
-            type="search"
-            className="form-control rounded"
-            placeholder="Search"
-            aria-label="Search"
-            aria-describedby="search-addon"
-            onChange={GetData}
-          />
-          <span
+      <form className="input-group rounded" onSubmit={handleSubmit}>
+        <input
+          type="search"
+          className="form-control rounded"
+          placeholder="Search"
+          aria-label="Search"
+          value={searchQuery}
+          onChange={handleChange}
+          aria-describedby="search-addon"
+        />
+        <span        
             className="input-group-text border-1"
             id="search-addon"
-            style={{ backgroundColor: "whitesmoke" }}
-          >
-            <a onClick={() => setPrint(true)} href={`/search=${data}`}>
-              <i className="fa fa-search ms-auto whitebackground"></i>
-            </a>
-          </span>
-        </div>
+            style={{ backgroundColor: "whitesmoke" }}>
+              <a onClick={handleSubmit}> 
+          <i  className="fa fa-search ms-auto whitebackground" ></i>
+          </a>
+        </span>
       </form>
     </div>
   );

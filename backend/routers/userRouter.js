@@ -43,6 +43,7 @@ userRouter.post(
     const user = new User({
       name: req.body.name,
       email: req.body.email,
+      wilaya: req.body.wilaya,
       password: bcrypt.hashSync(req.body.password, 8),
     });
     const createdUser = await user.save();
@@ -50,6 +51,7 @@ userRouter.post(
       _id: createdUser._id,
       name: createdUser.name,
       lastname:user.lastname,
+      wilaya: createdUser.wilaya,
       email: createdUser.email,
       isAdmin: createdUser.isAdmin,
       isSeller: user.isSeller,

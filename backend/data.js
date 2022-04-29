@@ -39,7 +39,7 @@ const data = {
       image: "/images/product2.png",
       category: "laptop",
       price: 200000,
-      countInStock: 10,
+      countInStock: 8,
       rating: 4,
     },
     {

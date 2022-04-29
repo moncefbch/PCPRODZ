@@ -122,3 +122,12 @@ functionnal search routing\\
 ## `commit-31.1`
 
 images-- styles\\
+
+## `commit-32`
+
+some fixes here and there \
+turend the wilaya to required in the DB , updated the created user in the user router \
+updated the register form and the useractions to be compatible with the backend \
+created placeorder component and removed the personal informations from the cart page \
+turned the search box to a form removed the null search option \
+for the search page display hello world in case no product is found as a placeholder \\

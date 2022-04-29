@@ -10,16 +10,14 @@ export default function SearchPage(props) {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      if (name === "null") {
-        const { data } = await Axios.get("/api/products/");
-        setProducts(data);
-      } else {
+      if (name){
         const { data } = await Axios.get("/api/products/search?text=" + name);
         setProducts(data);
       }
     };
     fetchData();
   }, []);
+  //console.log(products);
   return (
     <div>
       <header className="font-cabin font-bold font-40 mrgnlft-50 mrgntp-30">
@@ -40,9 +38,7 @@ export default function SearchPage(props) {
           <hr className="productMargin width80pc" />
           <br />
           <div className="d-flex flex-wrap paddingAuto">
-            {products.length < 1 ? (
-              <div>hello world</div>
-            ) : (
+            { !products.length ? <div>hello world</div>: (
               products.map((product) => (
                 <SearchItem key={product._id} product={product} />
               ))

@@ -9,13 +9,14 @@ import {
   USER_REGISTER_FAIL,
 } from '../Constants/userConstants';
 
-export const register = (name, email, password) => async (dispatch) => {
+export const register = (name, email, password , wilaya) => async (dispatch) => {
   dispatch({ type: USER_REGISTER_REQUEST, payload: { email, password } });
   try {
     const { data } = await Axios.post('/api/users/register', {
       name,
       email,
       password,
+      wilaya,
     });
     dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
     dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });

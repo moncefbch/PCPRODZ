@@ -11,6 +11,7 @@ export default function RegisterForm(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [wilaya, setWilaya] = useState("");
 
   const redirect = props.location.search
     ? props.location.search.split("=")[1]
@@ -25,7 +26,7 @@ export default function RegisterForm(props) {
     if (password !== confirmPassword) {
       alert("Password and confirm password are not match");
     } else {
-      dispatch(register(name, email, password));
+      dispatch(register(name, email, password , wilaya));
     }
   };
   useEffect(() => {
@@ -34,7 +35,6 @@ export default function RegisterForm(props) {
     }
   }, [props.history, redirect, userInfo]);
   return (
-    //
     <div>
       <div className="loginForm">
         <header className="font-cabin font-bold font-30 mrgnlft-5">
@@ -112,9 +112,14 @@ export default function RegisterForm(props) {
               <select
                 className="InputField font-cabin font-10"
                 id="exampleInputPassword1"
+                onChange={(e) => setWilaya(e.target.value)}
+                value={wilaya}
+                required
               >
                 {Wilayas.leswilayas.map((wilaya) => (
-                  <option>{wilaya}</option>
+                  <option value={wilaya}>
+                    {wilaya}
+                  </option>
                 ))}
               </select>
             </div>
