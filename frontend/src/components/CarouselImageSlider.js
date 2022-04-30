@@ -33,21 +33,21 @@ export default function CarouselImageSlider() {
       <div className="carousel-inner">
         <div className="carousel-item active">
           <img
-            src="/images/imageSliderTest.png"
+            src="/images/EheaJhKU0AEU6rq-2.webp"
             className="d-block w-100"
             alt="..."
           />
         </div>
         <div className="carousel-item">
           <img
-            src="/images/imageSliderTest.png"
+            src="/images/asus-rog-zephyrus-g14-ga401.jpg"
             className="d-block w-100"
             alt="..."
           />
         </div>
         <div className="carousel-item">
           <img
-            src="/images/imageSliderTest.png"
+            src="/images/Mi_Curved_Gaming_Monitor_34_inch_header.jpg"
             className="d-block w-100"
             alt="..."
           />

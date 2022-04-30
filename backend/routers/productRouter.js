@@ -20,6 +20,14 @@ productRouter.get(
     res.send({ createdProducts });
   })
 );
+//suggestions for the search box
+productRouter.get(
+  "/suggestions",
+  expressAsyncHandler(async (req, res) => {
+    const suggestions = await Product.find().distinct("_name");
+    res.send(suggestions);
+  })
+);
 productRouter.get(
   "/categories",
   expressAsyncHandler(async (req, res) => {

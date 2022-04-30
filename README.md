@@ -131,3 +131,10 @@ updated the register form and the useractions to be compatible with the backend 
 created placeorder component and removed the personal informations from the cart page \
 turned the search box to a form removed the null search option \
 for the search page display hello world in case no product is found as a placeholder \\
+
+## `commit-33`
+
+update in the search box functionallity and style \
+fetching suggestions from the backend the filtering the data according to what is been inserted \
+it displays the range 0-7 unique products names to auto fill the search bar \
+with no redirect when a suggestion is chosen \\ 

@@ -1005,3 +1005,35 @@ a:hover {
 .noborders {
     border: none;
 }
+
+.dataResult {
+  margin-top: 5px;
+  width: 92%;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  overflow: hidden;
+  overflow-y: auto;
+  border-radius: 3px;
+
+}
+
+.dataResult::-webkit-scrollbar {
+  display: none;
+}
+
+.dataResult .dataItem {
+  padding: 10px;
+  cursor: pointer;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  color: black;
+  font-size: 18px;
+  transition: all .4s;
+}
+
+
+.dataItem:hover {
+  background-color: #c9c9c9;
+} 
+
