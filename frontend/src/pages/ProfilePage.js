@@ -4,6 +4,7 @@ import ProfileInformations from "../components/ProfileInformations";
 import { useDispatch } from "react-redux";
 import { signout } from "../actions/userActions";
 import { Link } from "react-router-dom";
+import ProfileEditPassword from "../components/ProfileEditPassword";
 
 export default function ProfilePage() {
   const dispatch = useDispatch();
@@ -25,18 +26,22 @@ export default function ProfilePage() {
           <img
             src="/images/userWhite.png"
             alt="carticon"
-            className="linkicon mrgnrgt-50"
+            className="profilelinkicon mrgnrgt-50"
           />
-          <a>Mon profile PCPRODZ</a>
+          <a className="mrgnlft-10 notextdecoration blackcolor font-bold font-18">
+            Mon profile PCPRODZ
+          </a>
         </div>
         <hr className="width-full"></hr>
         <div>
           <img
             src="/images/orders.png"
             alt="carticon"
-            className="linkicon mrgnrgt-50"
+            className="profilelinkicon mrgnrgt-50"
           />
-          <a>Vos Commandes</a>
+          <a className="mrgnlft-10 notextdecoration blackcolor font-bold font-18">
+            Vos Commandes
+          </a>
         </div>
         <hr className="width-full"></hr>
         <div className="align-center">
@@ -46,7 +51,7 @@ export default function ProfilePage() {
             to="#signout"
             onClick={signoutHandler}
           >
-            <header class="font-cabin font-20 pdgtp-5 font-bold">
+            <header class="font-cabin font-25 pdgtp-5 font-bold">
               Se deconnecter
             </header>
           </Link>
@@ -57,8 +62,9 @@ export default function ProfilePage() {
         style={{ paddingTop: "15px", paddingBottom: "15px" }}
       >
         {
-          //<ProfileEditInformations />
-          <ProfileInformations />
+          <ProfileEditInformations />
+          //<ProfileInformations />
+          //<ProfileEditPassword />
         }
       </div>
     </div>

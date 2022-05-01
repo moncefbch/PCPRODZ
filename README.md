@@ -137,4 +137,19 @@ for the search page display hello world in case no product is found as a placeho
 update in the search box functionallity and style \
 fetching suggestions from the backend the filtering the data according to what is been inserted \
 it displays the range 0-7 unique products names to auto fill the search bar \
-with no redirect when a suggestion is chosen \\ 
+with no redirect when a suggestion is chosen \\
+
+## `commit-34`
+
+fix the size of the images in main carousel\
+make the main carouselmore responsive\
+edit the profile page (profile informations - edit informations - edit password)\
+make it responsive and add buttons of saving and canceling\
+the layout is ready for teh bacckend work with , didnt give much importance for the ui\
+fixed link icons in the profile page\
+there is no more figma slides (client side) so probably imma work on the admin side\
+\
+\
+
+note:\
+in ProfilePage.js u will find 3 components (2 are commented) with some anchors and buttons (someone needs to route link everything with each other)\

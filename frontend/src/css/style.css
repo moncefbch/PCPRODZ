@@ -1,40 +1,37 @@
 @font-face {
-    font-family: logoFont;
-    src: url("../../public/fonts/hemi\ head\ bd\ it.ttf");
-  }
+  font-family: logoFont;
+  src: url("../../public/fonts/hemi\ head\ bd\ it.ttf");
+}
 
-html, body {
+html,
+body {
   scroll-behavior: smooth;
 }
 
 .contentDiv {
-    width: 80%;
-    margin: auto;
+  width: 80%;
+  margin: auto;
 }
 @media screen and (max-width: 1150px) {
-    .contentDiv {
-        width: 100%;
-    }
-    
+  .contentDiv {
+    width: 100%;
+  }
 }
-
-
 
 /* remove underline from all a tag*/
-.notextdecoration{
-    scale: 0.8;
-    text-decoration: none;
-    cursor: pointer;
+.notextdecoration {
+  scale: 0.8;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.blackcolor{
-    overflow: hidden;
-    color: black;
+.blackcolor {
+  overflow: hidden;
+  color: black;
 }
 
-
-.blackcolor:hover{
-    color: black;
+.blackcolor:hover {
+  color: black;
 }
 
 @font-face {
@@ -62,9 +59,9 @@ html, body {
 }
 
 .secondNavBar {
-    background-color: #3C3C3C;
-    width: 100%;
-    padding-left: 20px;
+  background-color: #3c3c3c;
+  width: 100%;
+  padding-left: 20px;
 }
 
 a {
@@ -72,13 +69,13 @@ a {
 }
 
 .logoLabel {
-    color: white;
-    font-size: 35px;
-    line-height: 80px;
-    padding: 0 10px;
-    font-weight: bold;
-    font-family: logoFont;
-  }
+  color: white;
+  font-size: 35px;
+  line-height: 80px;
+  padding: 0 10px;
+  font-weight: bold;
+  font-family: logoFont;
+}
 
 #logoImg {
   width: 70px;
@@ -93,6 +90,16 @@ a {
   width: 30px;
   height: 30px;
 }
+
+.profilelinkicon {
+  margin-right: -15px;
+  margin-left: 30px;
+  margin-bottom: 5px;
+  width: 30px;
+  height: 30px;
+}
+
+/*add marginleft40 pixel to a tag with class aprofilelink*/
 
 .navigationBar ul {
   float: right;
@@ -203,8 +210,6 @@ a:hover {
     padding-left: 10px;
   }
 
-
-  
   .navigationBar ul li a {
     font-size: 16px;
   }
@@ -382,33 +387,32 @@ a:hover {
 }
 
 .pdgtp-5 {
-    padding-top: 5px;
+  padding-top: 5px;
 }
 
 .pdgtp-35 {
-    padding-top: 35px;
+  padding-top: 35px;
 }
 
 .pdgtp-15 {
-    padding-top: 15px;
+  padding-top: 15px;
 }
 
 .pdng-50 {
-    padding-left: 50px;
-    padding-right: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
-
 .font-10 {
-    font-size: 10px;
+  font-size: 10px;
 }
 
 .font-13 {
-    font-size: 13px;
+  font-size: 13px;
 }
 
 .font-18 {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .font-20 {
@@ -419,15 +423,12 @@ a:hover {
   font-size: 25px;
 }
 
-
-
 .font-40 {
   font-size: 40px;
 }
 .font-30 {
   font-size: 30px;
 }
-
 
 .font-bold {
   font-weight: bold;
@@ -451,13 +452,12 @@ a:hover {
 }
 
 .width-full {
-    width: 100%;
+  width: 100%;
 }
 
 .red-background {
   background-color: #ff0000;
 }
-
 
 .whitebackground {
   background-color: white;
@@ -472,55 +472,44 @@ a:hover {
 }
 
 .imgbackground {
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 70%;
-    background-position:center;
-    background-size:260px;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 70%;
+  background-position: center;
+  background-size: 260px;
 }
-
 
 .shadowForMainSquareType {
-    box-shadow: 0px 3px 10px 0px #a2a1a1;
+  box-shadow: 0px 3px 10px 0px #a2a1a1;
 }
 
-
-
-
-
-
-
-
-
-
-
 @font-face {
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: 400;
-    src: url(https://fonts.gstatic.com/s/materialicons/v126/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
-  }
-  
-  .material-icons {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    line-height: 1;
-    letter-spacing: normal;
-    text-transform: none;
-    display: inline-block;
-    white-space: nowrap;
-    word-wrap: normal;
-    direction: ltr;
-    -webkit-font-smoothing: antialiased;
-  }
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v126/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2)
+    format("woff2");
+}
 
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
 
 .carousel-container {
   background-color: white;
   padding-left: 100px;
-  padding-right: 100px; 
+  padding-right: 100px;
   padding-top: 50px;
   padding-bottom: 50px;
   width: 1280px;
@@ -549,7 +538,7 @@ a:hover {
 }
 
 .track {
-    height: 300px;
+  height: 300px;
 }
 .carousel-container .card-container {
   width: 259px;
@@ -573,7 +562,7 @@ a:hover {
 .navButton button {
   width: 60px;
   height: 60px;
-    opacity: 0.7;
+  opacity: 0.7;
   color: white;
   background-color: #262525;
   border-radius: 50%;
@@ -615,395 +604,391 @@ a:hover {
   box-sizing: border-box;
 }
 
+.small-img-row {
+  padding: 10px;
+  background-color: #e5e5e5;
+  border-radius: 20px;
+  margin: auto;
+  width: 100px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
 
-
-
-
-.small-img-row{
-    padding: 10px;
-    background-color: #e5e5e5;
-    border-radius: 20px;
-    margin: auto;
-    width: 100px;
-    height: 400px;
-    display:flex;
-    flex-direction: column;
- }
-
- 
 @media (max-width: 1070px) {
-    .small-img-row {
-        display:flex;
-        flex-direction: row;
-        width: 370px;
-        height: 100px;  
-        padding-bottom: 100px;
-    }
+  .small-img-row {
+    display: flex;
+    flex-direction: row;
+    width: 370px;
+    height: 100px;
+    padding-bottom: 100px;
   }
-.small-img-col{
-    flex-basis: 24%;
-    cursor: pointer;
- }
-
+}
+.small-img-col {
+  flex-basis: 24%;
+  cursor: pointer;
+}
 
 .productMargin {
-    margin: auto;
+  margin: auto;
 }
-
 
 .productDetailsImg {
-    width: 350px;
-    height: 350px;
+  width: 350px;
+  height: 350px;
 }
 
-
 .pdng-8 {
-    padding: 8px;
+  padding: 8px;
 }
 
 .mrgn-30 {
-    margin: 30px;
+  margin: 30px;
 }
 
 .mrgnbtm-0 {
-    margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 .mrgntp-0 {
-    margin-top: 0px;
+  margin-top: 0px;
 }
 
 .pdgbtm-20 {
-    padding-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 .pdgtp-50 {
-    padding-top: 50px;
-} 
+  padding-top: 50px;
+}
+
+.pdgtp-100 {
+  padding-top: 100px;
+}
 
 .mrgn-100 {
-    margin: 100px;
+  margin: 100px;
 }
 
 .mrgntp-30 {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .mrgntp-70 {
-    margin-top: 70px;
+  margin-top: 70px;
 }
 
 .mrgnrgt-30 {
-    margin-right: 30px;
+  margin-right: 30px;
 }
 
 .mrgnrgt-50 {
-    margin-right: 50px;
+  margin-right: 50px;
 }
 
 @media (max-width: 853px) {
-    .mrgnrgt-50 {
-        margin-right: 0px;
-    }
+  .mrgnrgt-50 {
+    margin-right: 0px;
+  }
 }
 
 .whiteColor {
-    color: white;
+  color: white;
 }
 
 .whiteColor:hover {
-    color: white;
+  color: white;
 }
 
 .mrgnlft-5 {
-    margin-left: 5px;
+  margin-left: 5px;
 }
 
 .mrgnlft-10 {
-    margin-left: 10px;
+  margin-left: 10px;
+}
+
+.mrgnlft-100 {
+  margin-left: 100px;
+}
+
+.pdgtp-150 {
+  padding-top: 150px;
+}
+
+.mrgnrgt-200 {
+  margin-right: 200px;
+}
+
+.mrgnrgt-100 {
+  margin-right: 100px;
 }
 
 .mrgnlft-15 {
-    margin-left: 15px;
+  margin-left: 15px;
 }
 
 .mrgnlft-30 {
-    margin-left: 30px;
+  margin-left: 30px;
 }
 
 .mrgnlft-50 {
-    margin-left: 50px;
+  margin-left: 50px;
 }
-
-
 
 .pdngrgt-20 {
-    padding-right: 20px;
-
+  padding-right: 20px;
 }
-
 
 .loginForm {
-    width: 500px;
-    margin: auto;
-    margin-top: 100px;
+  width: 500px;
+  margin: auto;
+  margin-top: 100px;
 }
 @media only screen and (max-width: 800px) {
-    .loginForm {
-        width: 450px;
-    }
+  .loginForm {
+    width: 450px;
+  }
 }
 .input_form {
-    padding-top: 65px;
-    padding-bottom: 65px;
-    width: 100%;
-    background-color: white;
-    border-radius: 10px;
-    border: none;
-    font-size: 20px;
+  padding-top: 65px;
+  padding-bottom: 65px;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  border: none;
+  font-size: 20px;
 }
 .attributForm {
-    width: 80%;
-    margin: auto;
+  width: 80%;
+  margin: auto;
 }
 
 .pdngbtm-50 {
-    padding-bottom: 50px;
+  padding-bottom: 50px;
 }
 
 .pdngbtm-10 {
-    padding-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 .InputField {
-    width: 100%;
-    height: 60px;
-    background-color: white;
-    border-radius: 12px;
-    font-size: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    border-width: 2px;
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  border-radius: 12px;
+  font-size: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-width: 2px;
 }
 
 .loginOrRegisterButton {
-    width: 100%;
-    height: 70px;
-    background-color: #000000;
-    border-radius: 25px;
-    font-size: 20px;
-    color: white;
-    margin-top: 30px;
+  width: 100%;
+  height: 70px;
+  background-color: #000000;
+  border-radius: 25px;
+  font-size: 20px;
+  color: white;
+  margin-top: 30px;
 }
 
 .passcommandbutton {
-    width: 100%;
-    height: 70px;
-    background-color: #000000;
-    border-radius: 20px;
-    font-size: 30px;
-    color: white;
-    margin-top: 50px;
+  width: 100%;
+  height: 70px;
+  background-color: #000000;
+  border-radius: 20px;
+  font-size: 30px;
+  color: white;
+  margin-top: 50px;
 }
-
-
-
-
-
 
 /* Style The Dropdown Button */
 .dropbtn {
-    background-color: #3C3C3C;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
-      z-index: 3;
-    border-radius: 10px;
-    border-top-left-radius: 0px;
-    display: none;
-    width: 250px;
-    height: 700px;
-    padding: 20px;
-    position: absolute;
-    background-color: #3C3C3C;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #262525;border-radius: 10px;color: white;}
-  
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  
-  /* Change the background color of the dropdown button when the dropdown content is shown */
-  .dropdown:hover .dropbtn {
-    background-color: black;
-  }
-
-  .cathegoriesHeader {
-      color: white;
-      margin-bottom: 10px;
-  }
-  .onecathegorie {
-      margin-bottom: 10px;
-  }
-
-  @media screen and (max-width: 800px) {
-    .hideWhenPhone {
-        display: none;
-    }
+  background-color: #3c3c3c;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
 }
 
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  z-index: 3;
+  border-radius: 10px;
+  border-top-left-radius: 0px;
+  display: none;
+  width: 250px;
+  height: 700px;
+  padding: 20px;
+  position: absolute;
+  background-color: #3c3c3c;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #262525;
+  border-radius: 10px;
+  color: white;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: black;
+}
+
+.cathegoriesHeader {
+  color: white;
+  margin-bottom: 10px;
+}
+.onecathegorie {
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 800px) {
+  .hideWhenPhone {
+    display: none;
+  }
+}
 
 .zoomwhenhover {
-    overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+  overflow: hidden; /* [1.2] Hide the overflowing of child elements */
 }
 
-    /* [2] Transition property for smooth transformation of images */
+/* [2] Transition property for smooth transformation of images */
 .zoomwhenhover img {
-    transition: transform .3s ease;
+  transition: transform 0.3s ease;
 }
 
-    /* [3] Finally, transforming the image when container gets hovered */
+/* [3] Finally, transforming the image when container gets hovered */
 .zoomwhenhover:hover img {
-    transform: scale(1.5);
+  transform: scale(1.5);
 }
 
-
-
-.flex-item-left-25{
-    flex: 25%;
-    margin-right: 30px;
-
+.flex-item-left-25 {
+  flex: 25%;
+  margin-right: 30px;
 }
 .flex-item-right-70 {
-    flex: 70%;
-    margin-left: 30px;
+  flex: 70%;
+  margin-left: 30px;
 }
 @media screen and (max-width: 1300px) {
-    .flex-item-left-25{
-        flex: 100%;
-        margin-right: 0px;
-    }
-    .flex-item-right-70 {
-        flex: 100%;
-        margin-left: 0px;
-    }
+  .flex-item-left-25 {
+    flex: 100%;
+    margin-right: 0px;
+  }
+  .flex-item-right-70 {
+    flex: 100%;
+    margin-left: 0px;
+  }
 }
 .filterAttribute {
-    border-width: 1px;
-    border-radius: 20px;
-    border-style: solid;
-    border-color: black;
-    font-family: cabin;
-    font-size: 20px;
-    padding: 10px;
-    margin-left: 15px;
-    margin-right: 15px;
-    font-weight: bold;
-    margin-bottom: 20px;
+  border-width: 1px;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: black;
+  font-family: cabin;
+  font-size: 20px;
+  padding: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
-
-
 .invisiblebutton {
-    border-width: 0px;
-    background-color: white;
+  border-width: 0px;
+  background-color: white;
 }
 
 .cancelFilterAttributeSvg:hover {
-    border-radius: 100%;
-    background-color: white;
-    filter: invert(100%);
+  border-radius: 100%;
+  background-color: white;
+  filter: invert(100%);
 }
-.width80pc{
-    width: 80%;
-}
-
-.marginAuto{
-    margin-left: auto;
-    margin-right: auto;
-}   
-
-.paddingAuto{
-    padding-left: 50px;
-    padding-right: 50px;
+.width80pc {
+  width: 80%;
 }
 
+.marginAuto {
+  margin-left: auto;
+  margin-right: auto;
+}
 
+.paddingAuto {
+  padding-left: 50px;
+  padding-right: 50px;
+}
 
 .productCarouselItem {
-    margin-right: 15px;
-    width: 259px;
-    height: 100%;
-    position: relative;
-    cursor: pointer;
-    border-radius: 20px;
-    box-shadow: 0px 2px 10px 1px #a2a1a1;
-    }
-    .productinformationpanel {
-        width: 100%;
-    position: absolute;
-    bottom: 0;
-    transition: all .4s;
-    overflow: hidden;
-    height: 0;
-    border-radius: 20px;
-    }
-    .productCarouselItem:hover .productinformationpanel,
-    .productinformationpanel:hover {
-    height: 40%;
-    background: rgba(229, 229, 229, 0.94);
-    }
-    .productCarouselItem > img {
-    display: block;/* Prevent inline gap under image*/
-    }
-
-
-
+  margin-right: 15px;
+  width: 259px;
+  height: 100%;
+  position: relative;
+  cursor: pointer;
+  border-radius: 20px;
+  box-shadow: 0px 2px 10px 1px #a2a1a1;
+}
+.productinformationpanel {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  transition: all 0.4s;
+  overflow: hidden;
+  height: 0;
+  border-radius: 20px;
+}
+.productCarouselItem:hover .productinformationpanel,
+.productinformationpanel:hover {
+  height: 40%;
+  background: rgba(229, 229, 229, 0.94);
+}
+.productCarouselItem > img {
+  display: block; /* Prevent inline gap under image*/
+}
 
 .blackplaceholder::placeholder {
-    color: black;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
+  color: black;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
 .blackplaceholder {
-    border-bottom-width: 2px;
-    /*delete all borders exept the bottom border*/
-    border-top: none;
-    border-left: none;
-    border-right: none;
+  border-bottom-width: 2px;
+  /*delete all borders exept the bottom border*/
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
 
 .noborders {
-    border: none;
+  border: none;
 }
 
 .dataResult {
@@ -1014,7 +999,6 @@ a:hover {
   overflow: hidden;
   overflow-y: auto;
   border-radius: 3px;
-
 }
 
 .dataResult::-webkit-scrollbar {
@@ -1029,11 +1013,27 @@ a:hover {
   align-items: center;
   color: black;
   font-size: 18px;
-  transition: all .4s;
+  transition: all 0.4s;
 }
-
 
 .dataItem:hover {
   background-color: #c9c9c9;
-} 
+}
+.carouselimageresponsive {
+  height: 800px;
+}
+/*make carouselimmageresponsive responsive*/
+@media screen and (max-width: 1300px) {
+  .carouselimageresponsive {
+    height: 500px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .carouselimageresponsive {
+    height: 300px;
+  }
+}
 
+.width-300 {
+  width: 70%;
+}
