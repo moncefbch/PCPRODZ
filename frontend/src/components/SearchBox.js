@@ -38,13 +38,14 @@ export default function SearchBox() {
           aria-describedby="search-addon"
         />
         <span
-          className="input-group-text border-1"
+          className="input-group-text border-1 "
           id="search-addon"
-          style={{ backgroundColor: "whitesmoke" }}
+          style={{
+            backgroundColor: "#3c3c3c",
+          }}
         >
-          <a href="" onClick={handleSubmit}>
-            {" "}
-            <i className="fa fa-search ms-auto whitebackground"></i>
+          <a href="" onClick={handleSubmit} style={{ background: "none" }}>
+            <i className="fa fa-search ms-auto " style={{ color: "white" }}></i>
           </a>
         </span>
       </form>

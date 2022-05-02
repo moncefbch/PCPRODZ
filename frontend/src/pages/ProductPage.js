@@ -35,7 +35,7 @@ export default function ProductPage(props) {
     <div className="flex-container" style={{ margin: "5%" }}>
       <div
         className="flex-item-left-70 whitebackground radius-10 mrgnrgt-50"
-        style={{ marginTop: 0 }}
+        style={{ marginBottom: "30px" }}
       >
         <header className="font-cabin font-40 mrgn-30">{product._name}</header>
         <hr

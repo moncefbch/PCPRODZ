@@ -17,9 +17,8 @@ export default function ProfilePage() {
         className="flex-item-right-30 whitebackground radius-10 mrgnrgt-50"
         style={{
           paddingTop: "15px",
-          paddingBottom: "10px",
+          paddingBottom: "15px",
           height: "220px",
-          marginBottom: "40px",
         }}
       >
         <div>
@@ -62,8 +61,8 @@ export default function ProfilePage() {
         style={{ paddingTop: "15px", paddingBottom: "15px" }}
       >
         {
-          <ProfileEditInformations />
-          //<ProfileInformations />
+          //<ProfileEditInformations />
+          <ProfileInformations />
           //<ProfileEditPassword />
         }
       </div>

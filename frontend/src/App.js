@@ -17,24 +17,28 @@ import Register from "./pages/Register";
 import CartPage from "./pages/CartPage";
 import ProfilePage from "./pages/ProfilePage";
 import PlaceOrder from "./components/PlaceOrder";
+import AdminPage from "./pages/AdminPage";
 
 function App() {
   return (
     <Router>
       <MainNavigationBar />
       <SecondaryNavigationBar />
-      <Route path="/" component={HomePage} exact />
-      <Route path="/product/:id" component={ProductPage} />
-      <Route path="/search=:text" component={SearchPage} />
-      <Route path="/login" component={Login} />
-      <Route path="/register" component={Register} />
-      <Route path="/cart/:id?" component={CartPage} />
-      <Route path="/profile" component={ProfilePage} />
-      <Route path="/placeorder" component={PlaceOrder} />
-      <Footer />
-      <Helmet>
-        <script src="js/product_carousel.js"></script>
-      </Helmet>
+      <div style={{ padding: "auto" }}>
+        <Route path="/" component={HomePage} exact />
+        <Route path="/product/:id" component={ProductPage} />
+        <Route path="/search=:text" component={SearchPage} />
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
+        <Route path="/cart/:id?" component={CartPage} />
+        <Route path="/profile" component={ProfilePage} />
+        <Route path="/placeorder" component={PlaceOrder} />
+        <Route path="/admin" component={AdminPage} />
+        <Footer />
+        <Helmet>
+          <script src="js/product_carousel.js"></script>
+        </Helmet>
+      </div>
     </Router>
   );
 }

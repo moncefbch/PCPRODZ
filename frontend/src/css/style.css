@@ -403,6 +403,10 @@ a:hover {
   padding-right: 50px;
 }
 
+.pdng-20 {
+  padding: 50px;
+}
+
 .font-10 {
   font-size: 10px;
 }
@@ -642,6 +646,10 @@ a:hover {
   padding: 8px;
 }
 
+.pdng-15 {
+  padding: 15px;
+}
+
 .mrgn-30 {
   margin: 30px;
 }
@@ -770,6 +778,10 @@ a:hover {
 
 .pdngbtm-10 {
   padding-bottom: 10px;
+}
+
+.pdng-45 {
+  padding: 45px;
 }
 
 .InputField {
@@ -1019,21 +1031,15 @@ a:hover {
 .dataItem:hover {
   background-color: #c9c9c9;
 }
-.carouselimageresponsive {
-  height: 800px;
-}
-/*make carouselimmageresponsive responsive*/
-@media screen and (max-width: 1300px) {
-  .carouselimageresponsive {
-    height: 500px;
-  }
-}
-@media screen and (max-width: 800px) {
-  .carouselimageresponsive {
-    height: 300px;
-  }
-}
 
 .width-300 {
   width: 70%;
+}
+
+/*zoomwhenhover responsive*/
+@media screen and (max-width: 950px) {
+  .zoomwhenhover {
+    width: 400px;
+    margin: auto;
+  }
 }

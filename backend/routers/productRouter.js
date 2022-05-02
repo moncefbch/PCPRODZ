@@ -35,6 +35,8 @@ productRouter.get(
     res.send(categories);
   })
 );
+
+//mouayed : this api is broken and not used
 productRouter.get(
   "/query",
   expressAsyncHandler(async (req, res) => {
@@ -68,7 +70,6 @@ productRouter.get(
   })
 );
 
-//productRouter.post search api that accepts one parameter text and returns all products that one of their attribtes matches the text
 productRouter.get(
   "/search?:text",
   expressAsyncHandler(async (req, res) => {
@@ -96,6 +97,44 @@ productRouter.get(
       return res.status(200).send({});
     }
     res.send(sortedProducts);
+  })
+);
+
+//this is a post request to add a new product (working)
+productRouter.post(
+  "/add",
+  expressAsyncHandler(async (req, res) => {
+    const product = new Product(req.body);
+    const createdProduct = await product.save();
+    res.send(createdProduct);
+  })
+);
+/* this is the json format of the post request 
+  {
+          "_name": "Macbook Pro",
+          "brand": "Golden Apple",
+          "processeur": "Intel Core i7",
+          "ram": "1666GB",
+          "disque": "512222GB",
+          "gpu": "Intel Iris Plus Graphics 640",
+          "price": 9999,
+          "image": "/images/product2.png",
+          "category": "laptop",
+          "countInStock": 8,
+          "rating": 4
+  }
+*/
+
+//delete a product with its id
+productRouter.delete(
+  "/delete:id",
+  expressAsyncHandler(async (req, res) => {
+    const deletedProduct = await Product.findByIdAndDelete(req.params.id);
+    if (deletedProduct) {
+      res.send(deletedProduct);
+    } else {
+      res.status(404).send({ message: "Product Not Found" });
+    }
   })
 );
 

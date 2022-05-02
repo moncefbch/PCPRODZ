@@ -78,7 +78,7 @@ export default function MainNavigationBar() {
           </li>
         </ul>
       </div>
-      <SearchBox></SearchBox>
+      <SearchBox />
     </div>
   );
 }

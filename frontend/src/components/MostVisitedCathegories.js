@@ -13,7 +13,7 @@ export default function MostVisitedCathegories() {
         className="flex-container informationspanel"
         style={{ paddingBottom: "30px", marginBottom: "100px" }}
       >
-        <div className="flex-item-left">
+        <div className="flex-item-left align-center">
           <div className="flex-container ">
             <div className="flex-item-left" style={{ padding: "10px" }}>
               <div

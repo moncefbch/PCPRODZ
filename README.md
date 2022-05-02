@@ -153,3 +153,15 @@ there is no more figma slides (client side) so probably imma work on the admin s
 
 note:\
 in ProfilePage.js u will find 3 components (2 are commented) with some anchors and buttons (someone needs to route link everything with each other)\
+
+## `commit-35`
+
+abondonate every modification that has been done for the main carousel\
+create a AdminPage with route /admin (only template)\
+use the same logic of the profile page where the menu is static and the rest is a groupe of components/
+one admin component was created (add new product)\
+create api that adds a product to the DB\
+create an api that deletes a product from the DB\
+the suggestion api has to look inside all attributes, not only \
+make MostVisitedCathegories a little bit more responsive\
+the website zoom is being improved (70% of the previous zoom even if the zoom is 100%)\\
