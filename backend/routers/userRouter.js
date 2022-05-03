@@ -16,6 +16,14 @@ userRouter.get(
   })
 );
 
+userRouter.get(
+  "/",
+  expressAsyncHandler(async (req, res) => {
+    const users = await User.find();
+    res.send({ users });
+  }
+));
+
 userRouter.post(
   "/signin",
   expressAsyncHandler(async (req, res) => {
@@ -29,6 +37,7 @@ userRouter.post(
           lastname:user.lastname,
           wilaya: user.wilaya,
           isAdmin: user.isAdmin,
+          cart: user.cart,
           token: generateToken(user),
         });
         return;
@@ -50,14 +59,44 @@ userRouter.post(
     res.send({
       _id: createdUser._id,
       name: createdUser.name,
-      lastname:user.lastname,
+      lastname: createdUser.lastname,
       wilaya: createdUser.wilaya,
       email: createdUser.email,
       isAdmin: createdUser.isAdmin,
-      isSeller: user.isSeller,
+      isSeller: createdUser.isSeller,
+      cart: createdUser.cart,
       token: generateToken(createdUser),
     });
   })
 );
+
+userRouter.post(
+  '/cartsave',
+  expressAsyncHandler(async (req, res) => {
+    const { cartItems } = req.body;
+    const { userInfo } = req.body;
+    if (!userInfo) {
+      res.status(401).send({ message: "you must be logged in" });
+      return;
+    }
+    const { _id } = userInfo;
+    const userCart = await User.findById(_id);
+    if (!userCart) {
+      res.status(404).send({ message: "user not found" });
+      return;
+    } 
+    userCart.cart = cartItems;
+    await userCart.save();
+    res.send({ cart: userCart.cart });
+  }
+)) 
+
+/* userRouter.post(
+  'cartsave',
+  expressAsyncHandler(async (req, res) => {
+    const cartItems  = req.body;
+    const user = await user.save()  }
+)) */
+
 
 export default userRouter;

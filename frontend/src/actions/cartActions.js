@@ -2,6 +2,8 @@ import Axios from "axios";
 import {
   CART_ADD_ITEM,
   CART_REMOVE_ITEM,
+  CART_SAVED_ITEM,
+  CART_SAVE_ITEM_REQUEST,
   CART_ADD_ITEM_FAIL, // dont forget to add this
 } from "../Constants/cartConstants";
 
@@ -22,6 +24,22 @@ export const addToCart = (productId, qty) => async (dispatch, getState) => {
     },
   });
   localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
+};
+export const saveInDb = (userInfo,cartItems) => async (dispatch) => {
+  dispatch({ type: CART_SAVE_ITEM_REQUEST, payload: userInfo , cartItems });
+  console.log({ userInfo,cartItems });
+  try {
+    const { data } = await Axios.post("/api/users/cartsave", { userInfo, cartItems });
+    dispatch({
+      type: CART_SAVED_ITEM,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: CART_ADD_ITEM_FAIL,
+      payload: error.response.data.message,
+    });
+  }
 };
 
 export const removeFromCart = (productId) => (dispatch, getState) => {

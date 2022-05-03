@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, removeFromCart } from "../actions/cartActions";
+import { addToCart, removeFromCart ,saveInDb } from "../actions/cartActions";
 import { Link } from "react-router-dom";
 import ErrorMessageBox from "./ErrorMessageBox";
 
@@ -12,12 +12,18 @@ export default function Cart(props) {
 
   const cart = useSelector((state) => state.cart);
   const { cartItems, error } = cart;
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
   const dispatch = useDispatch();
   useEffect(() => {
     if (productId) {
       dispatch(addToCart(productId, qty));
     }
   }, [dispatch, productId, qty]);
+  useEffect(() => {
+    dispatch(saveInDb(userInfo,cartItems));
+  }, [dispatch, userInfo, cartItems]);
+  
   const removeFromCartHandler = (id) => {
     // delete action
     dispatch(removeFromCart(id));

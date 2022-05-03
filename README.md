@@ -165,3 +165,11 @@ create an api that deletes a product from the DB\
 the suggestion api has to look inside all attributes, not only \
 make MostVisitedCathegories a little bit more responsive\
 the website zoom is being improved (70% of the previous zoom even if the zoom is 100%)\\
+
+## `commit-36`
+
+added cart array to the user model \
+added the post rout cart save to the userRouter \
+new cartAction saveInDb function \
+copying the cart array from DB during the login action \
+giving the cart compounent access to the signinstate in order to use the saveInDb action \\

@@ -73,6 +73,7 @@ const userSchema = new mongoose.Schema(
         message: "Choisir ta wilaya",
       },
     },
+    cart: { type: Array, default: [] },
   },
   {
     timestamps: true,
