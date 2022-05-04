@@ -173,3 +173,8 @@ added the post rout cart save to the userRouter \
 new cartAction saveInDb function \
 copying the cart array from DB during the login action \
 giving the cart compounent access to the signinstate in order to use the saveInDb action \\
+
+## `commit-36.1`
+
+it basicly add the content of the local storage cart to the DB cart array \
+then fills the local storage cart with the new DB array and  keeps everything synced \\

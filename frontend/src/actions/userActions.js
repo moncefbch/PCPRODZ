@@ -36,9 +36,16 @@ export const signin = (email, password) => async (dispatch) => {
   dispatch({ type: USER_SIGNIN_REQUEST, payload: { email, password } });
   try {
     const { data } = await Axios.post('/api/users/signin', { email, password });
+    const cartItems = JSON.parse(localStorage.getItem('cartItems'));
+    if (cartItems) {
+      const newCartItems = cartItems.filter(
+        (cartItem) => !data.cart.find((item) => item.product === cartItem.product)
+      );
+      data.cart = [...data.cart, ...newCartItems];
+    }
     dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
-    localStorage.setItem('userInfo', JSON.stringify(data));
     localStorage.setItem('cartItems', JSON.stringify(data.cart));
+    localStorage.setItem('userInfo', JSON.stringify(data));
   } catch (error) {
     dispatch({
       type: USER_SIGNIN_FAIL,
