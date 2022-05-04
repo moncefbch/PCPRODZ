@@ -5,10 +5,11 @@ const userSchema = new mongoose.Schema(
     lastname: { type: String, required: false, unique: false },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
+    phone: { type: String, required: false, unique: false },
     isAdmin: { type: Boolean, default: false, required: true },
     wilaya: {
       type: String,
-      required: true ,
+      required: true,
       enum: {
         values: [
           "01-Adrar",

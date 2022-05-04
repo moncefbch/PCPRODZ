@@ -4,6 +4,7 @@ import ProfileInformations from "../components/ProfileInformations";
 import { useDispatch } from "react-redux";
 import { signout } from "../actions/userActions";
 import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import ProfileEditPassword from "../components/ProfileEditPassword";
 
 export default function ProfilePage() {
@@ -18,6 +19,7 @@ export default function ProfilePage() {
         style={{
           paddingTop: "15px",
           paddingBottom: "15px",
+          marginBottom: "20px",
           height: "220px",
         }}
       >
@@ -27,7 +29,11 @@ export default function ProfilePage() {
             alt="carticon"
             className="profilelinkicon mrgnrgt-50"
           />
-          <a className="mrgnlft-10 notextdecoration blackcolor font-bold font-18">
+
+          <a
+            href="/profile/"
+            className="mrgnlft-10 notextdecoration blackcolor font-bold font-18"
+          >
             Mon profile PCPRODZ
           </a>
         </div>
@@ -61,9 +67,21 @@ export default function ProfilePage() {
         style={{ paddingTop: "15px", paddingBottom: "15px" }}
       >
         {
-          //<ProfileEditInformations />
-          <ProfileInformations />
-          //<ProfileEditPassword />
+          //show ProfileInformations component only if the url is /profile
+          //otherwise show ProfileEditInformations component
+          <Router>
+            <Route exact path="/profile" component={ProfileInformations} />
+            <Route
+              exact
+              path="/profile/edit"
+              component={ProfileEditInformations}
+            />
+            <Route
+              exact
+              path="/profile/password"
+              component={ProfileEditPassword}
+            />
+          </Router>
         }
       </div>
     </div>

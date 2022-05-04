@@ -19,13 +19,6 @@ next.addEventListener("click", () => {
   track.style.transform = `translateX(-${index * carouselWidth}px)`;
 
   if (track.offsetWidth - (index + 1) * carouselWidth < carouselWidth) {
-    console.log("index");
-    console.log(index);
-    console.log("offsetWidth");
-    console.log(track.offsetWidth);
-    console.log("carouselWidth");
-    console.log(carouselWidth);
-
     next.classList.add("hide");
   }
 });

@@ -3,28 +3,31 @@ const data = {
   users: [
     {
       name: "amine",
-      lastname: "user",
+      lastname: "hamoutene",
       email: "amine@estin.dz",
       password: bcrypt.hashSync("1234", 8),
       isAdmin: true,
       wilaya: "15-Tizi-Ouzou",
+      phone: "7777777777",
     },
     {
       name: "mouayed",
-      lastname: "user",
+      lastname: "keziz",
       email: "mouayed@estin.dz",
       password: bcrypt.hashSync("6969", 8),
       isAdmin: false,
       wilaya: "40-Khenchela",
+      phone: "6666666666",
     },
 
     {
       name: "moncef",
-      lastname: "user",
+      lastname: "bouchenacha",
       email: "mo@estin.dz",
       password: bcrypt.hashSync("123456", 8),
       isAdmin: false,
       wilaya: "09-Blida",
+      phone: "5555555555",
     },
   ],
 

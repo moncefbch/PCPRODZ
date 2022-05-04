@@ -24,7 +24,8 @@ function App() {
     <Router>
       <MainNavigationBar />
       <SecondaryNavigationBar />
-      <div style={{ padding: "auto" }}>
+
+      <div style={{ margin: "auto", maxWidth: "1920px" }}>
         <Route path="/" component={HomePage} exact />
         <Route path="/product/:id" component={ProductPage} />
         <Route path="/search=:text" component={SearchPage} />
@@ -34,11 +35,11 @@ function App() {
         <Route path="/profile" component={ProfilePage} />
         <Route path="/placeorder" component={PlaceOrder} />
         <Route path="/admin" component={AdminPage} />
-        <Footer />
-        <Helmet>
-          <script src="js/product_carousel.js"></script>
-        </Helmet>
       </div>
+      <Footer />
+      <Helmet>
+        <script src="js/product_carousel.js"></script>
+      </Helmet>
     </Router>
   );
 }

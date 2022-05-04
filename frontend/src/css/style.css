@@ -398,6 +398,14 @@ a:hover {
   padding-top: 15px;
 }
 
+.pdgtp-15 {
+  padding-top: 15px;
+}
+
+.pdgbtm-16 {
+  padding-bottom: 16px;
+}
+
 .pdng-50 {
   padding-left: 50px;
   padding-right: 50px;
@@ -512,27 +520,24 @@ a:hover {
 
 .carousel-container {
   background-color: white;
+
   padding-left: 100px;
   padding-right: 100px;
   padding-top: 50px;
   padding-bottom: 50px;
-  width: 1280px;
+  max-width: 2000px;
+  width: 90%;
   margin: 50px auto;
   min-height: 200px;
   position: relative;
 }
 @media screen and (max-width: 768px) {
   .carousel-container {
-    width: 80%;
     padding-left: 70px;
     padding-right: 70px;
   }
 }
-@media screen and (max-width: 1024px) {
-  .carousel-container {
-    width: 85%;
-  }
-}
+
 .carousel-container .carousel-inner {
   overflow: hidden;
 }
@@ -1042,4 +1047,14 @@ a:hover {
     width: 400px;
     margin: auto;
   }
+}
+
+.grayonhover {
+  padding: 10px;
+}
+
+.grayonhover:hover {
+  border-radius: 100%;
+  background-color: #e5e5e5;
+  transition: all 1s;
 }

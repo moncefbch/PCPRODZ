@@ -1,12 +1,26 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import { React, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { edit } from "../actions/userActions";
 
-export default function ProfileEditInformations() {
+export default function ProfileEditInformations(props) {
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
 
+  const [name, setName] = useState(userInfo.name);
+  const [lastname, setLastName] = useState(userInfo.lastname);
+  const [phone, setPhone] = useState(userInfo.phone);
+
+  const dispatch = useDispatch();
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(edit(userInfo._id, name, lastname, phone));
+    props.history.push("/profile");
+    window.location.reload(false);
+  };
+
   return (
-    <div>
+    <form className="form" onSubmit={submitHandler}>
       <div className="mrgnlft-30">
         <div class="d-flex flex-row">
           <div class="p-2">
@@ -35,9 +49,12 @@ export default function ProfileEditInformations() {
             <input
               type="text"
               class="form-control blackplaceholder font-cabin font-20 pdgtp-5"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
               placeholder="Nom"
+              value={name}
+              onClick={(e) => (e.target.value = null)}
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
             ></input>
           </div>
         </div>
@@ -49,6 +66,11 @@ export default function ProfileEditInformations() {
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Prénom"
+              value={lastname}
+              onClick={(e) => (e.target.value = null)}
+              onChange={(e) => {
+                setLastName(e.target.value);
+              }}
             ></input>
           </div>
         </div>
@@ -70,6 +92,11 @@ export default function ProfileEditInformations() {
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               placeholder="Num"
+              value={phone}
+              onClick={(e) => (e.target.value = null)}
+              onChange={(e) => {
+                setPhone(e.target.value);
+              }}
             ></input>
           </div>
         </div>
@@ -84,15 +111,16 @@ export default function ProfileEditInformations() {
           >
             Enregistrer
           </button>
-          <button
-            style={{ width: "200px", marginRight: "20px" }}
-            type="submit"
-            className="p-2 font-cabin font-18 radius-25 loginOrRegisterButton "
-          >
-            Annuler
-          </button>
+          <Link to="/profile">
+            <button
+              style={{ width: "200px", marginRight: "20px" }}
+              className="p-2 font-cabin font-18 radius-25 loginOrRegisterButton "
+            >
+              Annuler
+            </button>
+          </Link>
         </div>
       </div>
-    </div>
+    </form>
   );
 }

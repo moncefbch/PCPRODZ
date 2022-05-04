@@ -177,4 +177,16 @@ giving the cart compounent access to the signinstate in order to use the saveInD
 ## `commit-36.1`
 
 it basicly add the content of the local storage cart to the DB cart array \
-then fills the local storage cart with the new DB array and  keeps everything synced \\
+then fills the local storage cart with the new DB array and keeps everything synced \\
+
+## `commit-36.9 fi khater moncef`
+
+some css modification for the new product section (more responsive / display more products)\
+fix the website zoom (zoom out to 20 percent and the website will stay with its format (centred) just try it) (not sure if the carousel will be included in this shift or no, but its included in this demo version)\
+create api : "user/edit" tested\
+create api : "user/changepassword" tested\
+route the profile page with all its components\
+navigation through profile components\
+edit profile informations frontend is linked with backend tested\
+change password frontend is linked with backend tested\
+need to display loading and error in both applications

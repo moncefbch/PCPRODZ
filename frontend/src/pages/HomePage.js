@@ -8,11 +8,9 @@ export default function HomePage() {
   return (
     <div>
       <CarouselImageSlider />
-      <div className="contentDiv">
-        <NewProductsSection />
-        <MostVisitedCathegories />
-        <PcprodzInformationLabel />
-      </div>
+      <NewProductsSection />
+      <MostVisitedCathegories />
+      <PcprodzInformationLabel />
     </div>
   );
 }

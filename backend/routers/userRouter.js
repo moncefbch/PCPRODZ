@@ -21,8 +21,8 @@ userRouter.get(
   expressAsyncHandler(async (req, res) => {
     const users = await User.find();
     res.send({ users });
-  }
-));
+  })
+);
 
 userRouter.post(
   "/signin",
@@ -34,8 +34,9 @@ userRouter.post(
           _id: user._id,
           email: user.email,
           name: user.name,
-          lastname:user.lastname,
+          lastname: user.lastname,
           wilaya: user.wilaya,
+          phone: user.phone,
           isAdmin: user.isAdmin,
           cart: user.cart,
           token: generateToken(user),
@@ -47,7 +48,7 @@ userRouter.post(
   })
 );
 userRouter.post(
-  '/register',
+  "/register",
   expressAsyncHandler(async (req, res) => {
     const user = new User({
       name: req.body.name,
@@ -71,7 +72,7 @@ userRouter.post(
 );
 
 userRouter.post(
-  '/cartsave',
+  "/cartsave",
   expressAsyncHandler(async (req, res) => {
     const { cartItems } = req.body;
     const { userInfo } = req.body;
@@ -84,19 +85,67 @@ userRouter.post(
     if (!userCart) {
       res.status(404).send({ message: "user not found" });
       return;
-    } 
+    }
     userCart.cart = cartItems;
     await userCart.save();
     res.send({ cart: userCart.cart });
-  }
-)) 
+  })
+);
 
-/* userRouter.post(
-  'cartsave',
+userRouter.post(
+  "/edit",
   expressAsyncHandler(async (req, res) => {
-    const cartItems  = req.body;
-    const user = await user.save()  }
-)) */
+    const { id } = req.body;
+    const { name } = req.body;
+    const { lastname } = req.body;
+    const { phone } = req.body;
+    const user = await User.findById(id);
+    if (!user) {
+      res.status(404).send({ message: "user not found" });
+      return;
+    }
+    if (name) user.name = name;
+    if (lastname) user.lastname = lastname;
+    if (phone) user.phone = phone;
+    await user.save();
+    res.send({ user });
+  })
+);
+/*this is the json format of the post request
+ {
+     "id": "ffffffffffffffffffffffff",
+     "name": "mouayed",
+     "lastname": "keziz",
+     "phone": "0123456789"
+ }
+ */
 
+userRouter.post(
+  "/changepassword",
+  expressAsyncHandler(async (req, res) => {
+    const { id } = req.body;
+    const { oldpassword } = req.body;
+    const { newpassword } = req.body;
+    const user = await User.findById(id);
+    if (!user) {
+      res.status(404).send({ message: "user not found" });
+      return;
+    }
+    if (bcrypt.compareSync(oldpassword, user.password)) {
+      user.password = bcrypt.hashSync(newpassword, 8);
+      await user.save();
+      res.send({ user });
+    } else {
+      res.status(401).send({ message: "invalide old password" });
+    }
+  })
+);
+/*example of json 
+ {
+     "id": "ffffffffffffffffffffffff",
+     "oldpassword": "123456",
+     "newpassword": "123456789"
+ }
+*/
 
 export default userRouter;
