@@ -1,7 +1,7 @@
 import React from "react";
 import AddProduct from "../components/AddProduct";
 
-export default function AdminPage() {
+export default function AdminPage(props) {
   const array = [
     {
       img: "/images/addItem.png",
@@ -58,7 +58,7 @@ export default function AdminPage() {
         </div>
       </div>
       <div className="flex-item-left-70 whitebackground radius-10 ">
-        {<AddProduct />}
+        {AddProduct(props) }
       </div>
     </div>
   );

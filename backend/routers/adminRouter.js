@@ -1,6 +1,8 @@
 import express from "express";
 import Product from "../models/productmodel.js";
 import expressAsyncHandler from "express-async-handler";
+import { isAdmin, isAuth } from '../utils.js';
+
 //import adminAuth from "../middlewares/adminAuth.js";
 
 
@@ -19,8 +21,24 @@ adminRouter.get(
 //this is a post request to add a new product (working)
 adminRouter.post(
   "/add",
+   isAuth,
+   isAdmin,
   expressAsyncHandler(async (req, res) => {
-    const product = new Product(req.body);
+    const product = new Product(//req.body
+    {
+      _name: req.body.name,
+      brand: req.body.brand,
+      processeur: req.body.cpu,
+      ram: req.body.ram,
+      disque:  req.body.disque,
+      gpu: req.body.gpu,
+      image: "https://etasawaq.com/wp-content/uploads/2021/08/3090oc.jpg",
+      category: req.body.category,
+      price: req.body.price,
+      countInStock: req.body.countInStock,
+      rating: 4,
+    }
+    );
     const createdProduct = await product.save();
     res.send(createdProduct);
   })
