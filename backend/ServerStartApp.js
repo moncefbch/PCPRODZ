@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import productRouter from "./routers/productRouter.js";
 import userRouter from "./routers/userRouter.js";
 import orderRouter from "./routers/orderRouter.js";
+import adminRouter from "./routers/adminRouter.js";
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/PCPRODZ", {
 
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
+app.use("/api/admin", adminRouter)
 app.get("/api/orders/orderRouter", orderRouter);
 app.get("/", (req, res) => {
   res.send("<h1>server app starting point</h1>");

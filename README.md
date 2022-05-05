@@ -190,3 +190,9 @@ navigation through profile components\
 edit profile informations frontend is linked with backend tested\
 change password frontend is linked with backend tested\
 need to display loading and error in both applications
+
+## `commit-37`
+
+added the admin router component to protect the route /admin \
+added the admin route in the navBar if userInfo.IsAdmin \
+setting up the admin api by moving the add and delete prouduct to the adminrouter in the backend \\

@@ -18,6 +18,8 @@ import CartPage from "./pages/CartPage";
 import ProfilePage from "./pages/ProfilePage";
 import PlaceOrder from "./components/PlaceOrder";
 import AdminPage from "./pages/AdminPage";
+import AdminRoute from "./Auth/AdminRoute";
+//         
 
 function App() {
   return (
@@ -34,7 +36,7 @@ function App() {
         <Route path="/cart/:id?" component={CartPage} />
         <Route path="/profile" component={ProfilePage} />
         <Route path="/placeorder" component={PlaceOrder} />
-        <Route path="/admin" component={AdminPage} />
+        <AdminRoute exact path="/admin" component={AdminPage} />
       </div>
       <Footer />
       <Helmet>
