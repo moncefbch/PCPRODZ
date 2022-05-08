@@ -204,24 +204,6 @@ export default function ProductPage(props) {
           <div>khlasselna hed lpc dsl a la7viv</div>
         )}
         <br />
-        <div className="d-flex mrgnlft-30">
-          <img src="/images/shiping.png" alt="" />
-          <header className="mrgnlft-5 font-cabin font-10 font-bold">
-            Livraison Disponible
-          </header>
-        </div>
-        <img className="mrgnlft-30" src="/images/yaldine.png" alt="" />
-        <br />
-        <br />
-        <header className="font-bold font-cabin pdgtp-5 mrgnlft-30">
-          Besoin d'aide pour votre achat ?
-        </header>
-        <div className="d-flex mrgnlft-15">
-          <img src="/images/phonecall.png" alt="" />
-          <header className="mrgnlft-5 font-cabin font-13 font-bold">
-            Appelez-nous : du samedi au jeudi de 9h à 18h
-          </header>
-        </div>
       </div>
       <Helmet>
         <script src="js/product_carousel.js"></script>

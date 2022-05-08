@@ -198,7 +198,12 @@ added the admin route in the navBar if userInfo.IsAdmin \
 setting up the admin api by moving the add and delete prouduct to the adminrouter in the backend \\
 
 ## `commit-38`
+
 admin now creat new products \
 added the middlewares isAuth and isAdmin to the admin API \
 added creat product action to productAction with its constants and reducesrs\
 functional addProduct component while keeping the array maping for more dynamic page \\
+
+## `commit-38.1`
+
+fix the token issue

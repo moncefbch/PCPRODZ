@@ -108,7 +108,12 @@ userRouter.post(
     if (lastname) user.lastname = lastname;
     if (phone) user.phone = phone;
     await user.save();
-    res.send({ user });
+    res.send({
+      id: user._id,
+      name: user.name,
+      lastname: user.lastname,
+      phone: user.phone,
+    });
   })
 );
 /*this is the json format of the post request

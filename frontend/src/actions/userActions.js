@@ -82,9 +82,16 @@ export const edit = (id, name, lastname, phone) => async (dispatch) => {
       phone,
     });
 
-    dispatch({ type: USER_EDIT_INFO_SUCCESS, payload: data.user });
-    console.log(data.user);
-    localStorage.setItem("userInfo", JSON.stringify(data.user));
+    //data has id , name, lastname , phone
+    //edit these attributes in userInfo local storage
+    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    userInfo.name = data.name;
+    userInfo.lastname = data.lastname;
+    userInfo.phone = data.phone;
+
+    dispatch({ type: USER_EDIT_INFO_SUCCESS, payload: userInfo });
+    console.log(userInfo);
+    localStorage.setItem("userInfo", JSON.stringify(userInfo));
   } catch (error) {
     dispatch({
       type: USER_EDIT_INFO_FAIL,

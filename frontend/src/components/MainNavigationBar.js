@@ -65,10 +65,13 @@ export default function MainNavigationBar() {
                 Se Connecter
               </Link>
             )}
-                       {userInfo && userInfo.isAdmin && (
+            {userInfo && userInfo.isAdmin && (
               <div className="dropdown">
-                <Link className="notextdecoration labeloflink active" to="/admin">
-                  Admin 
+                <Link
+                  className="notextdecoration labeloflink active"
+                  to="/admin"
+                >
+                  Admin
                 </Link>
               </div>
             )}
