@@ -117,4 +117,39 @@ productRouter.get(
   })
 );
 
+productRouter.get(
+  //get the most recent products  
+  "/recent",
+  expressAsyncHandler(async (req, res) => {
+    const product = await Product.find({});
+    let sortedProducts = [...product];
+    sortedProducts = sortedProducts.sort((a, b) => {
+      return b.createdAt - a.createdAt;
+    }
+    );  
+    //limit the number of products to 10
+    sortedProducts = sortedProducts.slice(0, 10);
+    if (sortedProducts.length < 1) {
+      // res.status(200).send('no products matched your search');
+      return res.status(200).send({});
+    }
+    res.send(sortedProducts);
+  })
+)
+
+
+/* poductRouter.post(
+// get the most expensive products
+  "/expensive",
+  expressAsyncHandler(async (req, res) => {
+    const product = await Product.find({});
+    let sortedProducts = [...product];
+    sortedProducts = sortedProducts.sort((a, b) => {
+      return b.price - a.price;
+    }
+
+
+);*/
+
+
 export default productRouter;

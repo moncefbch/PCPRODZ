@@ -8,6 +8,9 @@ import {
   PRODUCT_CATEGORY_LIST_SUCCESS,
   PRODUCT_CATEGORY_LIST_REQUEST,
   PRODUCT_CATEGORY_LIST_FAIL,
+  PRODUCTS_MOStRECENT_LIST_REQUEST,
+  PRODUCTS_MOStRECENT_LIST_SUCCESS,
+   PRODUCTS_MOStRECENT_LIST_FAIL, 
 } from "../Constants/ProductsConstants";
 import Axios from "axios";
 export const listProducts = ( text) => async (dispatch) => {
@@ -59,3 +62,19 @@ export const listProductCategories = () => async (dispatch) => {
   }
 };
 
+export const listReacentProducts = () => async (dispatch) => {
+  dispatch({ type: PRODUCTS_MOStRECENT_LIST_REQUEST });
+
+  try {
+    const { data } = await Axios.get('/api/products/recent');
+    dispatch({ type: PRODUCTS_MOStRECENT_LIST_SUCCESS, payload: data });
+    console.log(JSON.stringify(data))
+    
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    dispatch({ type: PRODUCTS_MOStRECENT_LIST_FAIL, payload: message });
+  }
+};

@@ -216,3 +216,9 @@ added listProductCategories action and modified the listProducts \
 moved the searchBox URL \
 A dynamic categories list in the second navbar with routing \
 moddified the search page in order to support the filters query \
+
+## `commit-40`
+updating new products section by acctually showing the most recent added products \
+the full bundle of a routuer in the products api located in /recent \
+new product action called listmostrecent with its reducers and constants and state in the store.js \
+linking the  work done with newproductsSection component \\ 

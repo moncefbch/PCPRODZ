@@ -6,6 +6,7 @@ import { orderCreateReducer } from "./reducers/orderReducers";
 import { productListReducer,
    productCreateReducer, 
     productCategoryListReducer,
+    productMostRecentListReducer,
 } from "./reducers/productReducers";
 
 import {
@@ -33,7 +34,7 @@ const reducer = combineReducers({
   orderCreate: orderCreateReducer,
   productCreate: productCreateReducer,
   productCategoryList: productCategoryListReducer,
-
+  productMostRecentList: productMostRecentListReducer,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

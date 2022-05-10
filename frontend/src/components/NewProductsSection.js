@@ -3,16 +3,21 @@ import { useSelector, useDispatch } from "react-redux";
 import Carouselitem from "./Carouselitem";
 import ErrorMessageBox from "./ErrorMessageBox";
 import LoadingBox from "./LoadingBox";
-import { listProducts } from "../actions/ProductAction";
+import { listReacentProducts } from "../actions/ProductAction";
 
 export default function NewProductsSection() {
-  const dispatch = useDispatch();
-  const productList = useSelector((state) => state.productList);
-  const { loading, error, products } = productList;
+  //const productList = useSelector((state) => state.productList);
+  //const { loading, error, products } = productList;
   // next piece of code wad "   }, []);   " update : "   }, [dispatch]);   " 3lajal kanet hna error and this is how to handle it
+  const dispatch = useDispatch();
+  const productMostRecentList = useSelector((state) => state.productMostRecentList);
+  const { loading, error, products } = productMostRecentList;
+  console.log(products)
   useEffect(() => {
-    dispatch(listProducts(""));
+    // dispatch(listProducts(""));
+    dispatch(listReacentProducts());
   }, [dispatch]);
+
   return (
     <div>
       {loading ? (
