@@ -6,6 +6,9 @@ import {
   PRODUCT_CREATE_SUCCESS,
   PRODUCT_CREATE_FAIL,
   PRODUCT_CREATE_RESET,
+  PRODUCT_CATEGORY_LIST_REQUEST,
+  PRODUCT_CATEGORY_LIST_SUCCESS,
+  PRODUCT_CATEGORY_LIST_FAIL,
 } from "../Constants/ProductsConstants";
 
 export const productListReducer = (
@@ -37,3 +40,20 @@ export const productCreateReducer = (state = {}, action) => {
       return state;
   }
 };
+
+export const productCategoryListReducer = (
+  state = { loading: true, products: [] },
+  action
+) => {
+  switch (action.type) {
+    case PRODUCT_CATEGORY_LIST_REQUEST:
+      return { loading: true };
+    case PRODUCT_CATEGORY_LIST_SUCCESS:
+      return { loading: false, categories: action.payload };
+    case PRODUCT_CATEGORY_LIST_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+

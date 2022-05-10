@@ -27,8 +27,8 @@ function App() {
       <MainNavigationBar />
       <SecondaryNavigationBar />
 
-      <div style={{ margin: "auto", maxWidth: "1920px" }}>
         <Route path="/" component={HomePage} exact />
+      <div style={{ margin: "auto", maxWidth: "1920px" }}>
         <Route path="/product/:id" component={ProductPage} />
         <Route path="/search=:text" component={SearchPage} />
         <Route path="/login" component={Login} />

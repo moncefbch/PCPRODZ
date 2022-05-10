@@ -8,7 +8,14 @@ const productRouter = express.Router();
 productRouter.get(
   "/",
   expressAsyncHandler(async (req, res) => {
-    const product = await Product.find({});
+    const name = req.query.name || ''
+    const category = req.query.category || '';
+    const nameFilter = name ? { name: { $regex: name, $options: 'i' } } : {};
+    const categoryFilter = category ? { category } : {};
+    const product = await Product.find({
+      ...nameFilter,
+      ...categoryFilter,
+    });
     res.send(product);
   })
 );
@@ -74,29 +81,39 @@ productRouter.get(
   "/search?:text",
   expressAsyncHandler(async (req, res) => {
     //creatr a const text equals to the text in the url
-    const { text } = req.query;
+    const { name } = req.query;
+    const {category} = req.query
     const product = await Product.find({});
     let sortedProducts = [...product];
-    if (text) {
+    //res.send({query, name});
+    if (name) {
       sortedProducts = sortedProducts.filter((product) => {
         //return product that his name contains text no matter if its upper or lower
         return (
-          product._name.toLowerCase().includes(text.toLowerCase()) ||
-          product._name.toLowerCase().includes(text.toLowerCase()) ||
-          product.brand.toLowerCase().includes(text.toLowerCase()) ||
-          product.processeur.toLowerCase().includes(text.toLowerCase()) ||
-          product.ram.toLowerCase().includes(text.toLowerCase()) ||
-          product.disque.toLowerCase().includes(text.toLowerCase()) ||
-          product.gpu.toLowerCase().includes(text.toLowerCase()) ||
-          product.category.toLowerCase().includes(text.toLowerCase())
+          product._name.toLowerCase().includes(name.toLowerCase()) ||
+          product._name.toLowerCase().includes(name.toLowerCase()) ||
+          product.brand.toLowerCase().includes(name.toLowerCase()) 
+          //product.processeur.toLowerCase().includes(text.toLowerCase()) ||
+          //product.ram.toLowerCase().includes(text.toLowerCase()) ||
+          //product.disque.toLowerCase().includes(text.toLowerCase()) ||
+          //product.gpu.toLowerCase().includes(text.toLowerCase()) ||
+          //product.category.toLowerCase().includes(text.toLowerCase())
         );
       });
+    }
+    if(category) {
+      sortedProducts = sortedProducts.filter((product) => {
+        return (
+          product.category.toLowerCase().includes(category.toLocaleLowerCase())
+        );
+      }
+      )
     }
     if (sortedProducts.length < 1) {
       // res.status(200).send('no products matched your search');
       return res.status(200).send({});
     }
-    res.send(sortedProducts);
+     res.send(sortedProducts);
   })
 );
 

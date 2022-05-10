@@ -9,7 +9,7 @@ export default function SearchBox() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (searchQuery) {
-      window.location.href = `/search=${searchQuery}`;
+      window.location.href = `/search=name=${searchQuery}`;
     }
   };
   const [suggestions, setSuggestions] = useState([]);

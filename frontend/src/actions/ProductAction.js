@@ -5,12 +5,17 @@ import {
   PRODUCT_CREATE_FAIL,
   PRODUCT_CREATE_REQUEST,
   PRODUCT_CREATE_SUCCESS,
+  PRODUCT_CATEGORY_LIST_SUCCESS,
+  PRODUCT_CATEGORY_LIST_REQUEST,
+  PRODUCT_CATEGORY_LIST_FAIL,
 } from "../Constants/ProductsConstants";
 import Axios from "axios";
-export const listProducts = () => async (dispatch) => {
+export const listProducts = ( text) => async (dispatch) => {
   dispatch({ type: PRODUCT_LIST_REQUEST });
+  console.log(`/api/products/search?${text}`);
   try {
-    const { data } = await Axios.get("/api/products");
+    // const { data } = await Axios.get(`/api/products/search?name=${name}&category=${category}`);
+    const {data}= await Axios.get(`/api/products/search?${text}`);
     dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: PRODUCT_LIST_FAIL, payload: error.message });
@@ -42,25 +47,15 @@ export const createProduct = (product) => async (dispatch, getState) => {
   }
 };
 
-/*cart: []
-createdAt: "2022-05-04T06:51:45.764Z"
-email: "amine@estin.dz"
-isAdmin: true
-lastname: "hamoutene"
-name: "mouayed"
-password: "$2a$08$SnCMkJs6SPceE2nWJcTetOJT17XKWpw60ybQtPvCRf5S3mbEsllMq"
-phone: "7777777777"
-updatedAt: "2022-05-07T21:41:30.375Z"
-wilaya: "15-Tizi-Ouzou"
-__v: 0
-_id: "62722281fc0bfb84e235878a"
+export const listProductCategories = () => async (dispatch) => {
+  dispatch({
+    type: PRODUCT_CATEGORY_LIST_REQUEST,
+  });
+  try {
+    const { data } = await Axios.get(`/api/products/categories`);
+    dispatch({ type: PRODUCT_CATEGORY_LIST_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: PRODUCT_CATEGORY_LIST_FAIL, payload: error.message });
+  }
+};
 
-cart: []
-email: "amine@estin.dz"
-isAdmin: true
-lastname: "hamoutene"
-name: "amine"
-phone: "7777777777"
-token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mjc2ZTgzOWZlN2JjMmY2Y2VlMDY1MTQiLCJlbWFpbCI6ImFtaW5lQGVzdGluLmR6IiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjUxOTYwMDE0LCJleHAiOjE2NTQ1NTIwMTR9.HV4Ece1-5nJr9gP3rTB-9WKrwhHkm29UifGzQ_1kDR0"
-wilaya: "15-Tizi-Ouzou"
-_id: "6276e839fe7bc2f6cee06514"*/

@@ -207,3 +207,12 @@ functional addProduct component while keeping the array maping for more dynamic 
 ## `commit-38.1`
 
 fix the token issue
+
+## `commit-39`
+added the category filter in search api router in backend \
+and limited the search by name \
+new product constants and reducers \
+added listProductCategories action and modified the listProducts \
+moved the searchBox URL \
+A dynamic categories list in the second navbar with routing \
+moddified the search page in order to support the filters query \
