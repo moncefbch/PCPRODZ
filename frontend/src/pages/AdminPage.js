@@ -1,27 +1,36 @@
 import React from "react";
 import AddProduct from "../components/AddProduct";
+import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Commandes from "../components/Commandes";
+import Commande from "../components/Commande";
 
 export default function AdminPage(props) {
   const array = [
     {
       img: "/images/addItem.png",
       text: "Ajouter une annonce ",
+      ref: "/admin/",
     },
     {
       img: "/images/Catalogue.png",
       text: "Catalogue",
+      ref: "/admin/catalogue",
     },
     {
       img: "/images/Commandes.png",
       text: "Commandes",
+      ref: "/admin/commandes",
     },
     {
       img: "/images/messages.png",
       text: "Messages",
+      ref: "/admin/messages",
     },
     {
       img: "/images/MesInfo.png",
       text: "Mes info",
+      ref: "/admin/info",
     },
   ];
   return (
@@ -43,7 +52,10 @@ export default function AdminPage(props) {
                 alt="carticon"
                 className="profilelinkicon mrgnrgt-50"
               />
-              <a className="mrgnlft-10 notextdecoration blackcolor font-bold font-18">
+              <a
+                href={item.ref}
+                className="mrgnlft-10 notextdecoration blackcolor font-bold font-18"
+              >
                 {item.text}
               </a>
             </div>
@@ -58,7 +70,11 @@ export default function AdminPage(props) {
         </div>
       </div>
       <div className="flex-item-left-70 whitebackground radius-10 ">
-        {AddProduct(props) }
+        <Router>
+          <Route exact path="/admin/" component={AddProduct} />
+          <Route exact path="/admin/commandes" component={Commandes} />
+          <Route exact path="/admin/commande" component={Commande} />
+        </Router>
       </div>
     </div>
   );

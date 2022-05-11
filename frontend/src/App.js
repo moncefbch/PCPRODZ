@@ -19,7 +19,7 @@ import ProfilePage from "./pages/ProfilePage";
 import PlaceOrder from "./components/PlaceOrder";
 import AdminPage from "./pages/AdminPage";
 import AdminRoute from "./Auth/AdminRoute";
-//         
+//
 
 function App() {
   return (
@@ -27,7 +27,7 @@ function App() {
       <MainNavigationBar />
       <SecondaryNavigationBar />
 
-        <Route path="/" component={HomePage} exact />
+      <Route path="/" component={HomePage} exact />
       <div style={{ margin: "auto", maxWidth: "1920px" }}>
         <Route path="/product/:id" component={ProductPage} />
         <Route path="/search=:text" component={SearchPage} />
@@ -36,11 +36,12 @@ function App() {
         <Route path="/cart/:id?" component={CartPage} />
         <Route path="/profile" component={ProfilePage} />
         <Route path="/placeorder" component={PlaceOrder} />
-        <AdminRoute exact path="/admin" component={AdminPage} />
+        <AdminRoute path="/admin" component={AdminPage} />
       </div>
       <Footer />
       <Helmet>
         <script src="js/product_carousel.js"></script>
+        <script src="js/searchbox/js"></script>
       </Helmet>
     </Router>
   );

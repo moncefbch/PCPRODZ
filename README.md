@@ -230,3 +230,9 @@ linking the work done with newproductsSection component \\
 routed most visited categories \
 bug fix in listing products for the search page \
 setup the sort api in the seaarch page by adding a dropdown menu \\
+
+## `commit-40.1`
+
+admin route\
+orders page\
+order page\\

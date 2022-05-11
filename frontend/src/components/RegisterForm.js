@@ -26,7 +26,7 @@ export default function RegisterForm(props) {
     if (password !== confirmPassword) {
       alert("Password and confirm password are not match");
     } else {
-      dispatch(register(name, email, password , wilaya));
+      dispatch(register(name, email, password, wilaya));
     }
   };
   useEffect(() => {
@@ -117,9 +117,7 @@ export default function RegisterForm(props) {
                 required
               >
                 {Wilayas.leswilayas.map((wilaya) => (
-                  <option value={wilaya}>
-                    {wilaya}
-                  </option>
+                  <option value={wilaya}>{wilaya}</option>
                 ))}
               </select>
             </div>

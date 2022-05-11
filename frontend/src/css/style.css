@@ -398,10 +398,6 @@ a:hover {
   padding-top: 15px;
 }
 
-.pdgtp-15 {
-  padding-top: 15px;
-}
-
 .pdgbtm-16 {
   padding-bottom: 16px;
 }
@@ -421,6 +417,10 @@ a:hover {
 
 .font-13 {
   font-size: 13px;
+}
+
+.font-16 {
+  font-size: 16px;
 }
 
 .font-18 {
@@ -469,6 +469,14 @@ a:hover {
 
 .red-background {
   background-color: #ff0000;
+}
+
+.redColor {
+  color: #ff0000;
+}
+
+.greenColor {
+  color: #3bdf3b;
 }
 
 .whitebackground {
@@ -667,6 +675,10 @@ a:hover {
   margin-top: 0px;
 }
 
+.mrgntp-35 {
+  margin-top: 35px;
+}
+
 .pdgbtm-20 {
   padding-bottom: 20px;
 }
@@ -807,7 +819,6 @@ a:hover {
   border-radius: 25px;
   font-size: 20px;
   color: white;
-  margin-top: 30px;
 }
 
 .passcommandbutton {
@@ -1057,4 +1068,20 @@ a:hover {
   border-radius: 100%;
   background-color: #e5e5e5;
   transition: all 1s;
+}
+
+.commandPanel {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.simpleBorder {
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+}
+
+.font-normal {
+  /*something between normal and bold*/
+  font-weight: 600;
 }
