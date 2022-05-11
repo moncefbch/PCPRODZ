@@ -231,7 +231,7 @@ routed most visited categories \
 bug fix in listing products for the search page \
 setup the sort api in the seaarch page by adding a dropdown menu \\
 
-## `commit-40.1`
+## `commit-41`
 
 admin route\
 orders page\
