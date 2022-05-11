@@ -209,6 +209,7 @@ functional addProduct component while keeping the array maping for more dynamic 
 fix the token issue
 
 ## `commit-39`
+
 added the category filter in search api router in backend \
 and limited the search by name \
 new product constants and reducers \
@@ -218,7 +219,14 @@ A dynamic categories list in the second navbar with routing \
 moddified the search page in order to support the filters query \
 
 ## `commit-40`
+
 updating new products section by acctually showing the most recent added products \
 the full bundle of a routuer in the products api located in /recent \
 new product action called listmostrecent with its reducers and constants and state in the store.js \
-linking the  work done with newproductsSection component \\ 
+linking the work done with newproductsSection component \\
+
+## `commit-40.1`
+
+routed most visited categories \
+bug fix in listing products for the search page \
+setup the sort api in the seaarch page by adding a dropdown menu \\
