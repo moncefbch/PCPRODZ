@@ -2,6 +2,10 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 import "./css/errors.css";
 import "./css/style.css";
+import "./css/new css/responsive.css";
+import "./css/new css/style.css";
+import "./css/new css/ui.css";
+import "./css/new css/style2.css";
 import { Helmet } from "react-helmet";
 import Footer from "./components/Footer";
 import "./css/font-awesome.min.css";
@@ -19,6 +23,7 @@ import ProfilePage from "./pages/ProfilePage";
 import PlaceOrder from "./components/PlaceOrder";
 import AdminPage from "./pages/AdminPage";
 import AdminRoute from "./Auth/AdminRoute";
+import ShipingFormPage from "./pages/ShipingFormPage";
 //
 
 function App() {
@@ -35,13 +40,15 @@ function App() {
         <Route path="/register" component={Register} />
         <Route path="/cart/:id?" component={CartPage} />
         <Route path="/profile" component={ProfilePage} />
-        <Route path="/placeorder" component={PlaceOrder} />
+        {/*<Route path="/placeorder" component={PlaceOrder} />*/}
+        <Route path={"/placeorder"} component={ShipingFormPage} />
         <AdminRoute path="/admin" component={AdminPage} />
       </div>
       <Footer />
       <Helmet>
         <script src="js/product_carousel.js"></script>
-        <script src="js/searchbox/js"></script>
+        <script src="js/searchbox.js"></script>
+        <script src="js/script.js"></script>
       </Helmet>
     </Router>
   );

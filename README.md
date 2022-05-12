@@ -236,3 +236,9 @@ setup the sort api in the seaarch page by adding a dropdown menu \\
 admin route\
 orders page\
 order page\\
+
+## `commit-42`
+
+filter configuration component\
+newSearshItem\
+shipingPage with its route\

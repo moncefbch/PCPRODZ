@@ -1,12 +1,14 @@
 import FilterTag from "../components/FilterTag";
 import SearchItem from "../components/SearchItem";
 import Axios from "axios";
-import {useSearchParams} from "react-router-dom";
-import React, {useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {listProducts} from "../actions/ProductAction";
+import { useSearchParams } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { listProducts } from "../actions/ProductAction";
 //import error message box from error message box component
 import ErrorMessageBox from "../components/ErrorMessageBox";
+import FilterConfiguration from "../components/FilterConfiguration";
+import NewSearchItem from "../components/NewSearchItem";
 
 export default function SearchPage(props) {
   // get the query from the url
@@ -21,7 +23,7 @@ export default function SearchPage(props) {
   const text = props.match.params.text;
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
-  const {loading, error, products} = productList;
+  const { loading, error, products } = productList;
   useEffect(() => {
     dispatch(listProducts(text));
   }, [dispatch, text]);
@@ -38,7 +40,10 @@ export default function SearchPage(props) {
         Pc portable
       </header>
       <div className="flex-container mrgn-30">
-        <div className="flex-item-left-25 radius-10 whitebackground"></div>
+        <div className="flex-item-left-25 radius-10 whitebackground pdng-15 font-25">
+          {/*hna filter component */}
+          <FilterConfiguration />
+        </div>
         <div className="flex-item-right-70 radius-10 whitebackground">
           <div class="container">
             <div class="row">
@@ -84,6 +89,7 @@ export default function SearchPage(props) {
             ) : (
               products.map((product) => (
                 <SearchItem key={product._id} product={product} />
+                //<NewSearchItem key={product._id} product={product} />
               ))
             )}
           </div>

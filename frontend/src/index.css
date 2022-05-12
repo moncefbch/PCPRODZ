@@ -10,3 +10,14 @@ body {
 body {
   zoom: 0.75;
 }
+section.padding-y {
+  border-bottom: 30px solid #e9ecef;
+  padding-top: 60px !important;
+  padding-bottom: 60px !important;
+}
+
+.section-header,
+.section-footer {
+  box-shadow: 0 2px 10px rgb(51 51 51 / 10%);
+  position: relative;
+}

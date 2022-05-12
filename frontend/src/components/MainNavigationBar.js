@@ -13,7 +13,7 @@ export default function MainNavigationBar() {
   };
   return (
     <div className="navcontainer">
-      <div className="navigationBar box">
+      <div className="navigationBar boxx">
         <input type="checkbox" id="check" />
         <label for="check" className="checkbtn">
           <img src="/images/dropdownIcon.svg" alt="dropdownicon" />

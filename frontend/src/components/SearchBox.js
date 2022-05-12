@@ -26,7 +26,7 @@ export default function SearchBox() {
   );
 
   return (
-    <div className="box overlay">
+    <div className="boxx overlay">
       <form className="input-group rounded" onSubmit={handleSubmit}>
         <input
           type="search"
