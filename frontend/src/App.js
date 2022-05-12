@@ -6,7 +6,7 @@ import "./css/new css/responsive.css";
 import "./css/new css/style.css";
 import "./css/new css/ui.css";
 import "./css/new css/style2.css";
-import { Helmet } from "react-helmet";
+import {Helmet} from "react-helmet";
 import Footer from "./components/Footer";
 import "./css/font-awesome.min.css";
 import "./css/ionicons.min.css";
@@ -14,7 +14,7 @@ import MainNavigationBar from "./components/MainNavigationBar";
 import SecondaryNavigationBar from "./components/SecondaryNavigationBar";
 import ProductPage from "./pages/ProductPage";
 import HomePage from "./pages/HomePage";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import SearchPage from "./pages/SearchPage";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -33,7 +33,7 @@ function App() {
       <SecondaryNavigationBar />
 
       <Route path="/" component={HomePage} exact />
-      <div style={{ margin: "auto", maxWidth: "1920px" }}>
+      <div style={{margin: "auto", maxWidth: "1920px"}}>
         <Route path="/product/:id" component={ProductPage} />
         <Route path="/search=:text" component={SearchPage} />
         <Route path="/login" component={Login} />

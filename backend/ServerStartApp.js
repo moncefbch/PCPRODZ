@@ -10,7 +10,7 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({extended: true}));
 
 mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/PCPRODZ", {
   //useNewUrlParser: true,
@@ -20,14 +20,14 @@ mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/PCPRODZ", {
 
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
-app.use("/api/admin", adminRouter)
-app.get("/api/orders/orderRouter", orderRouter);
+app.use("/api/admin", adminRouter);
+app.use("/api/orders", orderRouter);
 app.get("/", (req, res) => {
   res.send("<h1>server app starting point</h1>");
 });
 
 app.use((err, req, res, next) => {
-  res.status(500).send({ message: err.message });
+  res.status(500).send({message: err.message});
 });
 
 const port = process.env.PORT || 5000;

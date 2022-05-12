@@ -25,4 +25,22 @@ orderRouter.post(
   })
 );
 
+orderRouter.get(
+  "/",
+  //isAuth, // isAdmin,
+  expressAsyncHandler(async (req, res) => {
+    const orders = await Order.find().populate("user", "name");
+    res.send(orders);
+  })
+);
+
+orderRouter.get(
+  "/seed",
+  expressAsyncHandler(async (req, res) => {
+    await Order.remove({});
+    // const createdProducts = await Product.insertMany(data.products);
+    // res.send({createdProducts});
+  })
+);
+
 export default orderRouter;

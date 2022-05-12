@@ -242,3 +242,10 @@ order page\\
 filter configuration component\
 newSearshItem\
 shipingPage with its route\
+
+## `commit-43`
+
+fix up order API \
+added sorting in product search API \
+functional sorting the search page \
+setting up placeorder for functionallity in the front \\

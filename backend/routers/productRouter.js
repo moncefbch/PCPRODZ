@@ -85,6 +85,23 @@ productRouter.get(
     const {category} = req.query;
     const product = await Product.find({});
     let sortedProducts = [...product];
+    const {order} = req.query;
+    if (order === "newest") {
+      sortedProducts = sortedProducts.sort((a, b) => {
+        return b.createdAt - a.createdAt;
+      });
+    }
+    if (order === "lowest") {
+      sortedProducts = sortedProducts.sort((a, b) => {
+        return a.price - b.price;
+      });
+    }
+    if (order === "highest") {
+      sortedProducts = sortedProducts.sort((a, b) => {
+        return b.price - a.price;
+      });
+    }
+
     //res.send({query, name});
     if (name) {
       sortedProducts = sortedProducts.filter((product) => {

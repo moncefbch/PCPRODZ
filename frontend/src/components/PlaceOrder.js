@@ -1,33 +1,30 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addToCart, removeFromCart } from "../actions/cartActions";
-import { Link } from "react-router-dom";
+import React, {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {Link} from "react-router-dom";
 import ErrorMessageBox from "./ErrorMessageBox";
+import {createOrder} from "../actions/orderActions";
+import {ORDER_CREATE_RESET} from "../Constants/orderConstants";
 
 export default function PlaceOrder(props) {
   const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
-  console.log(userInfo);
-  const productId = props.match.params.id;
-  const qty = props.location.search
-    ? Number(props.location.search.split("=")[1])
-    : 1;
-
+  const {userInfo} = userSignin;
   const cart = useSelector((state) => state.cart);
-  const { cartItems, error } = cart;
+  console.log(cart);
+  const orderCreate = useSelector((state) => state.orderCreate);
+  const {loading, success, error, order} = orderCreate;
   const dispatch = useDispatch();
-  useEffect(() => {
-    if (productId) {
-      dispatch(addToCart(productId, qty));
-    }
-  }, [dispatch, productId, qty]);
-  const removeFromCartHandler = (id) => {
-    // delete action
-    dispatch(removeFromCart(id));
+  const placeOrderHandler = () => {
+    // TODO: dispatch place order action
+    dispatch(createOrder({...cart, orderItems: cart.cartItems}));
   };
-  console.log(cartItems);
+  useEffect(() => {
+    if (success) {
+      props.history.push(`/order/${order._id}`);
+      dispatch({type: ORDER_CREATE_RESET});
+    }
+  }, [dispatch, order, props.history, success]);
   return (
-    <div className="flex-container pdng-100" style={{ margin: "3%" }}>
+    <div className="flex-container pdng-100" style={{margin: "3%"}}>
       <div className="flex-item-left-70 mrgnrgt-50 pdgbtm-20">
         <div
           className="whitebackground radius-10"
@@ -61,13 +58,13 @@ export default function PlaceOrder(props) {
           <div className="font-cabin width-full font-40 font-bold ">
             <header>VOTRE PANIER</header>{" "}
           </div>
-          {cartItems.length === 0 ? (
+          {cart.cartItems.length === 0 ? (
             <ErrorMessageBox>
               Cart is empty. <Link to="/">Go Shopping</Link>
             </ErrorMessageBox>
           ) : (
             <div>
-              {cartItems.map((item) => (
+              {cart.cartItems.map((item) => (
                 <div class="container">
                   <div class="row">
                     <div class="col-sm">
@@ -85,7 +82,7 @@ export default function PlaceOrder(props) {
                         <div className="font-cabin width-full font-30">
                           <Link
                             className="notextdecoration"
-                            style={{ color: "black", fontWeight: "bold" }}
+                            style={{color: "black", fontWeight: "bold"}}
                             to={"/product/" + item.product}
                           >
                             <header>{item.name}</header>
@@ -102,86 +99,7 @@ export default function PlaceOrder(props) {
                         </div>
                       </div>
                     </div>
-                    <div class="col-sm">
-                      <div>
-                        <div className="align-center font-cabin font-20">
-                          {" "}
-                          Quantité:{" "}
-                        </div>
-                        <div className="d-flex justify-content-center">
-                          <button
-                            onClick={() =>
-                              dispatch(addToCart(item.product, item.qty - 1))
-                            }
-                            disabled={item.qty <= 1}
-                            className="font-cabin font-bold font-20 shadowForMainSquareType"
-                            style={{
-                              margin: "5px",
-                              borderRadius: "10px",
-                              width: "50px",
-                              height: "30px",
-                              borderWidth: "0px",
-                              backgroundColor: "#262525",
-                              color: "white",
-                            }}
-                          >
-                            -
-                          </button>
-                          <header
-                            className="font-cabin font-bold font-20"
-                            style={{
-                              margin: "5px",
-                              paddingLeft: "20px",
-                              paddingRight: "20px",
-                            }}
-                          >
-                            {item.qty}
-                          </header>
-                          <button
-                            onClick={() =>
-                              dispatch(addToCart(item.product, item.qty + 1))
-                            }
-                            disabled={item.qty >= item.countInStock}
-                            className="font-cabin font-bold font-20 shadowForMainSquareType"
-                            style={{
-                              margin: "5px",
-                              borderRadius: "10px",
-                              width: "50px",
-                              height: "30px",
-                              borderWidth: "0px",
-                              backgroundColor: "#262525",
-                              color: "white",
-                            }}
-                          >
-                            +
-                          </button>
-                        </div>
-                        <button
-                          onClick={() => removeFromCartHandler(item.product)}
-                          className="d-flex font-cabin font-18 font-bold shadowForMainSquareType mrgntp-30 radius-10 align-center"
-                          style={{
-                            width: "80%",
-                            height: "45px",
-                            borderWidth: "0px",
-                            marginLeft: "auto",
-                            paddingTop: "10px",
-                            marginRight: "auto",
-                            color: "white",
-                            backgroundColor: "black",
-                          }}
-                        >
-                          <header style={{ marginLeft: "15px" }}>
-                            {" "}
-                            supprimer{" "}
-                          </header>
-                          <img
-                            alt=""
-                            src="/images/carticon.png"
-                            className="linkicon"
-                          />
-                        </button>
-                      </div>
-                    </div>
+                    <div class="col-sm"></div>
                   </div>
                 </div>
               ))}
@@ -204,7 +122,7 @@ export default function PlaceOrder(props) {
             Articles :
           </small>
           <small className="form-text font-20 text-muted font-cabin pdgtp-5">
-            {cartItems.reduce((a, c) => a + c.price * c.qty, 0) + 3000}
+            {cart.cartItems.reduce((a, c) => a + c.price * c.qty, 0) + 3000}
           </small>
         </div>
         <div class="d-flex justify-content-between">
@@ -212,7 +130,7 @@ export default function PlaceOrder(props) {
             Nombre d'éléments :
           </small>
           <small className="form-text font-20 text-muted font-cabin pdgtp-5">
-            {cartItems.reduce((a, c) => a + c.qty, 0)}
+            {cart.cartItems.reduce((a, c) => a + c.qty, 0)}
           </small>
         </div>
         <div class="d-flex justify-content-between">
@@ -232,15 +150,18 @@ export default function PlaceOrder(props) {
                 TOTALE :
               </header>
               <header className="font-30 font-cabin pdgtp-5 font-bold">
-                {cartItems.reduce((a, c) => a + c.price * c.qty, 0) + 3000} DZD
+                {cart.cartItems.reduce((a, c) => a + c.price * c.qty, 0) + 3000}{" "}
+                DZD
               </header>
             </div>
             <hr class="width-full productMargin" />
           </div>
           <button
-            type="submit"
+            type="button"
+            onClick={placeOrderHandler}
+            disabled={cart.cartItems.length === 0}
             className="font-cabin passcommandbutton"
-            style={{ backgroundColor: "#4584FF", borderWidth: "0px" }}
+            style={{backgroundColor: "#4584FF", borderWidth: "0px"}}
           >
             Passer la commande
           </button>

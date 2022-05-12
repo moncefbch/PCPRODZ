@@ -1,16 +1,47 @@
 import FilterTag from "../components/FilterTag";
 import SearchItem from "../components/SearchItem";
 import Axios from "axios";
-import { useSearchParams } from "react-router-dom";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { listProducts } from "../actions/ProductAction";
+import {useSearchParams} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {listProducts} from "../actions/ProductAction";
 //import error message box from error message box component
 import ErrorMessageBox from "../components/ErrorMessageBox";
 import FilterConfiguration from "../components/FilterConfiguration";
 import NewSearchItem from "../components/NewSearchItem";
+import {useLocation, useParams} from "react-router-dom";
+import React, {useEffect, useState} from "react";
 
 export default function SearchPage(props) {
+  /* const queryParams = new URLSearchParams(window.location.search);
+const id = queryParams.get('id');
+const name = queryParams.get('name');
+const type = queryParams.get('type');*/
+  const [category, setCategory] = useState("");
+
+  const location = useLocation();
+  const pathname = location.pathname;
+  useEffect(() => {
+    const queryParams = new URLSearchParams(pathname);
+    const id = queryParams.get("id");
+    const name = queryParams.get("name");
+    const type = queryParams.get("type");
+    const category = queryParams.get("category");
+    console.log(category);
+  }, []);
+
+  /* const {search} = useLocation();
+const match = search.match(/category=(.*)/);
+const type = match?.[1];
+console.log(type);*/
+  //extract the page from the url
+  const {name} = useParams();
+  const {page} = useParams();
+  //const {category} = useParams();
+  //extract the sort from the url
+  const {order} = useParams();
+  const {min} = useParams();
+  const {max} = useParams();
+
   // get the query from the url
   /* const [searchParams , setSearchParams] = useSearchParams();
   const searchTerm = searchParams.get("name")*/
@@ -23,7 +54,7 @@ export default function SearchPage(props) {
   const text = props.match.params.text;
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
-  const { loading, error, products } = productList;
+  const {loading, error, products} = productList;
   useEffect(() => {
     dispatch(listProducts(text));
   }, [dispatch, text]);
@@ -33,6 +64,16 @@ export default function SearchPage(props) {
     const filterName = filter.name || name;
     return `/search/category/${filterCategory}/name/${filterName}`;
   };*/
+  const getFilterUrl = (filter) => {
+    const filterCategory = filter.category || "";
+    const sortOrder = filter.order || order;
+    const filterMin = filter.min ? filter.min : filter.min === 0 ? 0 : min;
+    const filterMax = filter.max ? filter.max : filter.max === 0 ? 0 : max;
+    // if the name is undefined, then set it to empty string
+    const filterName = filter.name || name || "";
+
+    return `/search=category=${filterCategory}&name=${filterName}&order=${sortOrder}`;
+  };
 
   return (
     <div>
@@ -63,11 +104,16 @@ export default function SearchPage(props) {
               <div class="col col-lg-2">
                 <div className="font-cabin font-bold font-30 mrgn-30">
                   Sort by{" "}
-                  <select>
+                  <select
+                    value={order}
+                    onChange={(e) => {
+                      props.history.push(getFilterUrl({order: e.target.value}));
+                    }}
+                  >
+                    <option value="defualt">default</option>
                     <option value="newest">Newest Arrivals</option>
                     <option value="lowest">Price: Low to High</option>
                     <option value="highest">Price: High to Low</option>
-                    <option value="toprated">Avg. Customer Reviews</option>
                   </select>
                 </div>
               </div>
