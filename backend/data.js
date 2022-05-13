@@ -1,5 +1,53 @@
 import bcrypt from "bcryptjs";
 const data = {
+  orders: [
+    {
+      orderItems: [
+        {
+          name: " vivobook",
+          image: "/images/product2.png",
+          price: 200000,
+          countInStock: 5,
+          product: "62792654e22cd29c68af8408",
+          qty: 1,
+        },
+      ],
+      shippingAddress: {
+        fullName: "keziz mouayed",
+        address: "khenchela",
+        city: "ouled rechache",
+        postalCode: "40013",
+      },
+      itemsPrice: "100",
+      shippingPrice: "20",
+      totalPrice: "120",
+      user: "627e68f3e59f0e9f65c3a4db",
+      traite: false,
+    },
+    {
+      orderItems: [
+        {
+          name: " vivobook",
+          image: "/images/product2.png",
+          price: 200000,
+          countInStock: 5,
+          product: "62792654e22cd29c68af8408",
+          qty: 3,
+        },
+      ],
+      shippingAddress: {
+        fullName: "moncef bouchenacha",
+        address: "bouira",
+        city: "ouladi aiche",
+        postalCode: "9000",
+      },
+      itemsPrice: "100",
+      shippingPrice: "20",
+      totalPrice: "120",
+      user: "627e68f3e59f0e9f65c3a4dc",
+      traite: true,
+    },
+  ],
   users: [
     {
       name: "amine",

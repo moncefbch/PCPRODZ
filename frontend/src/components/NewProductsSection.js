@@ -10,9 +10,11 @@ export default function NewProductsSection() {
   //const { loading, error, products } = productList;
   // next piece of code wad "   }, []);   " update : "   }, [dispatch]);   " 3lajal kanet hna error and this is how to handle it
   const dispatch = useDispatch();
-  const productMostRecentList = useSelector((state) => state.productMostRecentList);
+  const productMostRecentList = useSelector(
+    (state) => state.productMostRecentList
+  );
   const { loading, error, products } = productMostRecentList;
-  console.log(products)
+  console.log(products);
   useEffect(() => {
     // dispatch(listProducts(""));
     dispatch(listReacentProducts());

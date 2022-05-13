@@ -249,3 +249,8 @@ fix up order API \
 added sorting in product search API \
 functional sorting the search page \
 setting up placeorder for functionallity in the front \\
+
+## `commit-44`
+
+created api (get orders, get order, treat order, seed orders)\
+link get orders with frontend (used redux)\\

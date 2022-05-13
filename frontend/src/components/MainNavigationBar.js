@@ -7,6 +7,7 @@ import { signout } from "../actions/userActions";
 export default function MainNavigationBar() {
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
+  console.log(userInfo);
   const dispatch = useDispatch();
   const signoutHandler = () => {
     dispatch(signout());

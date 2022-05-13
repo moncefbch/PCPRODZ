@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ShipingFormPage() {
   return (
-    <section className="padding-y bg-light">
+    <section className="padding-y">
       <div className="container">
         <div className="row">
           <div className="col-lg-8">
