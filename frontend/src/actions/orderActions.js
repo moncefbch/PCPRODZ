@@ -62,12 +62,32 @@ export const listOrder = (orderId) => async (dispatch, getState) => {
     userSignin: { userInfo },
   } = getState();
   try {
-    const { data } = await Axios.get(`/api/orders/${orderId}`, {
+    const { data } = await Axios.get(`/api/orders/get${orderId}`, {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },
     });
-    dispatch({ type: ORDER_DETAIL_SUCCESS, payload: data.order });
+    dispatch({ type: ORDER_DETAIL_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: ORDER_DETAIL_FAIL, payload: error.message });
+  }
+};
+export const taiterOrder = (orderId) => async (dispatch, getState) => {
+  console.log(orderId);
+  dispatch({ type: ORDER_DETAIL_REQUEST });
+  const {
+    userSignin: { userInfo },
+  } = getState();
+  try {
+    const { data } = await Axios.put(
+      `/api/orders/${orderId}` /*, {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    }*/
+    );
+    console.log(data);
+    dispatch({ type: ORDER_DETAIL_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: ORDER_DETAIL_FAIL, payload: error.message });
   }

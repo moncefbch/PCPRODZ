@@ -73,7 +73,7 @@ export default function AdminPage(props) {
         <Router>
           <Route exact path="/admin/" component={AddProduct} />
           <Route exact path="/admin/commandes" component={Commandes} />
-          <Route exact path="/admin/commande" component={Commande} />
+          <Route exact path="/admin/commandedetails:id" component={Commande} />
         </Router>
       </div>
     </div>

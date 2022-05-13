@@ -66,7 +66,7 @@ orderRouter.get(
 //create put methode to change traite to true
 orderRouter.put(
   "/:id",
-  isAuth,
+  //isAuth,
   expressAsyncHandler(async (req, res) => {
     const order = await Order.findById(req.params.id);
     if (order) {
@@ -80,12 +80,12 @@ orderRouter.put(
 );
 
 orderRouter.get(
-  "/:id",
-  //isAuth,
+  "/get:id",
+  isAuth,
   expressAsyncHandler(async (req, res) => {
     const order = await Order.findById(req.params.id);
     if (order) {
-      res.status(200).send({ order });
+      res.status(200).send(order);
     } else {
       res.status(404).send({ message: "Order not found" });
     }

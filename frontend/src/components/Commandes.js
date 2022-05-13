@@ -6,13 +6,19 @@ import ErrorMessageBox from "./ErrorMessageBox";
 export default function Commandes() {
   const arr = [0, 0, 0];
   //get ordersList from listorder action
-  const orderList = useSelector((state) => state.orderList);
-  const { loading, error, orders } = orderList;
+  const ordersList = useSelector((state) => state.ordersList);
+  const { loading, error, orders } = ordersList;
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(listOrders());
   }, [dispatch]);
-  console.log(orders);
+
+  //create traiteCommande
+  const traiteCommande = (id) => {
+    console.log(id);
+    //go to commandedetails:id
+    window.location.href = `commandedetails${id}`;
+  };
 
   return (
     <div className="pdng-15">
@@ -37,9 +43,9 @@ export default function Commandes() {
         <LoadingBox></LoadingBox>
       ) : error ? (
         <ErrorMessageBox variant="danger">{error}</ErrorMessageBox>
-      ) : (
+      ) : orders ? (
         orders.map((order) => (
-          <div className="width-ful mrgn-30 pdng-15 commandPanel bodyBackground">
+          <div className="width-ful mrgn-30 pdng-15 commandPanel bodyBackground radius-10">
             <header className="font-bold font-20 font-cabin pdgtp-5">
               {"Nom d'utilisateur : " + order.shippingAddress.fullName}
             </header>
@@ -47,21 +53,21 @@ export default function Commandes() {
               {"Numero de telephone :"}
             </header>
             <header className="font-bold font-20 font-cabin pdgtp-5">
-              {"Wilaya :" + order.shippingAddress.address}
+              {"Wilaya : " + order.shippingAddress.address}
             </header>
             <header className="font-bold font-20 font-cabin pdgtp-5">
-              {"Adresse :"}
+              {"Adresse :" + order.shippingAddress.city}
             </header>
             <header className="font-bold font-20 font-cabin pdgtp-5">
               {"Produits :"}
             </header>
             <header className="font-bold font-20 font-cabin pdgtp-35">
-              {"MONTANTS :" + order.totalPrice + "DA"}
+              {"MONTANTS :" + order.totalPrice + " DA"}
             </header>
             <div className="pdgtp-50">
               <div className="d-flex justify-content-start">
                 <small class="form-text font-18 text-muted font-cabin ">
-                  Status:
+                  {"Status:"}
                 </small>
                 {order.traite ? (
                   <small class="form-text font-18 font-cabin greenColor">
@@ -72,12 +78,10 @@ export default function Commandes() {
                     Non traité
                   </small>
                 )}
-
-                {}
               </div>
               <div className="d-flex justify-content-start">
                 <small class="form-text font-18 text-muted font-cabin ">
-                  Commande id:
+                  {"Commande id : "}
                 </small>
                 <small class="form-text font-18 blackColor font-cabin ">
                   {order._id}
@@ -86,15 +90,18 @@ export default function Commandes() {
             </div>
             <div className="mrgnrgt-30 mrgnlft-30 d-flex flex-row-reverse">
               <button
+                onClick={() => traiteCommande(order._id)}
                 style={{ width: "200px" }}
                 type="submit"
                 className="p-2 font-cabin font-18 radius-25 loginOrRegisterButton mrgntp-35"
               >
-                Enregistrer
+                Traiter
               </button>
             </div>
           </div>
         ))
+      ) : (
+        <div>No orders</div>
       )}
     </div>
   );

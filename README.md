@@ -254,3 +254,7 @@ setting up placeorder for functionallity in the front \\
 
 created api (get orders, get order, treat order, seed orders)\
 link get orders with frontend (used redux)\\
+
+## `commit-44.1`
+
+link treat order api with the front (handling treat product)
