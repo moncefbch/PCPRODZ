@@ -9,10 +9,19 @@ export default function PlaceOrder(props) {
   const userSignin = useSelector((state) => state.userSignin);
   const {userInfo} = userSignin;
   const cart = useSelector((state) => state.cart);
-  console.log(cart);
   const orderCreate = useSelector((state) => state.orderCreate);
   const {loading, success, error, order} = orderCreate;
+
+  const toPrice = (num) => Number(num.toFixed(2)); // 5.123 => "5.12" => 5.12
+  cart.itemsPrice = toPrice(
+    cart.cartItems.reduce((a, c) => a + c.qty * c.price, 0)
+  );
+  cart.shippingPrice = cart.itemsPrice > 100 ? toPrice(0) : toPrice(10);
+  // cart.taxPrice = toPrice(0.15 * cart.itemsPrice);
+  cart.totalPrice = cart.itemsPrice + cart.shippingPrice; //+ cart.taxPrice;
+
   const dispatch = useDispatch();
+  console.log(cart.shippingAddress);
   const placeOrderHandler = () => {
     // TODO: dispatch place order action
     dispatch(createOrder({...cart, orderItems: cart.cartItems}));
@@ -37,13 +46,27 @@ export default function PlaceOrder(props) {
           }}
         >
           <div className="font-cabin width-full font-40 font-bold ">
-            <header>ADRESSE DE LIVRAISON </header>
+            <header>INFORMATIONS DE LIVRAISON </header>
           </div>
           <div className="mrgntp-30">
-            <header className="font-30 font-cabin">{userInfo.name}</header>
-            <header className="font-30 font-cabin">{userInfo.wilaya}</header>
-            <header className="font-30 font-cabin">Ouled yaich , 09015 </header>
-            <header className="font-30 font-cabin">Algerie, Afrique </header>
+            <header className="font-30 font-cabin">
+              {"Full Name : " +
+                cart.shippingAddress.firstName +
+                " " +
+                cart.shippingAddress.lastName}
+            </header>
+            <header className="font-30 font-cabin">
+              {"Wilaya : " + cart.shippingAddress.wilaya}
+            </header>
+            <header className="font-30 font-cabin">
+              {"Address : " +
+                cart.shippingAddress.address +
+                "," +
+                cart.shippingAddress.postalCode}
+            </header>
+            <header className="font-30 font-cabin">
+              {"Phone : " + cart.shippingAddress.phone}
+            </header>
           </div>
         </div>
         <div
@@ -56,8 +79,9 @@ export default function PlaceOrder(props) {
           }}
         >
           <div className="font-cabin width-full font-40 font-bold ">
-            <header>VOTRE PANIER</header>{" "}
+            <header>Order Items</header>{" "}
           </div>
+          <br />
           {cart.cartItems.length === 0 ? (
             <ErrorMessageBox>
               Cart is empty. <Link to="/">Go Shopping</Link>

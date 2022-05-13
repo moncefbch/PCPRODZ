@@ -1,13 +1,13 @@
-import { listOrders } from "../actions/orderActions";
-import { useDispatch, useSelector } from "react-redux";
-import { React, useEffect } from "react";
+import {listOrders} from "../actions/orderActions";
+import {useDispatch, useSelector} from "react-redux";
+import {React, useEffect} from "react";
 import LoadingBox from "./LoadingBox";
 import ErrorMessageBox from "./ErrorMessageBox";
 export default function Commandes() {
   const arr = [0, 0, 0];
   //get ordersList from listorder action
   const ordersList = useSelector((state) => state.ordersList);
-  const { loading, error, orders } = ordersList;
+  const {loading, error, orders} = ordersList;
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(listOrders());
@@ -26,7 +26,7 @@ export default function Commandes() {
         <header className="font-cabin font-bold font-30 mrgnlft-15">
           Commandes
         </header>
-        <div style={{ width: "300px", height: "35px" }} className="input-group">
+        <div style={{width: "300px", height: "35px"}} className="input-group">
           <input
             type="search"
             className="form-control rounded"
@@ -47,19 +47,33 @@ export default function Commandes() {
         orders.map((order) => (
           <div className="width-ful mrgn-30 pdng-15 commandPanel bodyBackground radius-10">
             <header className="font-bold font-20 font-cabin pdgtp-5">
-              {"Nom d'utilisateur : " + order.shippingAddress.fullName}
+              {"Nom d'utilisateur : " +
+                order.shippingAddress.firstName +
+                " " +
+                order.shippingAddress.lastName}
             </header>
             <header className="font-bold font-20 font-cabin pdgtp-5">
-              {"Numero de telephone :"}
+              {"Numero de telephone :" + order.shippingAddress.phone}
             </header>
             <header className="font-bold font-20 font-cabin pdgtp-5">
-              {"Wilaya : " + order.shippingAddress.address}
+              {"Wilaya :" + order.shippingAddress.wilaya}
             </header>
             <header className="font-bold font-20 font-cabin pdgtp-5">
-              {"Adresse :" + order.shippingAddress.city}
+              {"Adresse :" +
+                order.shippingAddress.address +
+                "," +
+                order.shippingAddress.postalCode}
             </header>
             <header className="font-bold font-20 font-cabin pdgtp-5">
               {"Produits :"}
+              {order.orderItems.map((item) => (
+                <header className="font-bold font-20 font-cabin pdgtp-5">
+                  {" "}
+                  {item.name}
+                  {" x "}
+                  {item.qty}
+                </header>
+              ))}
             </header>
             <header className="font-bold font-20 font-cabin pdgtp-35">
               {"MONTANTS :" + order.totalPrice + " DA"}
@@ -91,7 +105,7 @@ export default function Commandes() {
             <div className="mrgnrgt-30 mrgnlft-30 d-flex flex-row-reverse">
               <button
                 onClick={() => traiteCommande(order._id)}
-                style={{ width: "200px" }}
+                style={{width: "200px"}}
                 type="submit"
                 className="p-2 font-cabin font-18 radius-25 loginOrRegisterButton mrgntp-35"
               >

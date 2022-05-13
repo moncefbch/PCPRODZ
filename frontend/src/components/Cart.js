@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addToCart, removeFromCart ,saveInDb } from "../actions/cartActions";
-import { Link } from "react-router-dom";
+import React, {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {addToCart, removeFromCart, saveInDb} from "../actions/cartActions";
+import {Link} from "react-router-dom";
 import ErrorMessageBox from "./ErrorMessageBox";
 
 export default function Cart(props) {
@@ -11,9 +11,9 @@ export default function Cart(props) {
     : 1;
 
   const cart = useSelector((state) => state.cart);
-  const { cartItems, error } = cart;
+  const {cartItems, error} = cart;
   const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
+  const {userInfo} = userSignin;
   const dispatch = useDispatch();
   useEffect(() => {
     if (productId) {
@@ -21,18 +21,18 @@ export default function Cart(props) {
     }
   }, [dispatch, productId, qty]);
   useEffect(() => {
-    dispatch(saveInDb(userInfo,cartItems));
+    dispatch(saveInDb(userInfo, cartItems));
   }, [dispatch, userInfo, cartItems]);
-  
+
   const removeFromCartHandler = (id) => {
     // delete action
     dispatch(removeFromCart(id));
   };
   const checkoutHandler = () => {
-    props.history.push('/login?redirect=/');
+    props.history.push("/login?redirect=/");
   };
   return (
-    <div className="flex-container pdng-100" style={{ margin: "3%" }}>
+    <div className="flex-container pdng-100" style={{margin: "3%"}}>
       <div className="flex-item-left-70 mrgnrgt-50 pdgbtm-20">
         <div
           className="width-full whitebackground radius-10 "
@@ -70,7 +70,7 @@ export default function Cart(props) {
                         <div className="font-cabin width-full font-30">
                           <Link
                             className="notextdecoration"
-                            style={{ color: "black", fontWeight: "bold" }}
+                            style={{color: "black", fontWeight: "bold"}}
                             to={"/product/" + item.product}
                           >
                             <header>{item.name}</header>
@@ -155,7 +155,7 @@ export default function Cart(props) {
                             backgroundColor: "black",
                           }}
                         >
-                          <header style={{ marginLeft: "15px" }}>
+                          <header style={{marginLeft: "15px"}}>
                             {" "}
                             supprimer{" "}
                           </header>
@@ -189,7 +189,7 @@ export default function Cart(props) {
             Articles :
           </small>
           <small className="form-text font-20 text-muted font-cabin pdgtp-5">
-            {cartItems.reduce((a, c) => a + c.price * c.qty, 0) }
+            {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
           </small>
         </div>
         <div class="d-flex justify-content-between">
@@ -218,7 +218,7 @@ export default function Cart(props) {
             onClick={checkoutHandler}
             disabled={cartItems.length === 0}
             className="font-cabin passcommandbutton"
-            style={{ backgroundColor: "#4584FF", borderWidth: "0px" }}
+            style={{backgroundColor: "#4584FF", borderWidth: "0px"}}
           >
             Passer la commande
           </button>

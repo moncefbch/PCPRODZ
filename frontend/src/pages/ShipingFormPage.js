@@ -1,262 +1,189 @@
-import React from "react";
+import React, {useState} from "react";
+import Wilayas from "../components/Wilaya";
+import {useDispatch, useSelector} from "react-redux";
+import {saveShippingAddress} from "../actions/cartActions";
 
-export default function ShipingFormPage() {
+export default function ShipingFormPage(props) {
+  const userSignin = useSelector((state) => state.userSignin);
+  const {userInfo} = userSignin;
+  const cart = useSelector((state) => state.cart);
+  const {shippingAddress} = cart;
+  if (!userInfo) {
+    props.history.push("/login");
+  }
+  const [address, setAddress] = useState(shippingAddress.address);
+  const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
+  const [wilaya, setWilaya] = useState(shippingAddress.wilaya);
+  const [phone, setPhone] = useState(shippingAddress.phone);
+  const [firstName, setFirstName] = useState(userInfo.name);
+  const [lastName, setLastName] = useState(userInfo.lastname);
+
+  const dispatch = useDispatch();
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(
+      saveShippingAddress({
+        firstName,
+        lastName,
+        address,
+        phone,
+        postalCode,
+        wilaya,
+      })
+    );
+    props.history.push("/placeorder");
+  };
+  // rewrite the code that when the user fills first and last name it will be concatenated in the full name
   return (
-    <section className="padding-y">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-8">
-            <article className="cardd">
-              <div className="cardd-body">
-                <h5 className="cardd-title">Contact info</h5>
-                <div className="row">
-                  <div className="col-6 mb-3">
-                    <label className="form-label">First name</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Type here"
-                    />
-                  </div>
-                  <div className="col-6">
-                    <label className="form-label">Last name</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Type here"
-                    />
-                  </div>
-                  <div className="col-lg-6 mb-3">
-                    <label className="form-label">Phone</label>
-                    <input
-                      type="text"
-                      value="+998"
-                      className="form-control"
-                      placeholder=""
-                    />
-                  </div>
-                  <div className="col-lg-6 mb-3">
-                    <label className="form-label">Email</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="example@gmail.com"
-                    />
-                  </div>
-                </div>
-                <label className="form-check mb-3">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                  />
-                  <span className="form-check-label">
-                    Keep me up to date on news
-                  </span>
-                </label>
-                <hr className="my-4" />
-                <h5 className="cardd-title">Shipping info</h5>
-                <div className="row mb-3">
-                  <div className="col-lg-4 mb-3">
-                    <div className="box box-check">
-                      <label className="form-check">
-                        <input
-                          className="form-check-input"
-                          type="radio"
-                          name="dostavka"
-                          checked
-                        />
-                        <b className="border-oncheck"></b>
-                        <span className="form-check-label">
-                          Express delivery <br />
-                          <small className="text-muted">
-                            3-4 days via Fedex{" "}
-                          </small>
-                        </span>
-                      </label>
-                    </div>
-                  </div>
-                  <div className="col-lg-4 mb-3">
-                    <div className="box box-check">
-                      <label className="form-check">
-                        <input
-                          className="form-check-input"
-                          type="radio"
-                          name="dostavka"
-                        />
-                        <b className="border-oncheck"></b>
-                        <span className="form-check-label">
-                          Post office <br />
-                          <small className="text-muted">
-                            20-30 days via post
-                          </small>
-                        </span>
-                      </label>
-                    </div>
-                  </div>
-                  <div className="col-lg-4 mb-3">
-                    <div className="box box-check">
-                      <label className="form-check">
-                        <input
-                          className="form-check-input"
-                          type="radio"
-                          name="dostavka"
-                        />
-                        <b className="border-oncheck"></b>
-                        <span className="form-check-label">
-                          Self pick-up <br />
-                          <small className="text-muted">
-                            {" "}
-                            Come to our shop{" "}
-                          </small>
-                        </span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-sm-8 mb-3">
-                    <label className="form-label">Address</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Type here"
-                    />
-                  </div>
-                  <div className="col-sm-4 mb-3">
-                    <label className="form-label">City*</label>
-                    <select
-                      className="form-select"
-                      id="city*"
-                      aria-label="City*"
-                    >
-                      <option value="1">New York</option>
-                      <option value="2">Moscow</option>
-                      <option value="3">Samarqand</option>
-                    </select>
-                  </div>
-                  <div className="col-sm-4 col-6 mb-3">
-                    <label className="form-label">House</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Type here"
-                    />
-                  </div>
-                  <div className="col-sm-4 col-6 mb-3">
-                    <label className="form-label">Postal code</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder=""
-                    />
-                  </div>
-                  <div className="col-sm-4 col-6 mb-3">
-                    <label className="form-label">Zip</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder=""
-                    />
-                  </div>
-                </div>
-                <label className="form-check mb-4">
-                  <input
-                    className="form-check-input"
-                    type="checkbox"
-                    value=""
-                  />
-                  <span className="form-check-label"> Save this address </span>
-                </label>
-                <button className="btn btn-primary">Continue</button>
-                <button className="btn btn-light">Cancel</button>
-              </div>
-            </article>
+    <div className="row">
+      <div className="col-md-8 mb-4">
+        <div className="cardd mb-4">
+          <div className="cardd-header py-3">
+            <h5 className="mb-0">Shipping Address</h5>
           </div>
-          <aside className="col-lg-4">
-            <article className="cardd">
-              <div className="cardd-body">
-                <h5 className="cardd-title">Summary</h5>
-                <dl className="dlist-align">
-                  <dt>Total price:</dt>
-                  <dd className="text-end">$1403.97</dd>
-                </dl>
-                <dl className="dlist-align">
-                  <dt>Discount:</dt>
-                  <dd className="text-end text-danger">- $60.00</dd>
-                </dl>
-                <dl className="dlist-align">
-                  <dt>Shipping cost:</dt>
-                  <dd className="text-end">+ $14.00</dd>
-                </dl>
-                <hr />
-                <dl className="dlist-align">
-                  <dt>Total:</dt>
-                  <dd className="text-end">
-                    <strong className="text-dark">$1357.97</strong>
-                  </dd>
-                </dl>
-                <div className="input-group my-4">
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="lorem"
-                    placeholder="Promo code"
-                  />
-                  <button className="btn btn-light text-primary">Apply</button>
-                </div>
-                <hr />
-                <h5 className="mb-4">Items in cart</h5>
-                <div className="itemside align-items-center mb-4">
-                  <div className="aside">
-                    <b className="badge bg-secondary rounded-pill">2</b>
-                    <img
-                      src="bootstrap5-ecommerce/images/items/2.jpg"
-                      className="img-sm rounded border"
+          <div className="cardd-body">
+            <form className="form" onSubmit={submitHandler}>
+              <div className="row mb-4">
+                <div className="col">
+                  <div className="form-outline">
+                    <input
+                      type="text"
+                      id="form7Example1"
+                      placeholder="first name"
+                      value={firstName}
+                      className="InputField font-cabin font-10"
+                      onChange={(e) => {
+                        setFirstName(e.target.value);
+                      }}
                     />
-                  </div>
-                  <div className="info">
-                    <a href="#" className="title">
-                      Canon Cmera EOS, 10x zoom
-                    </a>
-                    <div className="price text-muted">Total: $12.99</div>
+                    <label className="form-label" for="form7Example1"></label>
                   </div>
                 </div>
-                <div className="itemside align-items-center mb-4">
-                  <div className="aside">
-                    <b className="badge bg-secondary rounded-pill">2</b>
-                    <img
-                      src="bootstrap5-ecommerce/images/items/8.jpg"
-                      className="img-sm rounded border"
+                <div className="col">
+                  <div className="form-outline">
+                    <input
+                      type="text"
+                      id="form7Example2"
+                      className="InputField font-cabin font-10"
+                      placeholder="last name"
+                      value={lastName}
+                      onChange={(e) => {
+                        setLastName(e.target.value);
+                      }}
                     />
-                  </div>
-                  <div className="info">
-                    <a href="#" className="title">
-                      Leather Wallet for Men Original
-                    </a>
-                    <div className="price text-muted">Total: $12.99</div>
-                  </div>
-                </div>
-                <div className="itemside align-items-center mb-4">
-                  <div className="aside">
-                    <b className="badge bg-secondary rounded-pill">2</b>
-                    <img
-                      src="bootstrap5-ecommerce/images/items/9.jpg"
-                      className="img-sm rounded border"
-                    />
-                  </div>
-                  <div className="info">
-                    <a href="#" className="title">
-                      Product name goes here
-                    </a>
-                    <div className="price text-muted">Total: $12.99</div>
+                    <label className="form-label" for="form7Example2"></label>
                   </div>
                 </div>
               </div>
-            </article>
-          </aside>
+              <div className="form-outline mb-4">
+                <select
+                  className="InputField font-cabin font-10"
+                  id="exampleInputPassword1"
+                  onChange={(e) => setWilaya(e.target.value)}
+                  value={wilaya}
+                  required
+                >
+                  {Wilayas.leswilayas.map((wilaya) => (
+                    <option value={wilaya}>{wilaya}</option>
+                  ))}
+                </select>
+                <label className="form-label" for="form7Example3"></label>
+              </div>
+              <div className="form-outline mb-4">
+                <input
+                  type="text"
+                  id="form7Example4"
+                  className="InputField font-cabin font-10"
+                  placeholder="Address"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                />
+                <label className="form-label" for="form7Example4"></label>
+              </div>
+              <div className="form-outline mb-4">
+                <input
+                  // grey overlay
+                  type="email"
+                  id="form7Example5"
+                  placeholder="Email"
+                  value={userInfo.email}
+                  className="InputField font-cabin font-10"
+                />
+                <label className="form-label" for="form7Example5"></label>
+              </div>
+              <div className="form-outline mb-4">
+                <input
+                  type="number"
+                  placeholder="Phone"
+                  id="form7Example6"
+                  className="InputField font-cabin font-10"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+                <label className="form-label" for="form7Example6"></label>
+              </div>
+              <div className="form-outline mb-4">
+                <input
+                  type="code"
+                  placeholder="Code postal"
+                  id="form7Example6"
+                  className="InputField font-cabin font-10"
+                  value={postalCode}
+                  onChange={(e) => setPostalCode(e.target.value)}
+                />
+                <label className="form-label" for="form7Example7"></label>
+              </div>
+
+              <div className="form-check d-flex justify-content-center mb-2">
+                <div className="form-group attributForm pdngbtm-50">
+                  <button
+                    type="submit"
+                    className="font-cabin font-18 radius-25 loginOrRegisterButton width-full"
+                    //on submit
+                  >
+                    Save Shipping Address
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </section>
+
+      <div className="col-md-4 mb-4">
+        <div className="cardd mb-4">
+          <div className="cardd-header py-3">
+            <h5 className="mb-0">Summary</h5>
+          </div>
+          <div className="cardd-body">
+            <ul className="list-group list-group-flush">
+              <li className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                Products
+                <span>$53.98</span>
+              </li>
+              <li className="list-group-item d-flex justify-content-between align-items-center px-0">
+                Shipping
+                <span>Gratis</span>
+              </li>
+              <li className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                <div>
+                  <strong>Total amount</strong>
+                  <strong>
+                    <p className="mb-0">(including VAT)</p>
+                  </strong>
+                </div>
+                <span>
+                  <strong>$53.98</strong>
+                </span>
+              </li>
+            </ul>
+
+            <button type="button" className="btn btn-primary btn-lg btn-block">
+              Make purchase
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

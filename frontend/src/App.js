@@ -40,8 +40,8 @@ function App() {
         <Route path="/register" component={Register} />
         <Route path="/cart/:id?" component={CartPage} />
         <Route path="/profile" component={ProfilePage} />
-        {/*<Route path="/placeorder" component={PlaceOrder} />*/}
-        <Route path={"/placeorder"} component={ShipingFormPage} />
+        <Route path="/placeorder" component={PlaceOrder} />
+        <Route path={"/shipping"} component={ShipingFormPage} />
         <AdminRoute path="/admin" component={AdminPage} />
       </div>
       <Footer />
