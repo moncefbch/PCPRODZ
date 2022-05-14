@@ -262,3 +262,8 @@ link treat order api with the front (handling treat product)\\
 ## `commit-45`
 
 bezzaf swal7 \\
+
+## `commit-45.1`
+
+product page (admin side)\
+edit and delete\\

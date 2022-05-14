@@ -10,8 +10,8 @@ import {
   PRODUCT_CATEGORY_LIST_SUCCESS,
   PRODUCT_CATEGORY_LIST_FAIL,
   PRODUCTS_MOStRECENT_LIST_REQUEST,
-PRODUCTS_MOStRECENT_LIST_SUCCESS,
-PRODUCTS_MOStRECENT_LIST_FAIL   ,
+  PRODUCTS_MOStRECENT_LIST_SUCCESS,
+  PRODUCTS_MOStRECENT_LIST_FAIL,
 } from "../Constants/ProductsConstants";
 
 export const productListReducer = (
@@ -60,12 +60,15 @@ export const productCategoryListReducer = (
   }
 };
 
-export const productMostRecentListReducer = (state = { loading: true , products: [] }, action) => {
+export const productMostRecentListReducer = (
+  state = { loading: true, products: [] },
+  action
+) => {
   switch (action.type) {
     case PRODUCTS_MOStRECENT_LIST_REQUEST:
       return { loading: true };
     case PRODUCTS_MOStRECENT_LIST_SUCCESS:
-      return { loading: false, products : action.payload };
+      return { loading: false, products: action.payload };
     case PRODUCTS_MOStRECENT_LIST_FAIL:
       return { loading: false, error: action.payload };
     default:
@@ -73,3 +76,18 @@ export const productMostRecentListReducer = (state = { loading: true , products:
   }
 };
 
+export const allProducstListReducer = (
+  state = { loading: true, products: [] },
+  action
+) => {
+  switch (action.type) {
+    case PRODUCT_LIST_REQUEST:
+      return { loading: true };
+    case PRODUCT_LIST_SUCCESS:
+      return { loading: false, products: action.payload };
+    case PRODUCT_LIST_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};

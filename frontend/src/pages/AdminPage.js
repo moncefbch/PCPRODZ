@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Commandes from "../components/Commandes";
 import Commande from "../components/Commande";
+import Catalogue from "../components/Catalogue";
+import ProductPageAdmin from "./ProductPageAdmin";
 
 export default function AdminPage(props) {
   const array = [
@@ -74,6 +76,9 @@ export default function AdminPage(props) {
           <Route exact path="/admin/" component={AddProduct} />
           <Route exact path="/admin/commandes" component={Commandes} />
           <Route exact path="/admin/commandedetails:id" component={Commande} />
+          <Route exact path="/admin/catalogue" component={Catalogue} />
+          <Route exact path="/admin/product:id" component={ProductPageAdmin} />
+          <Route exact path="/admin/edit:id" component={AddProduct} />
         </Router>
       </div>
     </div>

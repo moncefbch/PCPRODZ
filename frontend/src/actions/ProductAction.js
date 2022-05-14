@@ -16,7 +16,7 @@ import Axios from "axios";
 
 export const listProducts = (text) => async (dispatch) => {
   dispatch({ type: PRODUCT_LIST_REQUEST });
-  console.log(`/api/products/search?${text}`);
+
   try {
     // const { data } = await Axios.get(`/api/products/search?name=${name}&category=${category}`);
     const { data } = await Axios.get(`/api/products/search?${text}`);

@@ -1,5 +1,5 @@
 import express from "express";
-import {isAuth} from "../utils.js";
+import { isAuth } from "../utils.js";
 import expressAsyncHandler from "express-async-handler";
 import Order from "../models/orderModel.js";
 import data from "../data.js";
@@ -20,7 +20,7 @@ orderRouter.post(
   isAuth,
   expressAsyncHandler(async (req, res) => {
     if (req.body.orderItems.length === 0) {
-      res.status(400).send({message: "Cart is empty"});
+      res.status(400).send({ message: "Cart is empty" });
     } else {
       const order = new Order({
         orderItems: req.body.orderItems,
@@ -31,7 +31,9 @@ orderRouter.post(
         user: req.user._id,
       });
       const createdOrder = await order.save();
-      res.status(201).send({message: "New Order Created", order: createdOrder});
+      res
+        .status(201)
+        .send({ message: "New Order Created", order: createdOrder });
     }
   })
 );
@@ -56,7 +58,7 @@ orderRouter.get(
     if (orders) {
       res.status(200).send(orders);
     } else {
-      res.status(404).send({message: "No orders found"});
+      res.status(404).send({ message: "No orders found" });
     }
   })
 );
@@ -70,9 +72,9 @@ orderRouter.put(
     if (order) {
       order.traite = true;
       const updatedOrder = await order.save();
-      res.status(201).send({message: "Order traite", order: updatedOrder});
+      res.status(201).send({ message: "Order traite", order: updatedOrder });
     } else {
-      res.status(404).send({message: "Order not found"});
+      res.status(404).send({ message: "Order not found" });
     }
   })
 );
@@ -85,7 +87,7 @@ orderRouter.get(
     if (order) {
       res.status(200).send(order);
     } else {
-      res.status(404).send({message: "Order not found"});
+      res.status(404).send({ message: "Order not found" });
     }
   })
 );

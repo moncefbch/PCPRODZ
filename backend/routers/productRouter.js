@@ -10,8 +10,8 @@ productRouter.get(
   expressAsyncHandler(async (req, res) => {
     const name = req.query.name || "";
     const category = req.query.category || "";
-    const nameFilter = name ? {name: {$regex: name, $options: "i"}} : {};
-    const categoryFilter = category ? {category} : {};
+    const nameFilter = name ? { name: { $regex: name, $options: "i" } } : {};
+    const categoryFilter = category ? { category } : {};
     const product = await Product.find({
       ...nameFilter,
       ...categoryFilter,
@@ -24,7 +24,7 @@ productRouter.get(
   expressAsyncHandler(async (req, res) => {
     await Product.remove({});
     const createdProducts = await Product.insertMany(data.products);
-    res.send({createdProducts});
+    res.send({ createdProducts });
   })
 );
 //suggestions for the search box
@@ -47,7 +47,7 @@ productRouter.get(
 productRouter.get(
   "/query",
   expressAsyncHandler(async (req, res) => {
-    const {search} = req.query;
+    const { search } = req.query;
     const product = await Product.find({});
     let sortedProducts = [...product];
 
@@ -58,7 +58,7 @@ productRouter.get(
     }
     if (sortedProducts.length < 1) {
       // res.status(200).send('no products matched your search');
-      return res.status(200).send({sucess: true, data: []});
+      return res.status(200).send({ sucess: true, data: [] });
     }
     res.send(sortedProducts);
   })
@@ -72,7 +72,7 @@ productRouter.get(
     if (product) {
       res.send(product);
     } else {
-      res.status(404).send({message: "Product Not Found"});
+      res.status(404).send({ message: "Product Not Found" });
     }
   })
 );
@@ -81,11 +81,11 @@ productRouter.get(
   "/search?:text",
   expressAsyncHandler(async (req, res) => {
     //creatr a const text equals to the text in the url
-    const {name} = req.query;
-    const {category} = req.query;
+    const { name } = req.query;
+    const { category } = req.query;
     const product = await Product.find({});
     let sortedProducts = [...product];
-    const {order} = req.query;
+    const { order } = req.query;
     if (order === "newest") {
       sortedProducts = sortedProducts.sort((a, b) => {
         return b.createdAt - a.createdAt;
@@ -127,7 +127,9 @@ productRouter.get(
     }
     if (sortedProducts.length < 1) {
       // res.status(200).send('no products matched your search');
-      return res.status(404).send({message: "no products matched your search"});
+      return res
+        .status(404)
+        .send({ message: "no products matched your search" });
     }
     res.send(sortedProducts);
   })
@@ -164,5 +166,41 @@ productRouter.get(
 
 
 );*/
+
+//delete product
+productRouter.delete(
+  "/delete/:id",
+  expressAsyncHandler(async (req, res) => {
+    const product = await Product.findById(req.params.id);
+    if (product) {
+      await product.remove();
+      res.send({ message: "Product Deleted" });
+    } else {
+      res.status(404).send({ message: "Product Not Found" });
+    }
+  })
+);
+
+//edit product
+productRouter.post(
+  "/edit",
+  expressAsyncHandler(async (req, res) => {
+    const { id, name, price, category, brand, description /*image*/ } =
+      req.body;
+    const product = await Product.findById(id);
+    if (product) {
+      product._name = name;
+      product.price = price;
+      product.category = category;
+      product.brand = brand;
+      product.description = description;
+      //product.image = image;
+      await product.save();
+      res.send({ message: "Product Updated" });
+    } else {
+      res.status(404).send({ message: "Product Not Found" });
+    }
+  })
+);
 
 export default productRouter;

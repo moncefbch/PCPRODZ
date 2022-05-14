@@ -2,8 +2,28 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createProduct } from "../actions/ProductAction";
 import { PRODUCT_CREATE_RESET } from "../Constants/ProductsConstants";
+import Axios from "axios";
 
 export default function AddProduct(props) {
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data } = await Axios.get(
+        "/api/products/get" + props.match.params.id
+      );
+      console.log(data);
+      setName(data._name);
+      setBrand(data.brand);
+      setPrice(data.price);
+      setRam(data.ram);
+      setDisque(data.disque);
+      setCategory(data.category);
+      setCpu(data.processeur);
+      setCountInStock(data.countInStock);
+      setGpu(data.gpu);
+    };
+    fetchData();
+  }, []);
+  // console.log(product);
   const [name, setName] = useState("");
   const [brand, setBrand] = useState("");
   const [cpu, setCpu] = useState("");
@@ -79,6 +99,30 @@ export default function AddProduct(props) {
             <input
               id={att}
               type="text"
+              value={(() => {
+                switch (att) {
+                  case "name":
+                    return name;
+                  case "brand":
+                    return brand;
+                  case "cpu":
+                    return cpu;
+                  case "ram":
+                    return ram;
+                  case "disque":
+                    return disque;
+                  case "gpu":
+                    return gpu;
+                  case "category":
+                    return category;
+                  case "price":
+                    return price;
+                  case "countInStock":
+                    return countInStock;
+                  default:
+                    return "";
+                }
+              })()}
               placeholder={`enter a  ${att}`}
               onChange={(e) => {
                 if (att === "name") {

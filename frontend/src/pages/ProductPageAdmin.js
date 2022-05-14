@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import Axios from "axios";
+import { Link } from "react-router-dom";
 
-export default function ProductPage(props) {
+export default function ProductPageAdmin(props) {
   const [product, setProducts] = useState([]);
-  const [qty, setQty] = useState(1);
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await Axios.get(
@@ -17,24 +17,17 @@ export default function ProductPage(props) {
   if (!product) {
     return <div>Product not found</div>;
   }
-  const decqty = () => {
-    if (qty > 1) {
-      setQty(qty - 1);
-    }
-  };
-  const incqty = () => {
-    if (qty < product.countInStock) {
-      setQty(qty + 1);
-    }
+
+  //deleteHandeler
+  const deleteHandeler = async (id) => {
+    await Axios.delete("/api/products/delete/" + id);
+    props.history.push("/admin/catalogue");
   };
 
-  const addToCartHandler = () => {
-    props.history.push(`/cart/${product._id}?qty=${qty}`);
-  };
   return (
-    <div className="flex-container" style={{ margin: "5%" }}>
+    <div className="flex-container" style={{ margin: "3%", marginTop: "0" }}>
       <div
-        className="flex-item-left-70 whitebackground radius-10 mrgnrgt-50"
+        className=" whitebackground radius-10"
         style={{ marginBottom: "30px" }}
       >
         <header className="font-cabin font-40 mrgn-30">{product._name}</header>
@@ -94,6 +87,9 @@ export default function ProductPage(props) {
             </div>
           </div>
         </div>
+        <header className="font-cabin font-40 mrgn-25 font-bold mrgnbtm-0 mrgn-30">
+          {"Prix : " + product.price}
+        </header>
         <header
           style={{ marginBottom: "0px" }}
           className="font-cabin font-40 mrgn-30 font-bold"
@@ -123,88 +119,28 @@ export default function ProductPage(props) {
             {"Description :" + product.description}
           </header>
         </div>
-      </div>
-      <div
-        className="flex-item-right-30 whitebackground radius-10"
-        style={{
-          height: "350px",
-        }}
-      >
-        <header className="font-cabin font-40 mrgn-25 font-bold mrgnbtm-0 mrgn-30">
-          {product.price}
-        </header>
-        <h5 className="font-cabin font-bold mrgn-30 mrgntp-0">Produit neuf</h5>
-        {product.countInStock > 0 ? (
-          <div>
-            <div className="align-center font-cabin font-20"> Quantité: </div>
-            <div className="d-flex justify-content-center">
+        <div className="pdgtp-150 mrgnrgt-30 mrgnlft-30">
+          <div className="d-flex flex-row-reverse">
+            <Link to={"/admin"}>
               <button
-                onClick={decqty}
-                className="font-cabin font-bold font-20 shadowForMainSquareType"
-                style={{
-                  margin: "5px",
-                  borderRadius: "10px",
-                  width: "50px",
-                  height: "30px",
-                  borderWidth: "0px",
-                  backgroundColor: "#262525",
-                  color: "white",
-                }}
+                style={{ width: "150px" }}
+                type="submit"
+                className="p-2 font-cabin font-15 radius-25 loginOrRegisterButton "
               >
-                -
+                Editer
               </button>
-              <header
-                className="font-cabin font-bold font-20"
-                style={{
-                  margin: "5px",
-                  paddingLeft: "20px",
-                  paddingRight: "20px",
-                }}
-              >
-                {qty}
-              </header>
-              <button
-                onClick={incqty}
-                className="font-cabin font-bold font-20 shadowForMainSquareType"
-                style={{
-                  margin: "5px",
-                  borderRadius: "10px",
-                  width: "50px",
-                  height: "30px",
-                  borderWidth: "0px",
-                  backgroundColor: "#262525",
-                  color: "white",
-                }}
-              >
-                +
-              </button>
-            </div>
+            </Link>
             <button
-              onClick={addToCartHandler}
-              className="d-flex font-cabin font-18 font-bold shadowForMainSquareType mrgntp-30 radius-10 align-center"
-              style={{
-                width: "80%",
-                height: "45px",
-                borderWidth: "0px",
-                marginLeft: "auto",
-                paddingTop: "10px",
-                marginRight: "auto",
-                color: "white",
-                backgroundColor: "#4584FF",
-              }}
+              style={{ width: "150px", marginRight: "15px" }}
+              className="p-2 font-cabin font-15 radius-25 loginOrRegisterButton "
+              onClick={deleteHandeler}
             >
-              <header style={{ marginLeft: "15px" }}>
-                {" "}
-                Ajouter Au Panier{" "}
-              </header>
-              <img alt="" src="/images/carticon.png" className="linkicon" />
+              Supprimer
             </button>
           </div>
-        ) : (
-          <div>khlasselna hed lpc dsl a la7viv</div>
-        )}
-        <br />
+        </div>
       </div>
+
       <Helmet>
         <script src="js/product_carousel.js"></script>
         <script src="js/product_gallery.js"></script>
