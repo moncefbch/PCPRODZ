@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { listProductCategories } from '../actions/ProductAction';
-import LoadingBox from './LoadingBox';
-import ErrorMessageBox from './ErrorMessageBox';
-import { Link} from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { listProductCategories } from "../actions/ProductAction";
+import LoadingBox from "./LoadingBox";
+import ErrorMessageBox from "./ErrorMessageBox";
+import { Link } from "react-router-dom";
 
 export default function SecondaryNavigationBar() {
   const dispatch = useDispatch();
@@ -21,42 +21,41 @@ export default function SecondaryNavigationBar() {
   const [toggle, setToggle] = useState(false);
   const toggleDropdown = () => {
     setToggle(!toggle);
-  }
+  };
   // close the dropdown menu
   const closeDropdown = () => {
     setToggle(false);
-  }
+  };
   // render the dropdown menu ,,,,
 
   return (
     <div className="secondNavBar" style={{ backgroundColor: "#3c3c3c" }}>
       <div className="dropdown pdngrgt-20">
-        <button
-          className="dropbtn"
-          onClick={toggleDropdown}
-          >
+        <button className="dropbtn" onClick={toggleDropdown}>
           <img src="/images/dropdownIcon.svg" alt="dropdownicon" />
         </button>
-        <div className="dropdown-content" >
+        <div className="dropdown-content">
           <header className="font-cabin font-30 mrgnlft-5 cathegoriesHeader">
             Cathegories
           </header>
           {loadingCategories ? (
-              <LoadingBox></LoadingBox>
-            ) : errorCategories ? (
-              <ErrorMessageBox  variant="danger">{errorCategories}</ErrorMessageBox >
-            ) : (
-              categories.map((c) => (
-                <li key={c}>
-                  <Link
-                    to={`/search=category=${c}`}
-                    className="font-cabin font-20 mrgnlft-5 onecathegorie"
-                  >
-                    {c}
-                  </Link>
-                </li>
-              ))
-            )}
+            <LoadingBox></LoadingBox>
+          ) : errorCategories ? (
+            <ErrorMessageBox variant="danger">
+              {errorCategories}
+            </ErrorMessageBox>
+          ) : (
+            categories.map((c) => (
+              <li key={c}>
+                <Link
+                  to={`/search=category=${c}`}
+                  className="font-cabin font-20 mrgnlft-5 onecathegorie"
+                >
+                  {c}
+                </Link>
+              </li>
+            ))
+          )}
         </div>
       </div>
 

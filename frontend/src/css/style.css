@@ -161,6 +161,10 @@ a:hover {
   z-index: 9;
 }
 
+.searchinputradius {
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+}
 #map {
   width: 100%;
   padding-left: 5%;
@@ -260,6 +264,20 @@ a:hover {
   }
   #check:checked ~ ul {
     left: 0;
+  }
+  /*stick navigationBar relatively to the top of the sceen/
+    when the navbar is open*/
+  .navigationBar {
+    position: fixed;
+    top: 0;
+    height: 80px;
+    z-index: 1000;
+  }
+  .overlay {
+    position: fixed;
+    top: 0;
+    height: 70px;
+    z-index: 1000;
   }
 
   .overlay {
@@ -714,6 +732,17 @@ a:hover {
 @media (max-width: 853px) {
   .mrgnrgt-50 {
     margin-right: 0px;
+  }
+}
+
+.adminProductPage {
+  margin-left: 50px;
+}
+/*when the size of screen is less than 853 then adminproductpage marginleft = 0*/
+
+@media (max-width: 853px) {
+  .adminProductPage {
+    margin-left: 0px;
   }
 }
 

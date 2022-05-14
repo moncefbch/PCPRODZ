@@ -1,15 +1,16 @@
 import FilterTag from "../components/FilterTag";
 import SearchItem from "../components/SearchItem";
 import Axios from "axios";
-import {useSearchParams} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
-import {listProducts} from "../actions/ProductAction";
+import { useSearchParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { listProducts } from "../actions/ProductAction";
 //import error message box from error message box component
 import ErrorMessageBox from "../components/ErrorMessageBox";
 import FilterConfiguration from "../components/FilterConfiguration";
 import NewSearchItem from "../components/NewSearchItem";
-import {useLocation, useParams} from "react-router-dom";
-import React, {useEffect, useState} from "react";
+import { useLocation, useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import LoadingBox from "../components/LoadingBox";
 
 export default function SearchPage(props) {
   /* const queryParams = new URLSearchParams(window.location.search);
@@ -34,13 +35,13 @@ const match = search.match(/category=(.*)/);
 const type = match?.[1];
 console.log(type);*/
   //extract the page from the url
-  const {name} = useParams();
-  const {page} = useParams();
+  const { name } = useParams();
+  const { page } = useParams();
   //const {category} = useParams();
   //extract the sort from the url
-  const {order} = useParams();
-  const {min} = useParams();
-  const {max} = useParams();
+  const { order } = useParams();
+  const { min } = useParams();
+  const { max } = useParams();
 
   // get the query from the url
   /* const [searchParams , setSearchParams] = useSearchParams();
@@ -54,7 +55,7 @@ console.log(type);*/
   const text = props.match.params.text;
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
-  const {loading, error, products} = productList;
+  const { loading, error, products } = productList;
   useEffect(() => {
     dispatch(listProducts(text));
   }, [dispatch, text]);
@@ -75,69 +76,116 @@ console.log(type);*/
     return `/search=category=${filterCategory}&name=${filterName}&order=${sortOrder}`;
   };
 
+  const [view, setView] = useState("grid");
+
   return (
     <div>
       <header className="font-cabin font-bold font-40 mrgnlft-50 mrgntp-30">
         Pc portable
       </header>
-      <div className="flex-container mrgn-30">
-        <div className="flex-item-left-25 radius-10 whitebackground pdng-15 font-25">
+
+      <div className="flex-container mrgn-30  ">
+        <div
+          className="flex-item-left-25 whitebackground pdng-15 font-25"
+          style={{ borderRadius: "7px", paddingTop: "30px" }}
+        >
           {/*hna filter component */}
           <FilterConfiguration />
         </div>
         <div className="flex-item-right-70 radius-10 whitebackground">
-          <div class="container">
-            <div class="row">
-              <div class="col">
-                {" "}
-                <header className="font-cabin font-bold font-30 mrgn-30">
-                  {loading ? (
-                    <div>hello world</div>
-                  ) : error ? (
-                    <ErrorMessageBox variant="danger">{error}</ErrorMessageBox>
-                  ) : (
-                    products.length + " articles"
-                  )}
-                </header>
-              </div>
-              <div class="col-md-auto"></div>
-              <div class="col col-lg-2">
-                <div className="font-cabin font-bold font-30 mrgn-30">
-                  Sort by{" "}
+          <div className="container">
+            <div className="row">
+              <header
+                className="d-sm-flex align-items-center border-bottom mb-4 pb-3"
+                style={{ paddingTop: "0px" }}
+                x
+              >
+                {loading ? (
+                  <LoadingBox />
+                ) : error ? (
+                  <ErrorMessageBox variant="danger">{error}</ErrorMessageBox>
+                ) : (
+                  <header className="font-cabin font-25 mrgn-30">
+                    {"Nombre d'Articles : " + products.length}{" "}
+                  </header>
+                )}
+
+                <div className="ms-auto">
                   <select
+                    className="form-select d-inline-block w-auto"
                     value={order}
                     onChange={(e) => {
-                      props.history.push(getFilterUrl({order: e.target.value}));
+                      props.history.push(
+                        getFilterUrl({ order: e.target.value })
+                      );
                     }}
                   >
-                    <option value="defualt">default</option>
-                    <option value="newest">Newest Arrivals</option>
-                    <option value="lowest">Price: Low to High</option>
-                    <option value="highest">Price: High to Low</option>
+                    <option className="font-20" value="defualt">
+                      default
+                    </option>
+                    <option className="font-20" value="newest">
+                      Newest Arrivals
+                    </option>
+                    <option className="font-20" value="lowest">
+                      Price: Low to High
+                    </option>
+                    <option className="font-20" value="highest">
+                      Price: High to Low
+                    </option>
                   </select>
+                  <div className="btn-group" style={{ marginTop: "-5px" }}>
+                    <a
+                      href="#"
+                      className="btn btn-light"
+                      data-bs-toggle="tooltip"
+                      title="List view"
+                      onClick={() => {
+                        setView("list");
+                      }}
+                    >
+                      <i className="fa fa-bars"></i>
+                    </a>
+                    <a
+                      href="#"
+                      className="btn btn-light active"
+                      data-bs-toggle="tooltip"
+                      title="Grid view"
+                      onClick={() => {
+                        setView("grid");
+                      }}
+                    >
+                      <i className="fa fa-th"></i>
+                    </a>
+                  </div>
                 </div>
-              </div>
+              </header>
             </div>
-          </div>
-          <div className="d-flex flex-wrap paddingAuto">
-            <FilterTag text={"filter 1"} />
-            <FilterTag text={"filter 2"} />
-            <FilterTag text={"filter 3"} />
-            <FilterTag text={"filter 4"} />
-          </div>
-          <hr className="productMargin width80pc" />
-          <br />
-          <div className="d-flex flex-wrap paddingAuto">
-            {loading ? (
-              <div>hello world</div>
-            ) : error ? (
-              <ErrorMessageBox variant="danger">{error}</ErrorMessageBox>
-            ) : (
-              products.map((product) => (
-                <SearchItem key={product._id} product={product} />
-                //<NewSearchItem key={product._id} product={product} />
-              ))
-            )}
+            <div className="d-flex flex-wrap paddingAuto">
+              <FilterTag text={"filter 1"} />
+              <FilterTag text={"filter 2"} />
+              <FilterTag text={"filter 3"} />
+              <FilterTag text={"filter 4"} />
+            </div>
+
+            <br />
+            <div className="d-flex flex-wrap paddingAuto">
+              {loading ? (
+                <div>hello world</div>
+              ) : error ? (
+                <ErrorMessageBox variant="danger">{error}</ErrorMessageBox>
+              ) : (
+                products.map(
+                  (product) =>
+                    view === "grid" ? (
+                      <SearchItem key={product._id} product={product} />
+                    ) : (
+                      <NewSearchItem key={product._id} product={product} />
+                    )
+
+                  //
+                )
+              )}
+            </div>
           </div>
         </div>
       </div>

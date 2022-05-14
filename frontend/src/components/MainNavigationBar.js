@@ -22,30 +22,30 @@ export default function MainNavigationBar() {
         <a className="notextdecoration" href="/">
           <img src="/images/logo.png" alt="logo" id="logoImg" />
         </a>
-        <a className="logoLabel notextdecoration whiteColor" href="/">
+        <a className="logoLabel notextdecoration" href="/">
           pc pro dz
         </a>
         <ul>
           <li>
-            <img
-              src="/images/carticon.png"
-              alt="carticon"
-              className="linkicon"
-            />
-            <a className="notextdecoration labeloflink active" href="/cart">
-              Panier
-            </a>
+            <Link className="notextdecoration active" to="/cart">
+              <img
+                src="/images/carticon.png"
+                alt="carticon"
+                className="linkicon"
+              />
+              <a className="labeloflink">Panier</a>
+            </Link>
           </li>
           <li>
-            <img
-              src="/images/accounticon.png"
-              alt="accounticon"
-              className="linkicon"
-            />
             {userInfo ? (
-              <div className="dropdown pdngrgt">
-                <Link className="notextdecoration labeloflink active" to="#">
-                  {userInfo.name}
+              <div className="dropdown">
+                <Link className="notextdecoration active" to="#">
+                  <img
+                    src="/images/accounticon.png"
+                    alt="accounticon"
+                    className="linkicon"
+                  />
+                  <a className="labeloflink">{userInfo.name}</a>
                 </Link>
                 <ul className="dropdown-content">
                   <li>
@@ -62,30 +62,27 @@ export default function MainNavigationBar() {
                 </ul>
               </div>
             ) : (
-              <Link className="notextdecoration labeloflink active" to="/login">
-                Se Connecter
+              <Link className="notextdecoration active" to="/login">
+                <img
+                  src="/images/accounticon.png"
+                  alt="accounticon"
+                  className="linkicon"
+                />
+                <a className="labeloflink">Se Connecter</a>
               </Link>
             )}
             {userInfo && userInfo.isAdmin && (
               <div className="dropdown">
-                <Link
-                  className="notextdecoration labeloflink active"
-                  to="/admin"
-                >
-                  Admin
+                <Link className="active" to="/admin">
+                  <img
+                    src="/images/accounticon.png"
+                    alt="accounticon"
+                    className="linkicon"
+                  />
+                  <a className="notextdecoration labeloflink">Admin</a>
                 </Link>
               </div>
             )}
-          </li>
-          <li>
-            <img
-              src="/images/languageicon.png"
-              alt="languageicon"
-              className="linkicon"
-            />
-            <a className="notextdecoration labeloflink active" href="/">
-              Langue
-            </a>
           </li>
         </ul>
       </div>

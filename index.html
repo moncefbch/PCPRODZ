@@ -5,360 +5,125 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bootstrap Thumbnail Carousel with Content</title>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Open+Sans|Varela+Round"
-    />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style>
-      body {
-        background: #ebebeb;
-        font-family: "Open Sans", sans-serif;
-      }
-      .col-center {
-        margin: 0 auto;
-        float: none !important;
-      }
-      .carousel {
-        margin: 30px auto 60px;
-        padding: 0 80px;
-      }
-      .carousel .item {
-        text-align: center;
-        overflow: hidden;
-      }
-      .carousel .item h4 {
-        font-family: "Varela Round", sans-serif;
-      }
-      .carousel .item img {
-        max-width: 100%;
-        display: inline-block;
-      }
-      .carousel .item .btn {
-        border-radius: 0;
-        font-size: 12px;
-        text-transform: uppercase;
-        font-weight: bold;
-        border: none;
-        background: #a177ff;
-        padding: 6px 15px;
-        margin-top: 5px;
-      }
-      .carousel .item .btn:hover {
-        background: #8c5bff;
-      }
-      .carousel .item .btn i {
-        font-size: 14px;
-        font-weight: bold;
-        margin-left: 5px;
-      }
-      .carousel .thumb-wrapper {
-        margin: 5px;
-        text-align: left;
-        background: #fff;
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
-      }
-      .carousel .thumb-content {
-        padding: 15px;
-        font-size: 13px;
-      }
-      .carousel .carousel-control {
-        height: 44px;
-        width: 44px;
-        background: none;
-        margin: auto 0;
-        border-radius: 50%;
-        border: 3px solid rgba(0, 0, 0, 0.8);
-      }
-      .carousel .carousel-control i {
-        font-size: 36px;
-        position: absolute;
-        top: 50%;
-        display: inline-block;
-        margin: -19px 0 0 0;
-        z-index: 5;
-        left: 0;
-        right: 0;
-        color: rgba(0, 0, 0, 0.8);
-        text-shadow: none;
-        font-weight: bold;
-      }
-      .carousel .carousel-control.left i {
-        margin-left: -3px;
-      }
-      .carousel .carousel-control.right i {
-        margin-right: -3px;
-      }
-      .carousel .carousel-indicators {
-        bottom: -50px;
-      }
-      .carousel-indicators li,
-      .carousel-indicators li.active {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        margin: 4px;
-        border-color: transparent;
-      }
-      .carousel-indicators li {
-        background: #ababab;
-      }
-      .carousel-indicators li.active {
-        background: #555;
-      }
-    </style>
+    <!-- Font Awesome -->
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-10 col-center">
-          <div
-            id="myCarousel"
-            class="carousel slide"
-            data-ride="carousel"
-            data-interval="0"
-          >
-            <!-- Carousel indicators -->
-            <ol class="carousel-indicators">
-              <li
-                data-target="#myCarousel"
-                data-slide-to="0"
-                class="active"
-              ></li>
-              <li data-target="#myCarousel" data-slide-to="1"></li>
-              <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
-            <!-- Wrapper for carousel items -->
-            <div class="carousel-inner">
-              <div class="item active">
-                <div class="row">
-                  <div class="col-sm-4">
-                    <div class="thumb-wrapper">
-                      <div class="img-box">
-                        <img
-                          src="/examples/images/cities/london.png"
-                          class="img-responsive"
-                          alt=""
-                        />
-                      </div>
-                      <div class="thumb-content">
-                        <h4>London</h4>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Nam eu sem tempor, varius quam.
-                        </p>
-                        <a href="#" class="btn btn-primary"
-                          >More <i class="fa fa-angle-right"></i
-                        ></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="thumb-wrapper">
-                      <div class="img-box">
-                        <img
-                          src="/examples/images/cities/new-york.png"
-                          class="img-responsive"
-                          alt=""
-                        />
-                      </div>
-                      <div class="thumb-content">
-                        <h4>New York</h4>
-                        <p>
-                          Vivamus fermentum in arcu in aliquam. Quisque aliqua
-                          porta odio in fringilla vivamus.
-                        </p>
-                        <a href="#" class="btn btn-primary"
-                          >More <i class="fa fa-angle-right"></i
-                        ></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="thumb-wrapper">
-                      <div class="img-box">
-                        <img
-                          src="/examples/images/cities/paris.png"
-                          class="img-responsive"
-                          alt=""
-                        />
-                      </div>
-                      <div class="thumb-content">
-                        <h4>Paris</h4>
-                        <p>
-                          Convallis eget pretium eu, bibendum non leo. Proin
-                          susc ipit purus adipiscing dolor.
-                        </p>
-                        <a href="#" class="btn btn-primary"
-                          >More <i class="fa fa-angle-right"></i
-                        ></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="row">
-                  <div class="col-sm-4">
-                    <div class="thumb-wrapper">
-                      <div class="img-box">
-                        <img
-                          src="/examples/images/cities/kuala-lumpur.png"
-                          class="img-responsive"
-                          alt=""
-                        />
-                      </div>
-                      <div class="thumb-content">
-                        <h4>Kuala Lumpur</h4>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Nam eu sem tempor, varius quam.
-                        </p>
-                        <a href="#" class="btn btn-primary"
-                          >More <i class="fa fa-angle-right"></i
-                        ></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="thumb-wrapper">
-                      <div class="img-box">
-                        <img
-                          src="/examples/images/cities/agra.png"
-                          class="img-responsive"
-                          alt=""
-                        />
-                      </div>
-                      <div class="thumb-content">
-                        <h4>Agra</h4>
-                        <p>
-                          Vivamus fermentum in arcu in aliquam. Quisque aliqua
-                          porta odio in fringilla vivamus.
-                        </p>
-                        <a href="#" class="btn btn-primary"
-                          >More <i class="fa fa-angle-right"></i
-                        ></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="thumb-wrapper">
-                      <div class="img-box">
-                        <img
-                          src="/examples/images/cities/dubai.png"
-                          class="img-responsive"
-                          alt=""
-                        />
-                      </div>
-                      <div class="thumb-content">
-                        <h4>Dubai</h4>
-                        <p>
-                          Convallis eget pretium eu, bibendum non leo. Proin
-                          susc ipit purus adipiscing dolor.
-                        </p>
-                        <a href="#" class="btn btn-primary"
-                          >More <i class="fa fa-angle-right"></i
-                        ></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="row">
-                  <div class="col-sm-4">
-                    <div class="thumb-wrapper">
-                      <div class="img-box">
-                        <img
-                          src="/examples/images/cities/rio-de-janeiro.png"
-                          class="img-responsive"
-                          alt=""
-                        />
-                      </div>
-                      <div class="thumb-content">
-                        <h4>Rio De Janeiro</h4>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Nam eu sem tempor, varius quam.
-                        </p>
-                        <a href="#" class="btn btn-primary"
-                          >More <i class="fa fa-angle-right"></i
-                        ></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="thumb-wrapper">
-                      <div class="img-box">
-                        <img
-                          src="/examples/images/cities/giza.png"
-                          class="img-responsive"
-                          alt=""
-                        />
-                      </div>
-                      <div class="thumb-content">
-                        <h4>Giza</h4>
-                        <p>
-                          Vivamus fermentum in arcu in aliquam. Quisque aliqua
-                          porta odio in fringilla vivamus.
-                        </p>
-                        <a href="#" class="btn btn-primary"
-                          >More <i class="fa fa-angle-right"></i
-                        ></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="thumb-wrapper">
-                      <div class="img-box">
-                        <img
-                          src="/examples/images/cities/sydney.png"
-                          class="img-responsive"
-                          alt=""
-                        />
-                      </div>
-                      <div class="thumb-content">
-                        <h4>Sydney</h4>
-                        <p>
-                          Convallis eget pretium eu, bibendum non leo. Proin
-                          susc ipit purus adipiscing dolor.
-                        </p>
-                        <a href="#" class="btn btn-primary"
-                          >More <i class="fa fa-angle-right"></i
-                        ></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+    <header class="section-header">
+      <section class="header-main bg-white">
+        <div class="container">
+          <div class="row gy-3 align-items-center">
+            <div class="col-lg-2 col-sm-4 col-4">
+              <a href="http://bootstrap-ecommerce.com" class="navbar-brand">
+                <img class="logo" height="40" src="images/logo.svg" />
+              </a>
+              <!-- brand end.// -->
+            </div>
+            <div class="order-lg-last col-lg-5 col-sm-8 col-8">
+              <div class="float-end">
+                <a href="#" class="btn btn-light">
+                  <i class="fa fa-user"></i>
+                  <span class="ms-1 d-none d-sm-inline-block">Sign in </span>
+                </a>
+                <a href="#" class="btn btn-light">
+                  <i class="fa fa-heart"></i>
+                  <span class="ms-1 d-none d-sm-inline-block">Wishlist</span>
+                </a>
+                <a
+                  data-bs-toggle="offcanvas"
+                  href="#offcanvas_cart"
+                  class="btn btn-light"
+                >
+                  <i class="fa fa-shopping-cart"></i>
+                  <span class="ms-1">My cart </span>
+                </a>
               </div>
             </div>
-            <!-- Carousel controls -->
-            <a
-              class="carousel-control left"
-              href="#myCarousel"
-              data-slide="prev"
-            >
-              <i class="fa fa-angle-left"></i>
-            </a>
-            <a
-              class="carousel-control right"
-              href="#myCarousel"
-              data-slide="next"
-            >
-              <i class="fa fa-angle-right"></i>
-            </a>
+            <!-- col end.// -->
+            <div class="col-lg-5 col-md-12 col-12">
+              <form action="#" class="">
+                <div class="input-group">
+                  <input
+                    type="search"
+                    class="form-control"
+                    style="width: 55%"
+                    placeholder="Search"
+                  />
+                  <select class="form-select">
+                    <option value="">All type</option>
+                    <option value="codex">Special</option>
+                    <option value="comments">Only best</option>
+                    <option value="content">Latest</option>
+                  </select>
+                  <button class="btn btn-primary">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </div>
+                <!-- input-group end.// -->
+              </form>
+            </div>
+            <!-- col end.// -->
           </div>
+          <!-- row end.// -->
         </div>
-      </div>
-    </div>
+        <!-- container end.// -->
+      </section>
+      <!-- header-main end.// -->
+
+      <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
+        <div class="container">
+          <button
+            class="navbar-toggler border"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbar_main"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbar_main">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link ps-0" href="#"> Categories </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Hot offers</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Gift boxes</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Menu item</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Menu name</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="dropdown-toggle nav-link"
+                  href="#"
+                  data-bs-toggle="dropdown"
+                >
+                  Others
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Submenu one </a></li>
+                  <li><a class="dropdown-item" href="#">Submenu two</a></li>
+                  <li><a class="dropdown-item" href="#">Submenu three</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- collapse end.// -->
+        </div>
+        <!-- container end.// -->
+      </nav>
+      <!-- navbar end.// -->
+    </header>
+    <!-- section-header end.// -->
   </body>
 </html>

@@ -30,12 +30,13 @@ export default function SearchBox() {
       <form className="input-group rounded" onSubmit={handleSubmit}>
         <input
           type="search"
-          className="form-control rounded"
+          className="form-control  searchinputradius"
           placeholder="Search"
           aria-label="Search"
           value={searchQuery}
           onChange={handleChange}
           aria-describedby="search-addon"
+          style={{ width: "10%" }}
         />
         <span
           className="input-group-text border-1 "
@@ -44,7 +45,16 @@ export default function SearchBox() {
             backgroundColor: "#3c3c3c",
           }}
         >
-          <a href="" onClick={handleSubmit} style={{ background: "none" }}>
+          <a
+            href=""
+            onClick={handleSubmit}
+            style={{
+              background: "none",
+              width: "55px",
+              height: "15px",
+              marginTop: "-10%",
+            }}
+          >
             <i className="fa fa-search ms-auto " style={{ color: "white" }}></i>
           </a>
         </span>
@@ -58,6 +68,8 @@ export default function SearchBox() {
               className="dataItem"
               onClick={() => {
                 setSearchQuery(suggestion);
+                let element = document.getElementsByClassName("dataResult");
+                element[0].style.display = "none";
               }}
             >
               {suggestion}

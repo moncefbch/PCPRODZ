@@ -267,3 +267,7 @@ bezzaf swal7 \\
 
 product page (admin side)\
 edit and delete\\
+
+## `commit-46`
+
+lot of frontend\\

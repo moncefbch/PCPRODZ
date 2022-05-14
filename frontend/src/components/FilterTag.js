@@ -8,15 +8,11 @@ export default function FilterTag(props) {
   };
 
   return (
-    <div className="filterAttribute" id={props.text}>
-      {props.text}
-      <button className="invisiblebutton" onClick={remove}>
-        <img
-          alt="img"
-          className="cancelFilterAttributeSvg mrgnlft-10"
-          src="images/cancelFilterAttribute.svg"
-        />
-      </button>
+    <div id={props.text} style={{ marginRight: "10px" }}>
+      <span class="tag">
+        <div className="font-20">{props.text}</div>{" "}
+        <button class="btn-close" onClick={remove}></button>
+      </span>
     </div>
   );
 }

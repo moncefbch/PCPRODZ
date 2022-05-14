@@ -45,55 +45,35 @@ export default function ProductPage(props) {
             marginTop: "50px",
           }}
         />
-        <div className="flex-container" style={{ width: "100%" }}>
-          <div className="flex-item-right-30 pdgtp-50">
-            <div className="small-img-row">
-              <div className="small-img-col">
-                <img
-                  alt=""
-                  className="radius-20 pdng-8 small-img"
-                  src={product.image}
-                  width="100%"
-                />
+        <div className="width-full">
+          <aside className="col-lg-6" style={{ margin: "auto" }}>
+            <article className="gallery-wrap">
+              <div className="img-big-wrap img-thumbnail">
+                <a href="#">
+                  <img height="520" src={product.image} />
+                </a>
               </div>
-              <div className="small-img-col">
-                <img
-                  alt=""
-                  className="radius-20 pdng-8 small-img"
-                  src={product.image}
-                  width="100%"
-                />
+              <div className="thumbs-wrap">
+                <a href="#" className="item-thumb">
+                  <img width="60" height="60" src={product.image} />
+                </a>
+                <a href="#" className="item-thumb">
+                  <img width="60" height="60" src={product.image} />
+                </a>
+                <a href="#" className="item-thumb">
+                  <img width="60" height="60" src={product.image} />
+                </a>
+                <a href="#" className="item-thumb">
+                  <img width="60" height="60" src={product.image} />
+                </a>
+                <a href="#" className="item-thumb">
+                  <img width="60" height="60" src={product.image} />
+                </a>
               </div>
-              <div className="small-img-col">
-                <img
-                  alt=""
-                  className="radius-20 pdng-8 small-img"
-                  src={product.image}
-                  width="100%"
-                />
-              </div>
-              <div className="small-img-col">
-                <img
-                  alt=""
-                  className="radius-20 pdng-8 small-img"
-                  src={product.image}
-                  width="100%"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="flex-item-left-70">
-            <div className="col-sm-6 productMargin mrgntp-30">
-              <img
-                alt=""
-                className="radius-20 pdng-8"
-                src={product.image}
-                width="100%"
-                id="productImg"
-              />
-            </div>
-          </div>
+            </article>
+          </aside>
         </div>
+
         <header
           style={{ marginBottom: "0px" }}
           className="font-cabin font-40 mrgn-30 font-bold"
