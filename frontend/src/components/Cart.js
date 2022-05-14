@@ -29,7 +29,7 @@ export default function Cart(props) {
     dispatch(removeFromCart(id));
   };
   const checkoutHandler = () => {
-    props.history.push("/login?redirect=/");
+    props.history.push("/shipping");
   };
   return (
     <div className="flex-container pdng-100" style={{margin: "3%"}}>

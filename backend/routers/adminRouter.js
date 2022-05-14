@@ -1,14 +1,12 @@
 import express from "express";
 import Product from "../models/productmodel.js";
 import expressAsyncHandler from "express-async-handler";
-import { isAdmin, isAuth } from '../utils.js';
+import {isAdmin, isAuth} from "../utils.js";
 
 //import adminAuth from "../middlewares/adminAuth.js";
 
-
-
 const adminRouter = express.Router();
-// import the admin auth middleware 
+// import the admin auth middleware
 //adminRouter.use(adminAuth);
 adminRouter.get(
   "/",
@@ -21,24 +19,23 @@ adminRouter.get(
 //this is a post request to add a new product (working)
 adminRouter.post(
   "/add",
-   isAuth,
-   isAdmin,
+  isAuth,
+  isAdmin,
   expressAsyncHandler(async (req, res) => {
-    const product = new Product(//req.body
-    {
+    const product = new Product({
+      //req.body
       _name: req.body.name,
       brand: req.body.brand,
       processeur: req.body.cpu,
       ram: req.body.ram,
-      disque:  req.body.disque,
+      disque: req.body.disque,
       gpu: req.body.gpu,
-      image: "https://etasawaq.com/wp-content/uploads/2021/08/3090oc.jpg",
+      image: req.body.image,
       category: req.body.category,
       price: req.body.price,
       countInStock: req.body.countInStock,
       rating: 4,
-    }
-    );
+    });
     const createdProduct = await product.save();
     res.send(createdProduct);
   })
@@ -67,7 +64,7 @@ adminRouter.delete(
     if (deletedProduct) {
       res.send(deletedProduct);
     } else {
-      res.status(404).send({ message: "Product Not Found" });
+      res.status(404).send({message: "Product Not Found"});
     }
   })
 );

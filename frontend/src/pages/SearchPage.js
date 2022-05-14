@@ -1,16 +1,17 @@
 import FilterTag from "../components/FilterTag";
 import SearchItem from "../components/SearchItem";
 import Axios from "axios";
-import { useSearchParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { listProducts } from "../actions/ProductAction";
+import {useSearchParams} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {listProducts} from "../actions/ProductAction";
 //import error message box from error message box component
 import ErrorMessageBox from "../components/ErrorMessageBox";
 import FilterConfiguration from "../components/FilterConfiguration";
 import NewSearchItem from "../components/NewSearchItem";
-import { useLocation, useParams } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import {useLocation, useParams} from "react-router-dom";
+import React, {useEffect, useState} from "react";
 import LoadingBox from "../components/LoadingBox";
+import {Link} from "react-router-dom";
 
 export default function SearchPage(props) {
   /* const queryParams = new URLSearchParams(window.location.search);
@@ -35,13 +36,13 @@ const match = search.match(/category=(.*)/);
 const type = match?.[1];
 console.log(type);*/
   //extract the page from the url
-  const { name } = useParams();
-  const { page } = useParams();
+  const {name} = useParams();
+  const {page} = useParams();
   //const {category} = useParams();
   //extract the sort from the url
-  const { order } = useParams();
-  const { min } = useParams();
-  const { max } = useParams();
+  const {order} = useParams();
+  const {min} = useParams();
+  const {max} = useParams();
 
   // get the query from the url
   /* const [searchParams , setSearchParams] = useSearchParams();
@@ -55,7 +56,7 @@ console.log(type);*/
   const text = props.match.params.text;
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
-  const { loading, error, products } = productList;
+  const {loading, error, products} = productList;
   useEffect(() => {
     dispatch(listProducts(text));
   }, [dispatch, text]);
@@ -87,7 +88,7 @@ console.log(type);*/
       <div className="flex-container mrgn-30  ">
         <div
           className="flex-item-left-25 whitebackground pdng-15 font-25"
-          style={{ borderRadius: "7px", paddingTop: "30px" }}
+          style={{borderRadius: "7px", paddingTop: "30px"}}
         >
           {/*hna filter component */}
           <FilterConfiguration />
@@ -97,7 +98,7 @@ console.log(type);*/
             <div className="row">
               <header
                 className="d-sm-flex align-items-center border-bottom mb-4 pb-3"
-                style={{ paddingTop: "0px" }}
+                style={{paddingTop: "0px"}}
                 x
               >
                 {loading ? (
@@ -115,9 +116,7 @@ console.log(type);*/
                     className="form-select d-inline-block w-auto"
                     value={order}
                     onChange={(e) => {
-                      props.history.push(
-                        getFilterUrl({ order: e.target.value })
-                      );
+                      props.history.push(getFilterUrl({order: e.target.value}));
                     }}
                   >
                     <option className="font-20" value="defualt">
@@ -133,7 +132,7 @@ console.log(type);*/
                       Price: High to Low
                     </option>
                   </select>
-                  <div className="btn-group" style={{ marginTop: "-5px" }}>
+                  <div className="btn-group" style={{marginTop: "-5px"}}>
                     <a
                       href="#"
                       className="btn btn-light"
@@ -177,9 +176,21 @@ console.log(type);*/
                 products.map(
                   (product) =>
                     view === "grid" ? (
-                      <SearchItem key={product._id} product={product} />
+                      <Link
+                        to={`/product/${product._id}`}
+                        className="font-cabin text-muted notextdecoration labeloflink active"
+                        style={{color: "black"}}
+                      >
+                        <SearchItem key={product._id} product={product} />
+                      </Link>
                     ) : (
-                      <NewSearchItem key={product._id} product={product} />
+                      <Link
+                        to={`/product/${product._id}`}
+                        className="font-cabin text-muted notextdecoration labeloflink active"
+                        style={{color: "black"}}
+                      >
+                        <NewSearchItem key={product._id} product={product} />
+                      </Link>
                     )
 
                   //

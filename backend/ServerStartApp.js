@@ -5,6 +5,8 @@ import productRouter from "./routers/productRouter.js";
 import userRouter from "./routers/userRouter.js";
 import orderRouter from "./routers/orderRouter.js";
 import adminRouter from "./routers/adminRouter.js";
+import uploadRouter from "./routers/uploadRouter.js";
+import path from "path";
 
 dotenv.config();
 
@@ -18,10 +20,14 @@ mongoose.connect(process.env.MONGODB_URL || "mongodb://localhost/PCPRODZ", {
   //useCreateIndex:true,
 });
 
+app.use("/api/uploads", uploadRouter);
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
 app.use("/api/admin", adminRouter);
 app.use("/api/orders", orderRouter);
+
+const __dirname = path.resolve();
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 app.get("/", (req, res) => {
   res.send("<h1>server app starting point</h1>");
 });

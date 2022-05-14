@@ -32,6 +32,7 @@ export default function PlaceOrder(props) {
       dispatch({type: ORDER_CREATE_RESET});
     }
   }, [dispatch, order, props.history, success]);
+  console.log(cart.cartItems);
   return (
     <div className="flex-container pdng-100" style={{margin: "3%"}}>
       <div className="flex-item-left-70 mrgnrgt-50 pdgbtm-20">

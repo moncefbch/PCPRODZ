@@ -1,14 +1,15 @@
 import React from "react";
 
 export default function Carouselitem(props) {
-  const { product } = props;
+  const {product} = props;
+  console.log(product.image[0]);
   return (
     <div class="productCarouselItem">
       <img
         class="radius-20 bodyBackground"
         width="100%"
         height="100%"
-        src={product.image}
+        src={product.image[0]}
         alt={product.name}
       />
       <a
