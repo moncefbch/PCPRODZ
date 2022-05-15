@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { createProduct, updateProduct } from "../actions/ProductAction";
+import React, {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {createProduct, updateProduct} from "../actions/ProductAction";
 import {
   PRODUCT_CREATE_RESET,
   PRODUCT_UPDATE_RESET,
@@ -10,33 +10,7 @@ import LoadingBox from "./LoadingBox";
 import ErrorMessageBox from "./ErrorMessageBox";
 
 export default function AddProduct(props) {
-  const productUpdate = useSelector((state) => state.productUpdate);
-  const {
-    loading: loadingUpdate,
-    error: errorUpdate,
-    success: successUpdate,
-  } = productUpdate;
-
   const [product, setProducts] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const { data } = await Axios.get(
-        "/api/products/get" + props.match.params.id
-      );
-      setName(data._name);
-      setBrand(data.brand);
-      setPrice(data.price);
-      setRam(data.ram);
-      setDisque(data.disque);
-      setCategory(data.category);
-      setCpu(data.processeur);
-      setCountInStock(data.countInStock);
-      setGpu(data.gpu);
-      setProducts(data);
-    };
-    fetchData();
-  }, []);
-  console.log(product._id);
   const [name, setName] = useState("");
   const [brand, setBrand] = useState("");
   const [cpu, setCpu] = useState("");
@@ -48,7 +22,32 @@ export default function AddProduct(props) {
   const [countInStock, setCountInStock] = useState("");
   const [image, setImage] = useState();
 
-  //if we could handle this here right now here here boy
+  useEffect(() => {
+    const fetchData = async () => {
+      const {data} = await Axios.get(
+        "/api/products/get" + props.match.params.id
+      );
+      setName(data._name);
+      setBrand(data.brand);
+      setPrice(data.price);
+      setRam(data.ram);
+      setDisque(data.disque);
+      setCategory(data.category);
+      setCpu(data.processeur);
+      setCountInStock(data.countInStock);
+      setGpu(data.gpu);
+      setImage(data.image);
+      setProducts(data);
+    };
+    fetchData();
+  }, []);
+
+  const productUpdate = useSelector((state) => state.productUpdate);
+  const {
+    loading: loadingUpdate,
+    error: errorUpdate,
+    success: successUpdate,
+  } = productUpdate;
 
   const productCreate = useSelector((state) => state.productCreate);
   const {
@@ -59,21 +58,22 @@ export default function AddProduct(props) {
   } = productCreate;
 
   const dispatch = useDispatch();
+
   useEffect(() => {
     if (successCreate) {
-      dispatch({ type: PRODUCT_CREATE_RESET });
+      dispatch({type: PRODUCT_CREATE_RESET});
       props.history.push(`/`);
     }
   }, [createdProduct, dispatch, props.history, successCreate]);
-
   useEffect(() => {
     if (successUpdate) {
       props.history.push(`/admin/product${product._id}`);
     }
     if (!product || successUpdate) {
-      dispatch({ type: PRODUCT_UPDATE_RESET });
+      dispatch({type: PRODUCT_UPDATE_RESET});
     }
   }, [product, dispatch, successUpdate, props.history]);
+
   const createHandler = (e) => {
     e.preventDefault();
     dispatch(
@@ -91,7 +91,6 @@ export default function AddProduct(props) {
       })
     );
   };
-  //
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(
@@ -99,6 +98,7 @@ export default function AddProduct(props) {
         _id: product._id,
         name,
         brand,
+        image,
         cpu,
         ram,
         disque,
@@ -109,6 +109,7 @@ export default function AddProduct(props) {
       })
     );
   };
+
   const array = [
     "name",
     "brand",
@@ -123,37 +124,16 @@ export default function AddProduct(props) {
 
   const [loadingUpload, setLoadingUpload] = useState(false);
   const [errorUpload, setErrorUpload] = useState("");
-
   const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
+  const {userInfo} = userSignin;
   const uploadFileHandler = async (e) => {
-    console.log("nbdaw");
-    /*const files = e.target.files;
-    // extract every element of the array
-    files.map((file) => {
-      console.log(file) 
-      const formData = new FormData();
-      formData.append("image", file);
-      setLoadingUpload(true);
-      const res = await Axios.post("/api/product/uploadImage", formData);
-      if (res.status === 200) {
-        setImage(res.data);
-        setLoadingUpload(false);
-      } else {
-        setErrorUpload("Error uploading file");
-        setLoadingUpload(false);
-      }
-    }
-    );
-    */
-
     const file = e.target.files[0];
     const bodyFormData = new FormData();
     bodyFormData.append("image", file);
     setLoadingUpload(true);
     try {
       console.log("rani hna");
-      const { data } = await Axios.post("/api/uploads", bodyFormData, {
+      const {data} = await Axios.post("/api/uploads", bodyFormData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${userInfo.token}`,
@@ -165,15 +145,12 @@ export default function AddProduct(props) {
         image.push(data);
         setImage(image);
       }
-
-      //setImage(data);
       setLoadingUpload(false);
     } catch (error) {
       setErrorUpload(error.message);
       setLoadingUpload(false);
     }
   };
-  console.log(image);
 
   return (
     <div>
@@ -244,9 +221,35 @@ export default function AddProduct(props) {
             />
           </div>
         ))}
+        <div class="gallery-uploader-wrap">
+          {image ? (
+            <div>
+              {image.map((item) => (
+                <label class="uploader-img">
+                  <img width="100" src={item} alt="image" />
+                </label>
+              ))}
+            </div>
+          ) : (
+            <div></div>
+          )}
+          <label class="uploader-img">
+            <input type="file" name="lorem" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="#999"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+            >
+              <circle cx="12" cy="12" r="3" />
+              <path d="M16.83 4L15 2H9L7.17 4H2v16h20V4h-5.17zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z" />
+            </svg>
+          </label>
+        </div>
         <div>
           <label
-            style={{ cursor: "pointer", marginTop: "50px" }}
+            style={{cursor: "pointer", marginTop: "50px"}}
             htmlFor="imageFile"
           >
             {" "}
@@ -272,7 +275,7 @@ export default function AddProduct(props) {
           <input
             type="file"
             id="imageFile"
-            style={{ display: "none" }}
+            style={{display: "none"}}
             label="Choose Image"
             onChange={uploadFileHandler}
           ></input>

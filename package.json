@@ -5,6 +5,7 @@
   "description": "add second nav bar \\\r  made the website more responsive \\\r  smoth zoom animation (categorie section (landing page)) \\\r  add filters and searsh result ( working on filters configuration) \\\r  simple html routing \\\r  reduce the size of the components by 20% \\\r  first react app (landing page) (problem : cannot link product_carousel.js with react app) \\",
   "main": "index.js",
   "scripts": {
+    "build": "cd frontend && npm install && npm run build",
     "start": "nodemon --watch backend --exec node --experimental-modules backend/ServerStartApp.js"
   },
   "repository": {
@@ -29,5 +30,9 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
+  },
+  "engines": {
+    "node": "16.14.2",
+    "npm": "8.5.0"
   }
 }
