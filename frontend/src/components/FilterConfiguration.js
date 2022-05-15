@@ -2,7 +2,10 @@ import React from "react";
 
 export default function FilterConfiguration() {
   return (
-    <aside class="width-full col-lg-3 col-sm-6 d-none d-lg-block">
+    <aside
+      class="width-full col-lg-3 col-sm-6 d-none d-lg-block"
+      style={{ maxWidth: "450px", margin: "auto" }}
+    >
       <div className="cardd">
         <article className="filter-group">
           <header className="cardd-header">

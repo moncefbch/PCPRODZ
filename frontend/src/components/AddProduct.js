@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {createProduct, updateProduct} from "../actions/ProductAction";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { createProduct, updateProduct } from "../actions/ProductAction";
 import {
   PRODUCT_CREATE_RESET,
   PRODUCT_UPDATE_RESET,
@@ -20,7 +20,7 @@ export default function AddProduct(props) {
   const [product, setProducts] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const {data} = await Axios.get(
+      const { data } = await Axios.get(
         "/api/products/get" + props.match.params.id
       );
       setName(data._name);
@@ -61,7 +61,7 @@ export default function AddProduct(props) {
   const dispatch = useDispatch();
   useEffect(() => {
     if (successCreate) {
-      dispatch({type: PRODUCT_CREATE_RESET});
+      dispatch({ type: PRODUCT_CREATE_RESET });
       props.history.push(`/`);
     }
   }, [createdProduct, dispatch, props.history, successCreate]);
@@ -71,7 +71,7 @@ export default function AddProduct(props) {
       props.history.push(`/admin/product${product._id}`);
     }
     if (!product || successUpdate) {
-      dispatch({type: PRODUCT_UPDATE_RESET});
+      dispatch({ type: PRODUCT_UPDATE_RESET });
     }
   }, [product, dispatch, successUpdate, props.history]);
   const createHandler = (e) => {
@@ -125,7 +125,7 @@ export default function AddProduct(props) {
   const [errorUpload, setErrorUpload] = useState("");
 
   const userSignin = useSelector((state) => state.userSignin);
-  const {userInfo} = userSignin;
+  const { userInfo } = userSignin;
   const uploadFileHandler = async (e) => {
     console.log("nbdaw");
     /*const files = e.target.files;
@@ -153,7 +153,7 @@ export default function AddProduct(props) {
     setLoadingUpload(true);
     try {
       console.log("rani hna");
-      const {data} = await Axios.post("/api/uploads", bodyFormData, {
+      const { data } = await Axios.post("/api/uploads", bodyFormData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${userInfo.token}`,
@@ -246,7 +246,7 @@ export default function AddProduct(props) {
         ))}
         <div>
           <label
-            style={{cursor: "pointer", marginTop: "50px"}}
+            style={{ cursor: "pointer", marginTop: "50px" }}
             htmlFor="imageFile"
           >
             {" "}
@@ -272,7 +272,7 @@ export default function AddProduct(props) {
           <input
             type="file"
             id="imageFile"
-            style={{display: "none"}}
+            style={{ display: "none" }}
             label="Choose Image"
             onChange={uploadFileHandler}
           ></input>

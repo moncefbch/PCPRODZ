@@ -27,10 +27,17 @@ export default function LoginForm(props) {
   }, [props.history, redirect, userInfo]);
   return (
     <div className="loginForm">
-      <header className="font-cabin font-bold font-30 mrgnlft-5">
-        CONNECTEZ-VOUS
-      </header>
       <div className="input_form shadowForMainSquareType">
+        <header
+          className="font-cabin font-bold font-25 "
+          style={{
+            marginTop: "-40px",
+            marginBottom: "35px",
+            marginLeft: "30px",
+          }}
+        >
+          CONNECTEZ-VOUS
+        </header>
         {loading && <LoadingBox></LoadingBox>}
         {error && <ErrorMessageBox variant="danger">{error}</ErrorMessageBox>}
         <form className="form" onSubmit={submitHandler}>
@@ -46,6 +53,7 @@ export default function LoginForm(props) {
               className="InputField font-cabin font-10"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
+              placeholder="pcprodz@pcpro.dz"
               onChange={(e) => setEmail(e.target.value)}
               // onchange
             />
@@ -61,6 +69,7 @@ export default function LoginForm(props) {
               type="password"
               className="InputField font-cabin font-10"
               id="exampleInputPassword1"
+              placeholder="*********"
               // on change
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -68,7 +77,8 @@ export default function LoginForm(props) {
           <div className="form-group attributForm pdngbtm-50">
             <button
               type="submit"
-              className="font-cabin font-18 radius-25 loginOrRegisterButton width-full"
+              className="font-cabin font-20 radius-10 btn btn-primary  width-full"
+              style={{ padding: "15px" }}
               //on submit
             >
               Se connecter

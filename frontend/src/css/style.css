@@ -194,10 +194,18 @@ a:hover {
   flex: 25%;
 }
 
-@media (max-width: 1450px) and (min-width: 858px) {
+.labeloflink:hover {
+  color: none;
+}
+
+@media (max-width: 1050px) and (min-width: 858px) {
   .labeloflink {
     display: none;
     margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
   }
   .font-20 {
     font-size: 20px;
@@ -206,6 +214,20 @@ a:hover {
   .overlay {
     margin-left: 40%;
   }
+}
+
+@media (max-width: 1050px) {
+  .iconsta3nav {
+    display: none;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.logoLabel:hover {
+  color: white;
 }
 
 @media (max-width: 952px) {
@@ -223,6 +245,10 @@ a:hover {
   .informationspanel {
     padding-top: 0px;
   }
+  .thankscard {
+    width: 100px;
+  }
+
   .checkbtn {
     display: block;
   }
@@ -266,7 +292,7 @@ a:hover {
     left: 0;
   }
   /*stick navigationBar relatively to the top of the sceen/
-    when the navbar is open*/
+      when the navbar is open*/
   .navigationBar {
     position: fixed;
     top: 0;
@@ -883,7 +909,6 @@ a:hover {
   border-top-left-radius: 0px;
   display: none;
   width: 250px;
-  height: 700px;
   padding: 20px;
   position: absolute;
   background-color: #3c3c3c;
@@ -1113,4 +1138,24 @@ a:hover {
 .font-normal {
   /*something between normal and bold*/
   font-weight: 600;
+}
+
+.thankscard {
+  text-align: center;
+  background: white;
+  width: 70%;
+  margin: auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-top: 120px;
+  margin-bottom: 120px;
+}
+
+/*meke thank card responsive*/
+@media screen and (max-width: 950px) {
+  .thankscard {
+    width: 90%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
 }

@@ -37,10 +37,17 @@ export default function RegisterForm(props) {
   return (
     <div>
       <div className="loginForm">
-        <header className="font-cabin font-bold font-30 mrgnlft-5">
-          S’INSCRIRE
-        </header>
         <div className="input_form shadowForMainSquareType">
+          <header
+            className="font-cabin font-bold font-25"
+            style={{
+              marginTop: "-40px",
+              marginBottom: "35px",
+              marginLeft: "30px",
+            }}
+          >
+            S’INSCRIRE
+          </header>
           {loading && <LoadingBox></LoadingBox>}
           {error && <ErrorMessageBox variant="danger">{error}</ErrorMessageBox>}
           <form className="form" onSubmit={submitHandler}>
@@ -124,7 +131,8 @@ export default function RegisterForm(props) {
             <div className="form-group attributForm pdngbtm-10">
               <button
                 type="submit"
-                className="font-cabin font-18 radius-25 loginOrRegisterButton width-full"
+                className="font-cabin font-20 radius-10 btn btn-primary  width-full"
+                style={{ padding: "15px", marginTop: "20px" }}
               >
                 S’inscrire
               </button>

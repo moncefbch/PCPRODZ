@@ -2,7 +2,7 @@ import React from "react";
 
 export default function PcprodzInformationLabel() {
   return (
-    <div className="flex-container informationspanel">
+    <div id="pcprodzinformationss" className="flex-container informationspanel">
       <div className="flex-item-left">
         <h1 className="font-cabin">PC PRO DZ</h1>
         <h3 className="font-cabin">ALGER, ALGERIE</h3>

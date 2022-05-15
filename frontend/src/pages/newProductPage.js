@@ -1,13 +1,13 @@
-import React, {useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {detailsProduct} from "../actions/ProductAction";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { detailsProduct } from "../actions/ProductAction";
 
 export default function NewProductPage(props) {
   const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
   const productId = props.match.params.id;
   const productDetails = useSelector((state) => state.productDetails);
-  const {loading, error, product} = productDetails;
+  const { loading, error, product } = productDetails;
   useEffect(() => {
     dispatch(detailsProduct(productId));
   }, [dispatch, productId]);
@@ -35,7 +35,7 @@ export default function NewProductPage(props) {
       ) : product ? (
         <div>
           {" "}
-          <section className="padding-y bg-white" style={{zoom: "1.25"}}>
+          <section className="padding-y bg-white" style={{ zoom: "1.25" }}>
             <div className="container">
               <div className="row">
                 <aside className="col-lg-5">
@@ -43,7 +43,7 @@ export default function NewProductPage(props) {
                     <a href="#" className="img-big-wrap">
                       <img src={product.image[0]} className="rounded" />
                     </a>
-                    <div className="thumbs-wrap" style={{marginTop: "-60px"}}>
+                    <div className="thumbs-wrap" style={{ marginTop: "-60px" }}>
                       {product.image.map((image) => (
                         <a href="#" className="item-thumb">
                           <img
@@ -60,7 +60,7 @@ export default function NewProductPage(props) {
                   <article>
                     <p
                       className="title mb-1 font-25 font-bold"
-                      style={{marginTop: "25px"}}
+                      style={{ marginTop: "25px" }}
                     >
                       {product._name +
                         "   " +
@@ -74,7 +74,7 @@ export default function NewProductPage(props) {
                     </p>
                     <div className="">
                       <div className="">
-                        <li style={{width: "80%"}} className="stars-active">
+                        <li style={{ width: "80%" }} className="stars-active">
                           <img
                             src="bootstrap5-ecommerce/images/misc/stars-active.svg"
                             alt=""
@@ -121,17 +121,17 @@ export default function NewProductPage(props) {
                         </var>
                         <span className="text-muted">/Pour Produit</span>
                       </div>
-                      <form style={{marginTop: "50px"}}>
+                      <form style={{ marginTop: "50px" }}>
                         <div className="d-flex align-items-center mb-3">
                           <div
                             className="input-group"
-                            style={{maxWidth: "180px", margin: "auto"}}
+                            style={{ maxWidth: "180px", margin: "auto" }}
                           >
                             <button
                               onClick={decqty}
                               className="btn "
                               type="button"
-                              style={{height: "33px"}}
+                              style={{ height: "33px" }}
                             >
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -150,7 +150,7 @@ export default function NewProductPage(props) {
                               onClick={incqty}
                               className="btn  "
                               type="button"
-                              style={{height: "33px"}}
+                              style={{ height: "33px" }}
                             >
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -182,7 +182,7 @@ export default function NewProductPage(props) {
                         <li>
                           <i class="icon fa fa-lock"></i> payment securisé
                         </li>
-                        <li style={{marginLeft: "-35px"}}>
+                        <li style={{ marginLeft: "-35px" }}>
                           <img src="/images/yaldine.png" />
                         </li>
                       </div>

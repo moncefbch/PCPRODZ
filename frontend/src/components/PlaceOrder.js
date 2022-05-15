@@ -1,16 +1,16 @@
-import React, {useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {Link} from "react-router-dom";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import ErrorMessageBox from "./ErrorMessageBox";
-import {createOrder} from "../actions/orderActions";
-import {ORDER_CREATE_RESET} from "../Constants/orderConstants";
+import { createOrder } from "../actions/orderActions";
+import { ORDER_CREATE_RESET } from "../Constants/orderConstants";
 
 export default function PlaceOrder(props) {
   const userSignin = useSelector((state) => state.userSignin);
-  const {userInfo} = userSignin;
+  const { userInfo } = userSignin;
   const cart = useSelector((state) => state.cart);
   const orderCreate = useSelector((state) => state.orderCreate);
-  const {loading, success, error, order} = orderCreate;
+  const { loading, success, error, order } = orderCreate;
 
   const toPrice = (num) => Number(num.toFixed(2)); // 5.123 => "5.12" => 5.12
   cart.itemsPrice = toPrice(
@@ -24,17 +24,19 @@ export default function PlaceOrder(props) {
   console.log(cart.shippingAddress);
   const placeOrderHandler = () => {
     // TODO: dispatch place order action
-    dispatch(createOrder({...cart, orderItems: cart.cartItems}));
+    dispatch(createOrder({ ...cart, orderItems: cart.cartItems }));
+    //redirect to thanks page
+    props.history.push("/thanks");
   };
   useEffect(() => {
     if (success) {
       props.history.push(`/order/${order._id}`);
-      dispatch({type: ORDER_CREATE_RESET});
+      dispatch({ type: ORDER_CREATE_RESET });
     }
   }, [dispatch, order, props.history, success]);
   console.log(cart.cartItems);
   return (
-    <div className="flex-container pdng-100" style={{margin: "3%"}}>
+    <div className="flex-container pdng-100" style={{ margin: "3%" }}>
       <div className="flex-item-left-70 mrgnrgt-50 pdgbtm-20">
         <div
           className="whitebackground radius-10"
@@ -95,7 +97,7 @@ export default function PlaceOrder(props) {
                     <div class="col-sm">
                       <div>
                         <img
-                          src={item.image}
+                          src={item.image[0]}
                           alt={item.name}
                           width={"200px"}
                           height={"250px"}
@@ -107,7 +109,7 @@ export default function PlaceOrder(props) {
                         <div className="font-cabin width-full font-30">
                           <Link
                             className="notextdecoration"
-                            style={{color: "black", fontWeight: "bold"}}
+                            style={{ color: "black", fontWeight: "bold" }}
                             to={"/product/" + item.product}
                           >
                             <header>{item.name}</header>
@@ -186,7 +188,7 @@ export default function PlaceOrder(props) {
             onClick={placeOrderHandler}
             disabled={cart.cartItems.length === 0}
             className="font-cabin passcommandbutton"
-            style={{backgroundColor: "#4584FF", borderWidth: "0px"}}
+            style={{ backgroundColor: "#4584FF", borderWidth: "0px" }}
           >
             Passer la commande
           </button>

@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="footer-dark" style={{ marginTop: "132px" }}>
+    <footer id="footer" className="footer-dark" style={{ marginTop: "132px" }}>
       <div className="container">
         <div className="row">
           <div className="col-sm-6 col-md-3 item">
@@ -12,13 +12,13 @@ export default function Footer() {
             </h3>
             <ul>
               <li>
-                <a href="/">xxxxxxxxxx</a>
+                <a href="/">PC PRO DZ</a>
               </li>
               <li>
-                <a href="/">xxxxxxxxxx</a>
+                <a href="/">Bab Ezzouar - ALGER</a>
               </li>
               <li>
-                <a href="/">xxxxxxxxxx</a>
+                <a href="/">Notice D'Utilisation</a>
               </li>
             </ul>
           </div>
@@ -26,35 +26,33 @@ export default function Footer() {
             <h3>Categories</h3>
             <ul>
               <li>
-                <a href="/">xxxxxxxxxx 1</a>
+                <a href="/">Pc Portables</a>
               </li>
               <li>
                 <a href="/">
-                  xxxxxxxxxx 2<br />
+                  Telephones Portables
+                  <br />
                 </a>
               </li>
               <li>
                 <a href="/">
-                  xxxxxxxxxx 3<br />
+                  Caméras
+                  <br />
                 </a>
               </li>
             </ul>
           </div>
           <div className="col-md-6 item text">
-            <h3>Company Name</h3>
-            <p>xxxxxxxxxxxxxxxxxxxxxxx.</p>
+            <h3>Nous Contacter</h3>
+            <p>07 77 77 77 77</p>
+            <p>pcprodz@pcpro.dz</p>
           </div>
           <div className="col item social">
-            <a href="/">
+            <a href="https://web.facebook.com/PcProDzALGER/?_rdc=1&_rdr">
               <i className="icon ion-social-facebook"></i>
             </a>
-            <a href="/">
-              <i className="icon ion-social-twitter"></i>
-            </a>
-            <a href="/">
-              <i className="icon ion-social-snapchat"></i>
-            </a>
-            <a href="/">
+
+            <a href="https://www.instagram.com/pcprodz/?hl=fr">
               <i className="icon ion-social-instagram"></i>
             </a>
           </div>

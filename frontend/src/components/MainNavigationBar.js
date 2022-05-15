@@ -19,69 +19,113 @@ export default function MainNavigationBar() {
         <label for="check" className="checkbtn">
           <img src="/images/dropdownIcon.svg" alt="dropdownicon" />
         </label>
-        <a className="notextdecoration" href="/">
+        <Link className="notextdecoration" to="/">
           <img src="/images/logo.png" alt="logo" id="logoImg" />
-        </a>
-        <a className="logoLabel notextdecoration" href="/">
+        </Link>
+        <Link className="logoLabel notextdecoration" to="/">
           pc pro dz
-        </a>
+        </Link>
         <ul>
           <li>
-            <Link className="notextdecoration active" to="/cart">
-              <img
-                src="/images/carticon.png"
-                alt="carticon"
-                className="linkicon"
-              />
-              <a className="labeloflink">Panier</a>
+            <Link to={"/cart"}>
+              <div
+                style={{
+                  position: "absolute",
+                  marginTop: "25px",
+                  marginLeft: "-5px",
+                }}
+                className=" whiteColor icon fa-solid fa-cart-shopping font-30 iconsta3nav"
+              ></div>
+            </Link>
+            <Link
+              to={"/cart"}
+              className="font-cabin whiteColor labeloflink notextdecoration font-25"
+              style={{
+                marginTop: "100px",
+              }}
+            >
+              Panier
             </Link>
           </li>
+
           <li>
             {userInfo ? (
-              <div className="dropdown">
-                <Link className="notextdecoration active" to="#">
-                  <img
-                    src="/images/accounticon.png"
-                    alt="accounticon"
-                    className="linkicon"
-                  />
-                  <a className="labeloflink">{userInfo.name}</a>
+              <li className="dropdown">
+                <Link to={"/cart"}>
+                  <div
+                    style={{
+                      position: "absolute",
+                      marginTop: "25px",
+                      marginLeft: "-5px",
+                    }}
+                    className=" whiteColor icon fa-solid fa-user font-30 iconsta3nav"
+                  ></div>
                 </Link>
-                <ul className="dropdown-content">
+                <a
+                  className="font-cabin whiteColor labeloflink notextdecoration font-25"
+                  style={{
+                    marginTop: "100px",
+                  }}
+                >
+                  {userInfo.name}
+                </a>
+                <ul className="dropdown-content" style={{ zIndex: "1000" }}>
                   <li>
                     <Link to="/profile">User Profile</Link>
                   </li>
-                  <li>
-                    <Link to="/orderhistory">Order History</Link>
-                  </li>
+
                   <li>
                     <Link to="#signout" onClick={signoutHandler}>
                       Sign Out
                     </Link>
                   </li>
                 </ul>
-              </div>
+              </li>
             ) : (
-              <Link className="notextdecoration active" to="/login">
-                <img
-                  src="/images/accounticon.png"
-                  alt="accounticon"
-                  className="linkicon"
-                />
-                <a className="labeloflink">Se Connecter</a>
-              </Link>
+              <li>
+                <Link to={"/login"}>
+                  <div
+                    style={{
+                      position: "absolute",
+                      marginTop: "25px",
+                      marginLeft: "-5px",
+                    }}
+                    className=" whiteColor icon fa-solid fa-user font-30 iconsta3nav"
+                  ></div>
+                </Link>
+                <Link
+                  to={"/login"}
+                  className="font-cabin whiteColor labeloflink notextdecoration font-25"
+                  style={{
+                    marginTop: "100px",
+                  }}
+                >
+                  Se Connecter
+                </Link>
+              </li>
             )}
             {userInfo && userInfo.isAdmin && (
-              <div className="dropdown">
-                <Link className="active" to="/admin">
-                  <img
-                    src="/images/accounticon.png"
-                    alt="accounticon"
-                    className="linkicon"
-                  />
-                  <a className="notextdecoration labeloflink">Admin</a>
+              <li>
+                <Link to={"/admin"}>
+                  <div
+                    style={{
+                      position: "absolute",
+                      marginTop: "25px",
+                      marginLeft: "-5px",
+                    }}
+                    className=" whiteColor icon fa-solid fa-gear font-30 iconsta3nav"
+                  ></div>
                 </Link>
-              </div>
+                <Link
+                  to={"/admin"}
+                  className="font-cabin whiteColor labeloflink notextdecoration font-25"
+                  style={{
+                    marginTop: "100px",
+                  }}
+                >
+                  PCPRODZ
+                </Link>
+              </li>
             )}
           </li>
         </ul>

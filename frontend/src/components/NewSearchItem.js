@@ -12,7 +12,7 @@ export default function NewSearchItem(props) {
         <div className="row g-0">
           <aside className="col-xl-3 col-md-4">
             <a href="#" className="img-wrap">
-              <img src={product.image} />
+              <img src={product.image[0]} />
             </a>
           </aside>
           <div className="col-xl-9 col-md-8 border-start">
@@ -64,7 +64,7 @@ export default function NewSearchItem(props) {
                   product.description}
               </p>
               <Link
-                style={{ marginTop: "30px" }}
+                style={{ marginTop: "30px", color: "#4584FF" }}
                 to={`/product/${product._id}`}
                 className="title mb-2 font-20"
               >

@@ -1,16 +1,16 @@
-import {React, useEffect} from "react";
-import {useSelector, useDispatch} from "react-redux";
-import {listProducts} from "../actions/ProductAction";
+import { React, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { listProducts } from "../actions/ProductAction";
 import SearchItem from "./SearchItem";
 import ErrorMessageBox from "./ErrorMessageBox";
 import LoadingBox from "./LoadingBox";
 import NewSearchItem from "./NewSearchItem";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 export default function Catalogue() {
   const text = "";
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
-  const {loading, error, products} = productList;
+  const { loading, error, products } = productList;
   useEffect(() => {
     dispatch(listProducts(text));
   }, [dispatch, text]);
@@ -29,15 +29,15 @@ export default function Catalogue() {
             <ErrorMessageBox variant="danger">{error}</ErrorMessageBox>
           ) : (
             products.map((product) => (
-              <Link
-                to={`/admin/product${product._id}`}
+              <a
+                href={`/admin/product${product._id}`}
                 className="font-cabin notextdecoration labeloflink active"
-                style={{color: "black"}}
+                style={{ color: "black" }}
               >
                 <div className="d-flex flex-wrap paddingAuto">
                   <SearchItem key={product._id} product={product} />
                 </div>{" "}
-              </Link>
+              </a>
               //<NewSearchItem key={product._id} product={product} />
             ))
           )}

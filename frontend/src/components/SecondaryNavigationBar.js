@@ -61,33 +61,28 @@ export default function SecondaryNavigationBar() {
 
       <a
         className="notextdecoration font-cabin font-20 mrgnrgt-30 whiteColor"
-        href="/"
+        href="#newproducts"
       >
-        Meilleurs ventes{" "}
+        Nouveautés{" "}
       </a>
       <a
         className="notextdecoration font-cabin font-20 mrgnrgt-30 whiteColor"
-        href="/"
+        href="#footer"
       >
-        Offres{" "}
+        A Propos De Nous{" "}
       </a>
       <a
         className="notextdecoration font-cabin font-20 mrgnrgt-30 whiteColor"
-        href="/"
+        href="#pcprodzinformationss"
       >
-        Produits{" "}
+        Ou Nous Trouver{" "}
       </a>
+
       <a
         className="hideWhenPhone notextdecoration font-cabin font-20 mrgnrgt-30 whiteColor"
-        href="/"
+        href="#footer"
       >
-        Service client{" "}
-      </a>
-      <a
-        className="hideWhenPhone notextdecoration font-cabin font-20 mrgnrgt-30 whiteColor"
-        href="/"
-      >
-        Nous contacter{" "}
+        Nous Contacter{" "}
       </a>
     </div>
   );

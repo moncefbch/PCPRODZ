@@ -26,6 +26,7 @@ import AdminRoute from "./Auth/AdminRoute";
 import ShipingFormPage from "./pages/ShipingFormPage";
 import newNavigationBar from "./components/newNavigationBar";
 import NewProductPage from "./pages/newProductPage";
+import Thanks from "./components/Thanks";
 //
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
           <Route path="/placeorder" component={PlaceOrder} />
           <Route path={"/shipping"} component={ShipingFormPage} />
           <AdminRoute path="/admin" component={AdminPage} />
+          <Route path="/thanks" component={Thanks} />
         </div>
 
         <Footer />

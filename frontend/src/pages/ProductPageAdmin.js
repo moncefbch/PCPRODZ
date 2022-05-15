@@ -1,14 +1,14 @@
-import {React, useEffect} from "react";
+import { React, useEffect } from "react";
 import Axios from "axios";
-import {Link} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
-import {detailsProduct} from "../actions/ProductAction";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { detailsProduct } from "../actions/ProductAction";
 
 export default function ProductPageAdmin(props) {
   const dispatch = useDispatch();
   const productId = props.match.params.id;
   const productDetails = useSelector((state) => state.productDetails);
-  const {loading, error, product} = productDetails;
+  const { loading, error, product } = productDetails;
   useEffect(() => {
     dispatch(detailsProduct(productId));
   }, [dispatch, productId]);
@@ -20,6 +20,7 @@ export default function ProductPageAdmin(props) {
   const deleteHandeler = async (id) => {
     await Axios.delete("/api/products/delete/" + id);
     props.history.push("/admin/catalogue");
+    window.location.reload(false);
   };
 
   return (
@@ -30,8 +31,12 @@ export default function ProductPageAdmin(props) {
         <div></div>
       ) : product ? (
         <section
-          className="padding-y bg-white adminProductPage"
-          style={{zoom: "1.25"}}
+          className="bg-white adminProductPage"
+          style={{
+            zoom: "1.25",
+            marginTop: "50px",
+            paddingBottom: "50px",
+          }}
         >
           <div className="container">
             <div className="row">
@@ -40,14 +45,10 @@ export default function ProductPageAdmin(props) {
                   <a href="#" className="img-big-wrap">
                     <img src={product.image[0]} className="rounded" />
                   </a>
-                  <div className="thumbs-wrap" style={{marginTop: "-60px"}}>
+                  <div className="thumbs-wrap" style={{ marginTop: "-60px" }}>
                     {product.image.map((image) => (
                       <a href="#" className="item-thumb">
-                        <img
-                          src={image}
-                          alt={product.image}
-                          key={product._id}
-                        />
+                        <img src={image} />
                       </a>
                     ))}
                   </div>
@@ -57,7 +58,7 @@ export default function ProductPageAdmin(props) {
                 <article>
                   <p
                     className="title mb-1 font-25 font-bold"
-                    style={{marginTop: "25px"}}
+                    style={{ marginTop: "25px" }}
                   >
                     {product._name +
                       "   " +
@@ -71,7 +72,7 @@ export default function ProductPageAdmin(props) {
                   </p>
                   <div className="">
                     <div className="">
-                      <li style={{width: "80%"}} className="stars-active">
+                      <li style={{ width: "80%" }} className="stars-active">
                         <img
                           src="bootstrap5-ecommerce/images/misc/stars-active.svg"
                           alt=""
@@ -109,7 +110,7 @@ export default function ProductPageAdmin(props) {
             <div className="d-flex flex-row-reverse">
               <Link to={"/admin"}>
                 <button
-                  style={{width: "150px"}}
+                  style={{ width: "150px" }}
                   type="submit"
                   className="p-2 font-cabin font-15 radius-25 loginOrRegisterButton "
                 >
@@ -117,9 +118,9 @@ export default function ProductPageAdmin(props) {
                 </button>
               </Link>
               <button
-                style={{width: "150px", marginRight: "15px"}}
+                style={{ width: "150px", marginRight: "15px" }}
                 className="p-2 font-cabin font-15 radius-25 loginOrRegisterButton "
-                onClick={deleteHandeler}
+                onClick={() => deleteHandeler(product._id)}
               >
                 Supprimer
               </button>
@@ -127,31 +128,8 @@ export default function ProductPageAdmin(props) {
           </div>
         </section>
       ) : (
-        <div></div>
+        <div>product not found</div>
       )}
     </div>
   );
 }
-
-/*
-<div className="pdgtp-150 mrgnrgt-30 mrgnlft-30">
-          <div className="d-flex flex-row-reverse">
-            <Link to={"/admin"}>
-              <button
-                style={{ width: "150px" }}
-                type="submit"
-                className="p-2 font-cabin font-15 radius-25 loginOrRegisterButton "
-              >
-                Editer
-              </button>
-            </Link>
-            <button
-              style={{ width: "150px", marginRight: "15px" }}
-              className="p-2 font-cabin font-15 radius-25 loginOrRegisterButton "
-              onClick={deleteHandeler}
-            >
-              Supprimer
-            </button>
-          </div>
-        </div>
-         */
