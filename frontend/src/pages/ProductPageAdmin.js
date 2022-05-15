@@ -42,14 +42,22 @@ export default function ProductPageAdmin(props) {
             <div className="row">
               <aside className="col-lg-5">
                 <article className="gallery-wrap">
-                  <a href="#" className="img-big-wrap">
-                    <img src={product.image[0]} className="rounded" />
+                  <a className="img-big-wrap">
+                    <img
+                      id="productImg"
+                      src={product.image[0]}
+                      className="rounded"
+                    />
                   </a>
                   <div className="thumbs-wrap" style={{ marginTop: "-60px" }}>
                     {product.image.map((image) => (
-                      <a href="#" className="item-thumb">
-                        <img src={image} />
-                      </a>
+                      <img
+                        className="item-thumb"
+                        onClick={() => {
+                          document.getElementById("productImg").src = image;
+                        }}
+                        src={image}
+                      />
                     ))}
                   </div>
                 </article>
