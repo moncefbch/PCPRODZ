@@ -292,7 +292,7 @@ a:hover {
     left: 0;
   }
   /*stick navigationBar relatively to the top of the sceen/
-      when the navbar is open*/
+        when the navbar is open*/
   .navigationBar {
     position: fixed;
     top: 0;
@@ -1158,4 +1158,8 @@ a:hover {
     margin-top: 50px;
     margin-bottom: 50px;
   }
+}
+
+.noUnderline {
+  text-decoration: none;
 }

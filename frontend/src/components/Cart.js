@@ -33,93 +33,129 @@ export default function Cart(props) {
     window.location.reload(false);
   };
   return (
-    <div className="flex-container pdng-100" style={{ margin: "3%" }}>
-      <div className="flex-item-left-70 mrgnrgt-50 pdgbtm-20">
-        <div
-          className="width-full whitebackground radius-10 "
-          style={{
-            paddingRight: "100px",
-            paddingLeft: "100px",
-            paddingTop: "50px",
-            paddingBottom: "100px",
-          }}
-        >
-          <div className="font-cabin width-full font-40 font-bold ">
-            <header>VOTRE PANIER</header>{" "}
-          </div>
+    <div className=" flex-container pdng-100" style={{ margin: "3%" }}>
+      <div
+        style={{
+          marginLeft: "0px",
+          marginBottom: "0px",
+          marginTop: "0px",
+          marginBottom: "30px",
+        }}
+        className="font-cabin width-full font-40 font-bold "
+      >
+        <header>VOTRE PANIER</header>{" "}
+      </div>
+      <div className="flex-item-left-70  radius-10 mrgnrgt-50 ">
+        <div className="width-full whitebackground radius-10 " style={{}}>
           {cartItems.length === 0 ? (
             <ErrorMessageBox>
               Cart is empty. <Link to="/">Go Shopping</Link>
             </ErrorMessageBox>
           ) : (
             <div>
-              {cartItems.map((item) => (
-                <div class="container">
-                  <div class="row">
-                    <div class="col-sm">
-                      <div>
-                        <img
-                          src={item.image[0]}
-                          alt={item.name}
-                          width={"200px"}
-                          height={"250px"}
-                        ></img>
-                      </div>
-                    </div>
-                    <div class="col-sm">
-                      <div>
-                        <div className="font-cabin width-full font-30">
+              <aside
+                style={{
+                  marginTop: "0px",
+                  marginBottom: "50px",
+                }}
+              >
+                {cartItems.map((item) => (
+                  <article
+                    className=" whitebackground cardd-body border-bottom"
+                    style={{
+                      paddingTop: "30px",
+                      borderStyle: "solid",
+                      borderWidth: "1px",
+                      borderColor: "#a8a7a7",
+                      borderRadius: "10px",
+                      paddingBottom: "30px",
+                    }}
+                  >
+                    <div
+                      className="row gy-3"
+                      style={{
+                        zoom: "1.4",
+                        marginLeft: "30px",
+                        marginRight: "30px",
+                        paddingBottom: "0px",
+                      }}
+                    >
+                      <div className="col-md-7">
+                        <div className="itemside">
                           <Link
-                            className="notextdecoration"
-                            style={{ color: "black", fontWeight: "bold" }}
                             to={"/product/" + item.product}
+                            className="aside"
+                            style={{ zoom: "1.5" }}
                           >
-                            <header>{item.name}</header>
+                            <img
+                              src={item.image[0]}
+                              alt={item.name}
+                              className="img-md img-thumbnail"
+                            />
                           </Link>
-                        </div>
-                        <small className="form-text font-20 text-muted font-cabin pdgtp-5">
-                          White
-                        </small>
-                        <header className="font-25 font-cabin pdgtp-15">
-                          {item.price}
-                        </header>
-                        <div className="font-20 font-cabin pdgtp-35">
-                          prix :{item.price} x {item.qty}
+                          <div
+                            className="info"
+                            style={{ marginTop: "10px", marginLeft: "20px" }}
+                          >
+                            <Link
+                              className="font-18 title notextdecoration"
+                              to={"/product/" + item.product}
+                            >
+                              {item.name}
+                            </Link>
+                            <small className=" font-15 text-muted font-cabin">
+                              prix :{item.price} x {item.qty}
+                            </small>
+                            <div style={{ marginTop: "10px" }}>
+                              <a
+                                href="#"
+                                className="font-15 font-bold notextdecoration "
+                                style={{ color: "black" }}
+                              >
+                                {item.price * item.qty + " DA"}
+                              </a>
+                              <b className="dot mx-1"></b>
+                              <button
+                                style={{ all: "unset", cursor: "pointer" }}
+                                onClick={() =>
+                                  removeFromCartHandler(item.product)
+                                }
+                                className="btn-link text-danger noUnderline"
+                              >
+                                {"Supprimer "}
+                                <i class="fa-solid fa-trash-can"></i>
+                              </button>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="col-sm">
-                      <div>
-                        <div className="align-center font-cabin font-20">
-                          {" "}
-                          Quantité:{" "}
-                        </div>
-                        <div className="d-flex justify-content-center">
+                      <div className="col-md-5" style={{ marginTop: "40px" }}>
+                        <div
+                          className="input-group input-spinner float-lg-end"
+                          style={{ maxWidth: "140px", margin: "auto" }}
+                        >
                           <button
                             onClick={() =>
                               dispatch(addToCart(item.product, item.qty - 1))
                             }
                             disabled={item.qty <= 1}
-                            className="font-cabin font-bold font-20 shadowForMainSquareType"
-                            style={{
-                              margin: "5px",
-                              borderRadius: "10px",
-                              width: "50px",
-                              height: "30px",
-                              borderWidth: "0px",
-                              backgroundColor: "#262525",
-                              color: "white",
-                            }}
+                            className="btn btn-outline-secondary btn-sm"
+                            type="button"
+                            style={{ height: "35px" }}
                           >
-                            -
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              fill="#999"
+                              viewBox="0 0 25 31"
+                            >
+                              <path d="M19 13H5v-2h14v2z"></path>
+                            </svg>
                           </button>
                           <header
-                            className="font-cabin font-bold font-20"
-                            style={{
-                              margin: "5px",
-                              paddingLeft: "20px",
-                              paddingRight: "20px",
-                            }}
+                            type="text"
+                            className="form-control text-center"
                           >
                             {item.qty}
                           </header>
@@ -128,49 +164,26 @@ export default function Cart(props) {
                               dispatch(addToCart(item.product, item.qty + 1))
                             }
                             disabled={item.qty >= item.countInStock}
-                            className="font-cabin font-bold font-20 shadowForMainSquareType"
-                            style={{
-                              margin: "5px",
-                              borderRadius: "10px",
-                              width: "50px",
-                              height: "30px",
-                              borderWidth: "0px",
-                              backgroundColor: "#262525",
-                              color: "white",
-                            }}
+                            className="btn btn-outline-secondary btn-sm"
+                            type="button"
+                            style={{ height: "35px" }}
                           >
-                            +
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              fill="#999"
+                              viewBox="0 0 25 31"
+                            >
+                              <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
+                            </svg>
                           </button>
                         </div>
-                        <button
-                          onClick={() => removeFromCartHandler(item.product)}
-                          className="d-flex font-cabin font-18 font-bold shadowForMainSquareType mrgntp-30 radius-10 align-center"
-                          style={{
-                            width: "80%",
-                            height: "45px",
-                            borderWidth: "0px",
-                            marginLeft: "auto",
-                            paddingTop: "10px",
-                            marginRight: "auto",
-                            color: "white",
-                            backgroundColor: "black",
-                          }}
-                        >
-                          <header style={{ marginLeft: "15px" }}>
-                            {" "}
-                            supprimer{" "}
-                          </header>
-                          <img
-                            alt=""
-                            src="/images/carticon.png"
-                            className="linkicon"
-                          />
-                        </button>
                       </div>
                     </div>
-                  </div>
-                </div>
-              ))}
+                  </article>
+                ))}
+              </aside>
             </div>
           )}
         </div>
@@ -185,7 +198,7 @@ export default function Cart(props) {
         }}
       >
         <header className="font-30 font-cabin font-bold">Votre ordre </header>
-        <div class="d-flex justify-content-between">
+        <div className="d-flex justify-content-between">
           <small className="form-text font-20 text-muted font-cabin pdgtp-5">
             Articles :
           </small>
@@ -193,7 +206,7 @@ export default function Cart(props) {
             {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}
           </small>
         </div>
-        <div class="d-flex justify-content-between">
+        <div className="d-flex justify-content-between">
           <small className="form-text font-20 text-muted font-cabin pdgtp-5">
             Nombre d'éléments :
           </small>
@@ -203,8 +216,8 @@ export default function Cart(props) {
         </div>
         <div>
           <div className="mrgntp-70">
-            <hr class="width-full productMargin" />
-            <div class="d-flex justify-content-between">
+            <hr className="width-full productMargin" />
+            <div className="d-flex justify-content-between">
               <header className="font-30 font-cabin pdgtp-5 font-bold">
                 TOTALE :
               </header>
@@ -212,7 +225,7 @@ export default function Cart(props) {
                 {cartItems.reduce((a, c) => a + c.price * c.qty, 0)} DZD
               </header>
             </div>
-            <hr class="width-full productMargin" />
+            <hr className="width-full productMargin" />
           </div>
           <button
             type="submit"

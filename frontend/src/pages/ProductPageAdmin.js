@@ -116,7 +116,7 @@ export default function ProductPageAdmin(props) {
           </div>
           <div className="pdgtp-150 mrgnrgt-30 mrgnlft-30">
             <div className="d-flex flex-row-reverse">
-              <Link to={"/admin"}>
+              <Link to={"/admin/edit" + product._id}>
                 <button
                   style={{ width: "150px" }}
                   type="submit"

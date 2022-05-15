@@ -41,12 +41,14 @@ export default function NewNewProductSection() {
           <LoadingBox></LoadingBox>
         ) : error ? (
           <ErrorMessageBox variant="danger">{error}</ErrorMessageBox>
-        ) : (
+        ) : products.length >= 1 ? (
           products
             .slice(0, 8)
             .map((product) => (
               <SearchItem key={product._id} product={product} />
             ))
+        ) : (
+          <div style={{ margin: "auto" }}>There is no products currently</div>
         )}
       </div>
     </div>

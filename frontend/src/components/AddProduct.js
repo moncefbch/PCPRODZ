@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {createProduct, updateProduct} from "../actions/ProductAction";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { createProduct, updateProduct } from "../actions/ProductAction";
 import {
   PRODUCT_CREATE_RESET,
   PRODUCT_UPDATE_RESET,
@@ -24,7 +24,7 @@ export default function AddProduct(props) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const {data} = await Axios.get(
+      const { data } = await Axios.get(
         "/api/products/get" + props.match.params.id
       );
       setName(data._name);
@@ -61,7 +61,7 @@ export default function AddProduct(props) {
 
   useEffect(() => {
     if (successCreate) {
-      dispatch({type: PRODUCT_CREATE_RESET});
+      dispatch({ type: PRODUCT_CREATE_RESET });
       props.history.push(`/`);
     }
   }, [createdProduct, dispatch, props.history, successCreate]);
@@ -70,7 +70,7 @@ export default function AddProduct(props) {
       props.history.push(`/admin/product${product._id}`);
     }
     if (!product || successUpdate) {
-      dispatch({type: PRODUCT_UPDATE_RESET});
+      dispatch({ type: PRODUCT_UPDATE_RESET });
     }
   }, [product, dispatch, successUpdate, props.history]);
 
@@ -125,7 +125,7 @@ export default function AddProduct(props) {
   const [loadingUpload, setLoadingUpload] = useState(false);
   const [errorUpload, setErrorUpload] = useState("");
   const userSignin = useSelector((state) => state.userSignin);
-  const {userInfo} = userSignin;
+  const { userInfo } = userSignin;
   const uploadFileHandler = async (e) => {
     const file = e.target.files[0];
     const bodyFormData = new FormData();
@@ -133,7 +133,7 @@ export default function AddProduct(props) {
     setLoadingUpload(true);
     try {
       console.log("rani hna");
-      const {data} = await Axios.post("/api/uploads", bodyFormData, {
+      const { data } = await Axios.post("/api/uploads", bodyFormData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${userInfo.token}`,
@@ -164,11 +164,12 @@ export default function AddProduct(props) {
           <div className="form-group pdngbtm-10">
             <label
               for="exampleInputEmail1"
-              className="font-bold font-cabin font-18"
+              className="font-bold font-cabin font-25"
             >
               {att}
             </label>
             <input
+              style={{ borderRadius: "5px" }}
               id={att}
               type="text"
               value={(() => {
@@ -195,7 +196,7 @@ export default function AddProduct(props) {
                     return "";
                 }
               })()}
-              placeholder={`enter a  ${att}`}
+              placeholder={`enter a ${att}`}
               onChange={(e) => {
                 if (att === "name") {
                   setName(e.target.value);
@@ -225,86 +226,55 @@ export default function AddProduct(props) {
           {image ? (
             <div>
               {image.map((item) => (
-                <label class="uploader-img">
+                <label style={{ zoom: "1.6" }} class="uploader-img">
                   <img width="100" src={item} alt="image" />
                 </label>
               ))}
+              <label class="uploader-img" style={{ zoom: "1.6" }}>
+                <input type="file" name="lorem" onChange={uploadFileHandler} />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#999"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="12" cy="12" r="3" />
+                  <path d="M16.83 4L15 2H9L7.17 4H2v16h20V4h-5.17zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z" />
+                </svg>
+              </label>
             </div>
           ) : (
-            <div></div>
+            <div>
+              <div>
+                <label class="uploader-img" style={{ zoom: "1.6" }}>
+                  <input
+                    type="file"
+                    name="lorem"
+                    onChange={uploadFileHandler}
+                  />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="#999"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle cx="12" cy="12" r="3" />
+                    <path d="M16.83 4L15 2H9L7.17 4H2v16h20V4h-5.17zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z" />
+                  </svg>
+                </label>
+              </div>
+            </div>
           )}
-          <label class="uploader-img">
-            <input type="file" name="lorem" />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="#999"
-              width="32"
-              height="32"
-              viewBox="0 0 24 24"
-            >
-              <circle cx="12" cy="12" r="3" />
-              <path d="M16.83 4L15 2H9L7.17 4H2v16h20V4h-5.17zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z" />
-            </svg>
-          </label>
         </div>
         <div>
-          <label
-            style={{cursor: "pointer", marginTop: "50px"}}
-            htmlFor="imageFile"
-          >
-            {" "}
-            <div
-              style={{
-                backgroundColor: "#F1F1F1",
-                width: "350px",
-                height: "350px",
-                display: "flex",
-                justifyContent: "center",
-              }}
-            >
-              <img
-                src="/images/AddImage.png"
-                width={"20%"}
-                height={"20%"}
-                style={{
-                  margin: "auto",
-                }}
-              />
-            </div>
-          </label>
-          <input
-            type="file"
-            id="imageFile"
-            style={{display: "none"}}
-            label="Choose Image"
-            onChange={uploadFileHandler}
-          ></input>
           {loadingUpload && <LoadingBox></LoadingBox>}
           {errorUpload && (
             <ErrorMessageBox variant="danger">{errorUpload}</ErrorMessageBox>
           )}
         </div>
-        {/*       <label style={{cursor: "pointer", marginTop: "50px"}} for="file-input">
-          <div
-            style={{
-              backgroundColor: "#F1F1F1",
-              width: "350px",
-              height: "350px",
-              display: "flex",
-              justifyContent: "center",
-            }}
-          >
-            <img
-              src="/images/AddImage.png"
-              width={"20%"}
-              height={"20%"}
-              style={{
-                margin: "auto",
-              }}
-            />
-          </div>
-        </label>
-            <input style={{display: "none"}} id="file-input" type="file" /> */}
+
         {product._id ? (
           <div className="pdng-15">
             <button
