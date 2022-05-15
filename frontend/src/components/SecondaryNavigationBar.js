@@ -69,13 +69,13 @@ export default function SecondaryNavigationBar() {
         className="notextdecoration font-cabin font-20 mrgnrgt-30 whiteColor"
         href="#footer"
       >
-        A Propos De Nous{" "}
+        Contacte{" "}
       </a>
       <a
         className="notextdecoration font-cabin font-20 mrgnrgt-30 whiteColor"
         href="#pcprodzinformationss"
       >
-        Ou Nous Trouver{" "}
+        Notre Place{" "}
       </a>
 
       <a

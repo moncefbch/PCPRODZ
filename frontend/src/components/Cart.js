@@ -48,9 +48,16 @@ export default function Cart(props) {
       <div className="flex-item-left-70  radius-10 mrgnrgt-50 ">
         <div className="width-full whitebackground radius-10 " style={{}}>
           {cartItems.length === 0 ? (
-            <ErrorMessageBox>
-              Cart is empty. <Link to="/">Go Shopping</Link>
-            </ErrorMessageBox>
+            <div
+              className="whiteBackground radius-10"
+              style={{ padding: "20px" }}
+            >
+              <div style={{ margin: "auto" }}>
+                <ErrorMessageBox>
+                  Cart is empty. <Link to="/">Go Shopping</Link>
+                </ErrorMessageBox>
+              </div>
+            </div>
           ) : (
             <div>
               <aside
