@@ -8,9 +8,10 @@ export default function SearchItem(props) {
   console.log(`url(${imm}})`);
 
   return (
-    <div
+    <Link
+      to={`/product/${product._id}`}
       style={{ width: "320px", height: "490px", borderColor: "#e5e5e5" }}
-      className="marginAuto card-container simpleBorder  radius-10 mrgn-30"
+      className=" notextdecoration marginAuto card-container simpleBorder  radius-10 mrgn-30"
     >
       <img className="radiusTop-20  imgbackground" src={product.image[0]}></img>
 
@@ -22,22 +23,23 @@ export default function SearchItem(props) {
         <small className="form-text text-muted font-cabin font-15">
           {product.category}
         </small>
-        <header className="font-cabin font-20 pdgtp-5 font-bold">
+        <header
+          className="font-cabin notextdecoration labeloflink active font-23 font-bold"
+          style={{ color: "black" }}
+        >
+          {product._name}
+        </header>
+        <header
+          className="font-cabin font-15 pdgtp-5 font-bold"
+          style={{ color: "black" }}
+        >
           {product.price + " DA"}
         </header>
-        <header>
-          <Link
-            to={`/product/${product._id}`}
-            className="font-cabin text-muted notextdecoration labeloflink active"
-            style={{ color: "black" }}
-          >
-            {product._name}
-          </Link>
-        </header>
+
         <small className="form-text text-muted font-cabin ">
           {product.processeur + "  " + product.ram}
         </small>
       </div>
-    </div>
+    </Link>
   );
 }
