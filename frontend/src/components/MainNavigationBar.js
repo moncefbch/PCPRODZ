@@ -25,16 +25,14 @@ export default function MainNavigationBar() {
         <Link className="logoLabel notextdecoration" to="/">
           pc pro dz
         </Link>
-        <ul>
+        <ul className="navbardropmenu collapse show">
           <li>
             <Link to={"/cart"}>
               <div
                 style={{
-                  position: "absolute",
-                  marginTop: "25px",
-                  marginLeft: "-5px",
+                  position: "absolute" /**copy this to css */,
                 }}
-                className=" whiteColor icon fa-solid fa-cart-shopping font-30 iconsta3nav"
+                className=" whiteColor wa7dleclass icon fa-solid fa-cart-shopping font-30 iconsta3nav"
               ></div>
             </Link>
             <Link
@@ -55,10 +53,8 @@ export default function MainNavigationBar() {
                   <div
                     style={{
                       position: "absolute",
-                      marginTop: "25px",
-                      marginLeft: "-5px",
                     }}
-                    className=" whiteColor icon fa-solid fa-user font-30 iconsta3nav"
+                    className=" whiteColor wa7dleclass icon fa-solid fa-user font-30 iconsta3nav"
                   ></div>
                 </Link>
                 <a
@@ -87,10 +83,8 @@ export default function MainNavigationBar() {
                   <div
                     style={{
                       position: "absolute",
-                      marginTop: "25px",
-                      marginLeft: "-5px",
                     }}
-                    className=" whiteColor icon fa-solid fa-user font-30 iconsta3nav"
+                    className=" whiteColor wa7dleclass icon fa-solid fa-user font-30 iconsta3nav"
                   ></div>
                 </Link>
                 <Link
@@ -110,10 +104,8 @@ export default function MainNavigationBar() {
                   <div
                     style={{
                       position: "absolute",
-                      marginTop: "25px",
-                      marginLeft: "-5px",
                     }}
-                    className=" whiteColor icon fa-solid fa-gear font-30 iconsta3nav"
+                    className=" whiteColor wa7dleclass icon fa-solid fa-gear font-30 iconsta3nav"
                   ></div>
                 </Link>
                 <Link
@@ -127,6 +119,26 @@ export default function MainNavigationBar() {
                 </Link>
               </li>
             )}
+          </li>
+          <li>
+            <div className="dezhalfo9 showonlyifmobile">
+              <Link to={"/login"}>
+                <div
+                  style={{
+                    position: "absolute",
+                  }}
+                  className=" whiteColor wa7dleclass icon fa-solid fa-right-from-bracket font-30 iconsta3nav"
+                ></div>
+              </Link>
+              <Link
+                className="font-cabin whiteColor labeloflink notextdecoration font-25"
+                style={{
+                  marginTop: "100px",
+                }}
+              >
+                log out
+              </Link>
+            </div>
           </li>
         </ul>
       </div>

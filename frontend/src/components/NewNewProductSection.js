@@ -28,10 +28,8 @@ export default function NewNewProductSection() {
       <header>NOUVEAUTES</header>
 
       <div
-        className="padding-y width-full d-flex flex-wrap paddingAuto radius-10 whitebackground"
+        className="productslistresponsive padding-y width-full d-flex flex-wrap paddingAuto radius-10 whitebackground"
         style={{
-          paddingLeft: "100px",
-          paddingRight: "100px",
           width: "90%",
           margin: "auto",
           marginTop: "20px",

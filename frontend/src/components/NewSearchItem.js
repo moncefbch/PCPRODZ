@@ -4,10 +4,7 @@ import { Link } from "react-router-dom";
 export default function NewSearchItem(props) {
   const { product } = props;
   return (
-    <div
-      className="width-full simpleBorder radius-10"
-      style={{ margin: "auto", marginTop: "35px", borderColor: "#e5e5e5" }}
-    >
+    <div>
       <article className="cardd cardd-product-list">
         <div className="row g-0">
           <aside className="col-xl-3 col-md-4">

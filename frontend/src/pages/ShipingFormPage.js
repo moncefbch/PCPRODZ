@@ -41,12 +41,9 @@ export default function ShipingFormPage(props) {
     <div>
       <div className="row whiteBackground">
         <div
-          className=" radius-20"
+          className=" radius-20 paddingresponsive"
           style={{
             zoom: "1.5",
-            paddingLeft: "150px",
-            paddingRight: "150px",
-            width: "1000px",
             margin: "auto",
             marginBottom: "-50px",
           }}
@@ -54,15 +51,8 @@ export default function ShipingFormPage(props) {
           <Steps step="loggedin" />
         </div>
       </div>
-      <div className="row whiteBackground">
-        <div
-          className="thankscard radius-20"
-          style={{
-            paddingLeft: "150px",
-            paddingRight: "150px",
-            width: "1000px",
-          }}
-        >
+      <div className="row whiteBackground" style={{ paddingTop: "50px" }}>
+        <div className="thankscard radius-20 paddingresponsive">
           <div className="cardd mb-4">
             <div className="cardd-header py-3">
               <h5

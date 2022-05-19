@@ -22,7 +22,7 @@ export default function Commandes() {
 
   return (
     <div className="pdng-15">
-      <div className="pdng-15 d-flex justify-content-between">
+      <div className="pdng-15 d-flex justify-content-between unzoommobile">
         <header className="font-cabin font-bold font-30 mrgnlft-15">
           Commandes
         </header>

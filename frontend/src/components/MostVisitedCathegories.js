@@ -1,31 +1,31 @@
 import React from "react";
 //import link from react router dom
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function MostVisitedCathegories() {
   return (
-    <div>
+    <div className="mostvisitedcat">
       <div
-        className="font-cabin width-full align-center font-40"
-        style={{paddingTop: "150px"}}
+        className=" font-cabin width-full align-center font-40"
+        style={{ paddingTop: "150px" }}
       >
         <header>LES CATHEGORIES LES PLUS VISITES</header>
       </div>
       <div
         className="flex-container informationspanel"
-        style={{paddingBottom: "30px", marginBottom: "100px"}}
+        style={{ paddingBottom: "30px", marginBottom: "100px" }}
       >
         <div className="flex-item-left align-center">
           <div className="flex-container ">
-            <div className="flex-item-left" style={{padding: "10px"}}>
+            <div className="flex-item-left" style={{ padding: "10px" }}>
               <div
-                style={{paddingTop: "40px", paddingBottom: "40px"}}
+                style={{ paddingTop: "40px", paddingBottom: "40px" }}
                 className="zoomwhenhover shadowForMainSquareType width-full radius-10 bodyBackground align-center padding"
               >
                 <Link
-                  to="/search=category=mouse"
-                  className="notextdecoration labeloflink active"
-                  style={{color: "black"}}
+                  to="/search=category=accessories"
+                  className="notextdecoration  active"
+                  style={{ color: "black" }}
                 >
                   <img
                     className=""
@@ -35,10 +35,10 @@ export default function MostVisitedCathegories() {
                     alt=""
                   />
                   <header
-                    style={{paddingTop: "20px"}}
+                    style={{ paddingTop: "20px" }}
                     className="font-cabin font-20"
                   >
-                    Mouse
+                    Accessories
                   </header>
                   <small className="form-text text-muted font-cabin ">
                     Voir plus{" "}
@@ -56,8 +56,8 @@ export default function MostVisitedCathegories() {
               >
                 <Link
                   to="/search=category=camera"
-                  className="notextdecoration labeloflink active"
-                  style={{color: "black"}}
+                  className="notextdecoration  active"
+                  style={{ color: "black" }}
                 >
                   <img
                     className=""
@@ -67,7 +67,7 @@ export default function MostVisitedCathegories() {
                     alt=""
                   />
                   <header
-                    style={{paddingTop: "20px"}}
+                    style={{ paddingTop: "20px" }}
                     className="font-cabin font-20"
                   >
                     Camera
@@ -78,7 +78,7 @@ export default function MostVisitedCathegories() {
                 </Link>
               </div>
             </div>
-            <div className="flex-item-right" style={{padding: "10px"}}>
+            <div className="flex-item-right" style={{ padding: "10px" }}>
               <div
                 style={{
                   paddingTop: "40px",
@@ -89,8 +89,8 @@ export default function MostVisitedCathegories() {
               >
                 <Link
                   to="/search=category=phone"
-                  className="notextdecoration labeloflink active"
-                  style={{color: "black"}}
+                  className="notextdecoration  active"
+                  style={{ color: "black" }}
                 >
                   <img
                     className=""
@@ -100,7 +100,7 @@ export default function MostVisitedCathegories() {
                     alt=""
                   />
                   <header
-                    style={{paddingTop: "20px"}}
+                    style={{ paddingTop: "20px" }}
                     className="font-cabin font-20"
                   >
                     Téléphones
@@ -113,7 +113,7 @@ export default function MostVisitedCathegories() {
             </div>
           </div>
         </div>
-        <div className="flex-item-right" style={{padding: "10px"}}>
+        <div className="flex-item-right" style={{ padding: "10px" }}>
           <div
             style={{
               paddingTop: "0px",
@@ -124,8 +124,8 @@ export default function MostVisitedCathegories() {
           >
             <Link
               to="/search=category=laptop"
-              className="notextdecoration labeloflink active"
-              style={{color: "black"}}
+              className="notextdecoration  active"
+              style={{ color: "black" }}
             >
               <img
                 className=""
@@ -135,7 +135,7 @@ export default function MostVisitedCathegories() {
                 alt=""
               />
               <header
-                style={{paddingTop: "20px"}}
+                style={{ paddingTop: "20px" }}
                 className="font-cabin font-20"
               >
                 Ordinateurs

@@ -61,7 +61,10 @@ body {
 .secondNavBar {
   background-color: #3c3c3c;
   width: 100%;
-  padding-left: 20px;
+  height: 82px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 a {
@@ -101,18 +104,18 @@ a {
 
 /*add marginleft40 pixel to a tag with class aprofilelink*/
 
-.navigationBar ul {
+.navigationBar .navbardropmenu {
   float: right;
   margin-right: 20px;
 }
 
-.navigationBar ul li {
+.navigationBar .navbardropmenu li {
   display: inline-block;
   line-height: 80px;
   margin: 0 5px;
 }
 
-.navigationBar ul li a {
+.navigationBar .navbardropmenu li a {
   color: white;
   font-size: 15px;
   padding: 7px 13px;
@@ -218,7 +221,6 @@ a:hover {
 
 @media (max-width: 1050px) {
   .iconsta3nav {
-    display: none;
     padding-left: 0;
     padding-right: 0;
     margin-left: 0;
@@ -236,7 +238,7 @@ a:hover {
     padding-left: 10px;
   }
 
-  .navigationBar ul li a {
+  .navigationBar .navbardropmenu li a {
     font-size: 16px;
   }
 }
@@ -252,16 +254,27 @@ a:hover {
   .checkbtn {
     display: block;
   }
-  ul {
+  .navbardropmenu {
     z-index: 1000;
     position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: #3c3c3c;
+    width: 50%;
+    height: 100%;
+
+    left: 100%;
+    margin-left: 50%;
+
     top: 80px;
-    left: -100%;
-    text-align: center;
-    transform: all 0.5s;
+    transition: all 0.5s ease-in-out;
+    /*invert colors*/
+    background-color: rgb(27, 26, 25);
+  }
+  .iconsta3nav {
+    /*hna*/
+    color: black;
+    margin-left: 10px;
+  }
+  .labeloflink {
+    color: black;
   }
   .navigationBar {
     padding-left: 20px;
@@ -275,24 +288,23 @@ a:hover {
     width: 0;
     height: 0;
   }
-  .navigationBar ul li {
+  .navigationBar .navbardropmenu li {
     display: block;
     margin: 50px 0;
     line-height: 30px;
     padding-left: 0px;
   }
-  .navigationBar ul li a {
+  .navigationBar .navbardropmenu li a {
     font-size: 20px;
   }
   a:hover {
     background: none;
     color: rgb(114, 105, 105);
   }
-  #check:checked ~ ul {
+  #check:checked ~ .navbardropmenu {
     left: 0;
   }
-  /*stick navigationBar relatively to the top of the sceen/
-        when the navbar is open*/
+
   .navigationBar {
     position: fixed;
     top: 0;
@@ -339,7 +351,7 @@ a:hover {
   font-size: 16px;
 }
 
-.footer-dark ul {
+.footer-dark .navbardropmenu {
   padding: 0;
   list-style: none;
   line-height: 1.6;
@@ -347,13 +359,13 @@ a:hover {
   margin-bottom: 0;
 }
 
-.footer-dark ul a {
+.footer-dark .navbardropmenu a {
   color: inherit;
   text-decoration: none;
   opacity: 0.6;
 }
 
-.footer-dark ul a:hover {
+.footer-dark .navbardropmenu a:hover {
   opacity: 0.8;
 }
 
@@ -540,11 +552,8 @@ a:hover {
 }
 
 .imgbackground {
-  background-repeat: no-repeat;
-  width: 100%;
-  height: 70%;
-  background-position: center;
-  background-size: 260px;
+  object-fit: cover;
+  object-position: center center;
 }
 
 .shadowForMainSquareType {
@@ -904,6 +913,7 @@ a:hover {
 .dropdown {
   position: relative;
   display: inline-block;
+  margin-bottom: -10px;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -1166,4 +1176,99 @@ a:hover {
 
 .noUnderline {
   text-decoration: none;
+}
+
+.productslistresponsive {
+  padding-left: 170px;
+  padding-right: 170px;
+  zoom: 0.9;
+}
+
+/*searchitemresponsive reduce size when mobile screen*/
+@media screen and (max-width: 950px) {
+  .productslistresponsive {
+    padding-left: 0px;
+    padding-right: 0px;
+    zoom: 0.7;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .removeformobile {
+    display: none;
+  }
+  .centerwhenmobile {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .displaywhenmobile {
+    display: none;
+  }
+}
+/*stick to bottom*/
+
+body {
+  min-height: 100vh;
+}
+#footer {
+  position: sticky;
+  top: 100%;
+}
+
+.showonlyifmobile {
+  display: none;
+}
+@media screen and (max-width: 858px) {
+  .showonlyifmobile {
+    display: block;
+  }
+}
+
+/*tablet view*/
+@media screen and (max-width: 1058px) {
+  .mostvisitedcat {
+    zoom: 0.7;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .unzoommobile {
+    zoom: 0.8;
+  }
+}
+
+/*when pc screen*/
+@media screen and (max-width: 1920px) {
+  .wa7dleclass {
+    margin-top: 25px;
+    margin-left: -5px;
+  }
+}
+
+/*when its 858*/
+@media screen and (max-width: 980px) {
+  .mostvisitedcat {
+    zoom: 1;
+  }
+  .wa7dleclass {
+    margin-top: 0px;
+    margin-right: 10px;
+    margin-left: -10px;
+  }
+}
+
+.paddingresponsive {
+  width: 60%;
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
+@media screen and (max-width: 950px) {
+  .paddingresponsive {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 90%;
+  }
 }

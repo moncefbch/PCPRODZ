@@ -4,7 +4,7 @@ import { listProducts } from "../actions/ProductAction";
 import SearchItem from "./SearchItem";
 import ErrorMessageBox from "./ErrorMessageBox";
 import LoadingBox from "./LoadingBox";
-import NewSearchItem from "./NewSearchItem";
+import Axios from "axios";
 import { Link } from "react-router-dom";
 export default function Catalogue() {
   const text = "";
@@ -14,7 +14,12 @@ export default function Catalogue() {
   useEffect(() => {
     dispatch(listProducts(text));
   }, [dispatch, text]);
-  console.log(products);
+
+  //create function doSomeSeeding that will use axios to get from api/products/seed
+  const doSomeSeeding = async () => {
+    const { data } = await Axios.get("/api/products/seed");
+  };
+
   return (
     <div>
       {loading ? (
@@ -29,22 +34,28 @@ export default function Catalogue() {
             <ErrorMessageBox variant="danger">{error}</ErrorMessageBox>
           ) : (
             products.map((product) => (
-              <a
-                href={`/admin/product${product._id}`}
+              <Link
+                to={`/admin/product${product._id}`}
                 className="font-cabin notextdecoration labeloflink active"
                 style={{ color: "black" }}
               >
                 <div className="d-flex flex-wrap paddingAuto">
-                  <SearchItem key={product._id} product={product} />
+                  <div
+                    style={{ width: "320px", borderColor: "#e5e5e5" }}
+                    className="notextdecoration marginAuto card-container simpleBorder  radius-10 mrgn-30"
+                  >
+                    <SearchItem key={product._id} product={product} />
+                  </div>
                 </div>{" "}
-              </a>
+              </Link>
               //<NewSearchItem key={product._id} product={product} />
             ))
           )}
         </div>
       ) : (
-        <div>3emmer el site ta3ek afrr</div>
+        <div>ya pas de protuits</div>
       )}
+      <button onClick={doSomeSeeding}>SHEESH!</button>
     </div>
   );
 }

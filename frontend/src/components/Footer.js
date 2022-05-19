@@ -12,13 +12,31 @@ export default function Footer() {
             </h3>
             <ul>
               <li>
-                <a href="/">PC PRO DZ</a>
+                <a
+                  style={{ color: "rgb(154, 154, 154)" }}
+                  className="notextdecoration"
+                  href="/"
+                >
+                  PC PRO DZ
+                </a>
               </li>
               <li>
-                <a href="/">Bab Ezzouar - ALGER</a>
+                <a
+                  style={{ color: "rgb(154, 154, 154)" }}
+                  className="notextdecoration"
+                  href="/"
+                >
+                  Bab Ezzouar - ALGER
+                </a>
               </li>
               <li>
-                <a href="/">Notice D'Utilisation</a>
+                <a
+                  style={{ color: "rgb(154, 154, 154)" }}
+                  className="notextdecoration"
+                  href="/"
+                >
+                  Notice D'Utilisation
+                </a>
               </li>
             </ul>
           </div>
@@ -26,16 +44,30 @@ export default function Footer() {
             <h3>Categories</h3>
             <ul>
               <li>
-                <a href="/">Pc Portables</a>
+                <a
+                  href="/"
+                  style={{ color: "rgb(154, 154, 154)" }}
+                  className="notextdecoration"
+                >
+                  Pc Portables
+                </a>
               </li>
               <li>
-                <a href="/">
+                <a
+                  href="/"
+                  style={{ color: "rgb(154, 154, 154)" }}
+                  className="notextdecoration"
+                >
                   Telephones Portables
                   <br />
                 </a>
               </li>
               <li>
-                <a href="/">
+                <a
+                  href="/"
+                  style={{ color: "rgb(154, 154, 154)" }}
+                  className="notextdecoration"
+                >
                   Caméras
                   <br />
                 </a>

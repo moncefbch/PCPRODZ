@@ -8,12 +8,13 @@ export default function SearchItem(props) {
   console.log(`url(${imm}})`);
 
   return (
-    <Link
-      to={`/product/${product._id}`}
-      style={{ width: "320px", height: "490px", borderColor: "#e5e5e5" }}
-      className=" notextdecoration marginAuto card-container simpleBorder  radius-10 mrgn-30"
-    >
-      <img className="radiusTop-20  imgbackground" src={product.image[0]}></img>
+    <div>
+      <img
+        width={"320px"}
+        height={"320px"}
+        className="radiusTop-20 imgbackground"
+        src={product.image[0]}
+      ></img>
 
       <hr
         class="width-full productMargin"
@@ -40,6 +41,6 @@ export default function SearchItem(props) {
           {product.processeur + "  " + product.ram}
         </small>
       </div>
-    </Link>
+    </div>
   );
 }

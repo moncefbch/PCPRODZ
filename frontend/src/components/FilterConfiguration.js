@@ -3,8 +3,14 @@ import React from "react";
 export default function FilterConfiguration() {
   return (
     <aside
-      class="width-full col-lg-3 col-sm-6 d-none d-lg-block"
-      style={{ maxWidth: "450px", margin: "auto" }}
+      class="width-full displaywhenmobile col-lg-3 whitebackground col-sm-6 d-none d-lg-block"
+      style={{
+        maxWidth: "450px",
+        margin: "auto",
+        padding: "30px",
+        borderRadius: "7px",
+        marginTop: "-15px",
+      }}
     >
       <div className="cardd">
         <article className="filter-group">

@@ -12,6 +12,7 @@ import { useLocation, useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import LoadingBox from "../components/LoadingBox";
 import SkeletonPlaceHolder from "../components/SkeletonPlaceHolder";
+import { Link } from "react-router-dom";
 
 export default function SearchPage(props) {
   /* const queryParams = new URLSearchParams(window.location.search);
@@ -86,10 +87,7 @@ console.log(type);*/
       </header>
 
       <div className="flex-container mrgn-30  ">
-        <div
-          className="flex-item-left-25 whitebackground pdng-15 font-25"
-          style={{ borderRadius: "7px", paddingTop: "30px" }}
-        >
+        <div className="flex-item-left-25 pdng-15 font-25">
           {/*hna filter component */}
           <FilterConfiguration />
         </div>
@@ -98,7 +96,6 @@ console.log(type);*/
             <div className="row">
               <header
                 className="d-sm-flex align-items-center border-bottom mb-4 pb-3"
-                style={{ paddingTop: "0px" }}
                 x
               >
                 {loading ? (
@@ -106,12 +103,12 @@ console.log(type);*/
                 ) : error ? (
                   <ErrorMessageBox variant="danger">{error}</ErrorMessageBox>
                 ) : (
-                  <header className="font-cabin font-25 mrgn-30">
+                  <header className="centerwhenmobile font-cabin font-25 mrgn-30">
                     {"Nombre d'Articles : " + products.length}{" "}
                   </header>
                 )}
 
-                <div className="ms-auto">
+                <div className="ms-auto centerwhenmobile">
                   <select
                     className="form-select d-inline-block w-auto"
                     value={order}
@@ -134,7 +131,10 @@ console.log(type);*/
                       Price: High to Low
                     </option>
                   </select>
-                  <div className="btn-group" style={{ marginTop: "-5px" }}>
+                  <div
+                    className="removeformobile btn-group"
+                    style={{ marginTop: "-5px" }}
+                  >
                     <a
                       href="#"
                       className="btn btn-light"
@@ -169,7 +169,7 @@ console.log(type);*/
             </div>
 
             <br />
-            <div className="d-flex flex-wrap paddingAuto">
+            <div className="productslistresponsive d-flex flex-wrap ">
               {loading ? (
                 <SkeletonPlaceHolder />
               ) : error ? (
@@ -178,9 +178,36 @@ console.log(type);*/
                 products.map(
                   (product) =>
                     view === "grid" ? (
-                      <SearchItem key={product._id} product={product} />
+                      <div
+                        style={{ width: "320px", borderColor: "#e5e5e5" }}
+                        className="notextdecoration marginAuto card-container simpleBorder  radius-10 mrgn-30"
+                      >
+                        <Link
+                          to={`/product/${product._id}`}
+                          className="font-cabin text-muted notextdecoration labeloflink active"
+                          style={{ color: "black" }}
+                        >
+                          <SearchItem key={product._id} product={product} />
+                        </Link>
+                      </div>
                     ) : (
-                      <NewSearchItem key={product._id} product={product} />
+                      <div
+                        className="width-full simpleBorder radius-10"
+                        style={{
+                          width: "80%",
+                          margin: "auto",
+                          marginTop: "35px",
+                          borderColor: "#e5e5e5",
+                        }}
+                      >
+                        <Link
+                          to={`/product/${product._id}`}
+                          className="font-cabin text-muted notextdecoration labeloflink active"
+                          style={{ color: "black" }}
+                        >
+                          <NewSearchItem key={product._id} product={product} />
+                        </Link>
+                      </div>
                     )
 
                   //
